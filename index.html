@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevDesk</title>
+
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <link
+    href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+
+    <script
+      src="https://kit.fontawesome.com/80ea5533be.js"
+      crossorigin="anonymous"
+    ></script>
+
+    
+  </head>
+  <body>
+    <!-- ANCHOR *** [HEADER] -->
+    <header>
+      <!-- menu-button -->
+      <!-- menu-container -->
+    </header>
+    <!-- ANCHOR *** [CENTER] -->
+    <main>
+      <!-- ! First View -->
+      <!-- SECTION - Preview -->
+      <div class="main-container">
+        <div class="main-left">
+          <!-- * musicPlayer -->
+          <div class="app-musicPlayer">
+              <div class="player">
+                <div class="player__top">
+                  <div class="player-cover">
+                    <div
+                      class="player-cover__item"
+                      style="
+                        background-image: url('https://cdn.pixabay.com/photo/2012/04/14/14/32/skull-34133_960_720.png');
+                      "
+                    >
+                      <div class="cd-inner"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="progress" ref="progress">
+                  <div class="player-bar">
+                    <input
+                      id="audioRange"
+                      type="range"
+                      value="0"
+                      step="1"
+                      min="0"
+                      max="100"
+                    />
+                  </div>
+                  <div class="buttons">
+                    <button class="audio-controll-button" id="backward">
+                      <i class="fa-solid fa-backward-step"></i>
+                    </button>
+                    <button class="audio-controll-button" id="play">
+                      <i class="fa fa-play"></i>
+                      <i class="fa fa-pause"></i>
+                    </button>
+                    <button class="audio-controll-button" id="next">
+                      <i class="fa-solid fa-forward-step"></i>
+                    </button>
+                  </div>
+                  <div class="buttons">
+                    <button class="audio-controll-button" id="randomTrack">
+                      <i class="fa-solid fa-random"></i>
+                    </button>
+                    <button class="audio-controll-button" id="favTrack">
+                      <i class="fa fa-heart"></i>
+                    </button>
+    
+                    <button class="audio-controll-button" id="repeatTrack">
+                      <i class="fa-solid fa-repeat"></i>
+                    </button>
+                  </div>
+                  <audio id="audio" src="assets/audio/5.mp3"></audio>
+                  <div class="album-info" v-if="currentTrack">
+                    <div class="album-info__name"></div>
+                    <div class="album-info__track"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="dashboard">
+                <div class="playlist"></div>
+              </div>
+            </div>
+        </div>
+  
+        <div class="main-right">
+            <h1>Sokunmaru Desk</h1>
+            <!-- * clock -->
+            <div class="clock">
+              <div class="hour">
+                <div class="hr" id="hr"></div>
+              </div>
+              <div class="break">:</div>
+              <div class="min">
+                <div class="mn" id="mn"></div>
+              </div>
+              <div class="break">:</div>
+              <div class="sec">
+                <div class="sc" id="sc"></div>
+              </div>
+            </div>
+            <div class="date" id="dd"></div>
+
+            <!-- * todoApp -->
+            <div class="app-todo">
+              <div class="todoApp">
+                <h2 class="sumTo">TodoList</h2>
+                <form
+                  id="form-1"
+                  onsubmit="createTodo()"
+                  class="todoApp-container"
+                >
+                  <div class="todoList">
+                  </div>
+                  <input id="inputText" type="text" placeholder="Todo..." />
+                </form>
+              </div>
+            </div>
+
+        </div>
+        <!-- * notification -->
+        <!-- * quotes -->
+      </div>
+
+
+    </main>
+
+    <!-- ANCHOR *** [FOOTER] -->
+    <footer></footer>
+
+    <!-- ANCHOR *** [SCRIPT] -->
+    <script src="component/musicPlayer.js"></script>
+    <script src="component/clock.js"></script>
+    <script src="component/todo.js"></script>
+  </body>
+</html>
