@@ -137,16 +137,15 @@
       <main class="section-two">
         <div class="main-left">
           <div class="notes-list">
-            <div class="note">
+            <!-- <div class="note">
               <div class="note-bar">
-                <i class="fa-solid fa-thumbtack btn-pin"></i>
+                <i class="fa-solid fa-thumbtack btn-pin" onclick="notePin()"></i>
                 <h3 class="note-title">Call Girl</h3>
-                <!-- <input class="btn" type="text" name="" id="" placeholder="Title..." maxlength="50"> -->
-                <i class="fa-solid fa-marker"></i>
-                <i class="fa-solid fa-expand btn-fullscr"></i>
-                <i class="fa-solid fa-xmark btn-del"></i>
+                <i class="fa-solid fa-marker btn-edit" onclick="noteEdit()"></i>
+                <i class="fa-solid fa-expand btn-fullscr" onclick="noteFullscr()"></i>
+                <i class="fa-solid fa-xmark btn-del" onclick="noteDel()"></i>
               </div>
-              <p class="note-content">
+              <p class="note-text">
                 One thing that comes up often is how they relate to scrollbars.
                 For example, if an element is sized to 100vw and stretches
                 edge-to-edge, that’s fine so long as the page doesn’t have a
@@ -157,8 +156,7 @@
                 hiding overflow on the body when you otherwise wouldn’t need to,
                 for
               </p>
-              <!-- <textarea class="note-content" cols="20" name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea> -->
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="main-right">
@@ -169,28 +167,28 @@
           <div class="notes">
             <div class="note">
               <div class="note-bar flex-row">
-                <!-- <i class="fa-solid fa-thumbtack btn-pin"></i> -->
+                <i class="fa-solid fa-thumbtack"></i>
                   <input
-                    class="btn"
+                    class="input-title"
                     type="text"
                     name=""
                     id=""
                     placeholder="Title..."
                     maxlength="50"
+                    required
                   />
-                <!-- <i class="fa-solid fa-marker"></i> -->
-                <!-- <i class="fa-solid fa-expand btn-fullscr"></i> -->
-                <!-- <i class="fa-solid fa-xmark btn-del"></i> -->
               </div>
               <textarea
-                class="note-content"
+                class="note-text input-text"
                 cols="20"
                 name="text"
                 oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+                required
               ></textarea>
               
             </div>
-            <input class="btn-func" type="button" value="Add Note" />
+            <h4 class="note-alert"></h4>
+            <input class="btn btn-func btn-noteAdd" type="button" value="Add Note" />
           </div>
         </div>
       </main>
@@ -199,8 +197,9 @@
     <footer></footer>
 
     <!-- ANCHOR *** [SCRIPT] -->
-    <script src="component/musicPlayer.js"></script>
-    <script src="component/clock.js"></script>
-    <script src="component/todo.js"></script>
+    <script src="component/appMusicPlayer.js"></script>
+    <script src="component/appClock.js"></script>
+    <script src="component/appTodo.js"></script>
+    <script src="component/appNotes.js"></script>
   </body>
 </html>
