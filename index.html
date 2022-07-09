@@ -4,23 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DevDesk</title>
+    <title>Sokunmaru | Desk</title>
 
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="shortcut icon" href="#" />
     <link rel="shortcut icon" href="/favicon.ico" />
 
     <link
-    href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
 
     <script
       src="https://kit.fontawesome.com/80ea5533be.js"
       crossorigin="anonymous"
     ></script>
-
-    
   </head>
   <body>
     <!-- ANCHOR *** [HEADER] -->
@@ -29,13 +27,14 @@
       <!-- menu-container -->
     </header>
     <!-- ANCHOR *** [CENTER] -->
-    <main>
-      <!-- ! First View -->
-      <!-- SECTION - Preview -->
-      <div class="main-container">
-        <div class="main-left">
-          <!-- * musicPlayer -->
-          <div class="app-musicPlayer">
+    <div class="allmain">
+      <main class="section-one">
+        <!-- ! First View -->
+        <!-- SECTION - Preview -->
+        <div class="main-container">
+          <div class="main-left">
+            <!-- * musicPlayer -->
+            <div class="app-musicPlayer">
               <div class="player">
                 <div class="player__top">
                   <div class="player-cover">
@@ -79,7 +78,7 @@
                     <button class="audio-controll-button" id="favTrack">
                       <i class="fa fa-heart"></i>
                     </button>
-    
+
                     <button class="audio-controll-button" id="repeatTrack">
                       <i class="fa-solid fa-repeat"></i>
                     </button>
@@ -95,9 +94,9 @@
                 <div class="playlist"></div>
               </div>
             </div>
-        </div>
-  
-        <div class="main-right">
+          </div>
+
+          <div class="main-right">
             <h1>Sokunmaru Desk</h1>
             <!-- * clock -->
             <div class="clock">
@@ -124,21 +123,78 @@
                   onsubmit="createTodo()"
                   class="todoApp-container"
                 >
-                  <div class="todoList">
-                  </div>
+                  <div class="todoList"></div>
                   <input id="inputText" type="text" placeholder="Todo..." />
                 </form>
               </div>
             </div>
-
+          </div>
+          <!-- * notification -->
+          <!-- * quotes -->
         </div>
-        <!-- * notification -->
-        <!-- * quotes -->
-      </div>
+      </main>
 
-
-    </main>
-
+      <main class="section-two">
+        <div class="main-left">
+          <div class="notes-list">
+            <div class="note">
+              <div class="note-bar">
+                <i class="fa-solid fa-thumbtack btn-pin"></i>
+                <h3 class="note-title">Call Girl</h3>
+                <!-- <input class="btn" type="text" name="" id="" placeholder="Title..." maxlength="50"> -->
+                <i class="fa-solid fa-marker"></i>
+                <i class="fa-solid fa-expand btn-fullscr"></i>
+                <i class="fa-solid fa-xmark btn-del"></i>
+              </div>
+              <p class="note-content">
+                One thing that comes up often is how they relate to scrollbars.
+                For example, if an element is sized to 100vw and stretches
+                edge-to-edge, that’s fine so long as the page doesn’t have a
+                vertical scrollbar. If it does have a vertical scrollbar, then
+                100vw is too wide, and the presence of that vertical scrollbar
+                triggers a horizontal scrollbar because viewport units don’t
+                have an elegant/optional way of handling that. So you might be
+                hiding overflow on the body when you otherwise wouldn’t need to,
+                for
+              </p>
+              <!-- <textarea class="note-content" cols="20" name="text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea> -->
+            </div>
+          </div>
+        </div>
+        <div class="main-right">
+          <!-- *  noteApp -->
+          <h1>Note</h1>
+          <!-- * input note -->
+          <!-- * show note -->
+          <div class="notes">
+            <div class="note">
+              <div class="note-bar flex-row">
+                <!-- <i class="fa-solid fa-thumbtack btn-pin"></i> -->
+                  <input
+                    class="btn"
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Title..."
+                    maxlength="50"
+                  />
+                <!-- <i class="fa-solid fa-marker"></i> -->
+                <!-- <i class="fa-solid fa-expand btn-fullscr"></i> -->
+                <!-- <i class="fa-solid fa-xmark btn-del"></i> -->
+              </div>
+              <textarea
+                class="note-content"
+                cols="20"
+                name="text"
+                oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+              ></textarea>
+              
+            </div>
+            <input class="btn-func" type="button" value="Add Note" />
+          </div>
+        </div>
+      </main>
+    </div>
     <!-- ANCHOR *** [FOOTER] -->
     <footer></footer>
 

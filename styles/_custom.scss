@@ -1,3 +1,6 @@
+.main-secondary {
+  margin: 0;
+}
 .main-container {
   display: flex;
   flex-direction: row;
@@ -8,15 +11,48 @@
   padding: 5rem 10rem;
   
 }
-.main-left {
+.section-one .main-left {
   width: 60%;
 }
-.main-right {
+.section-one .main-right {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   // height: 100%;
   width: 40%;
+}
+.section-two .main-left {
+  width: 80%;
+  height: 100%;
+}
+.section-two .main-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  // height: 100%;
+  width: 30%;
+  height: 100%;
+  padding: 1rem;
+  border-left: 3px groove goldenrod;
+}
 
+.btn {
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &-func {
+    border: none;
+    outline: none;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.075rem;
+    background-color: goldenrod;
+    color: #f9f9f9;
+  }
 }

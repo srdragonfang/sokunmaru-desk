@@ -2,6 +2,13 @@
   display: none;
 }
 
+.allmain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .section {
   min-height: -webkit-max-content !important;
   min-height: -moz-max-content !important;
@@ -16,7 +23,7 @@
 
 .flex-row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -36,6 +43,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: scrollbox;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 html {
@@ -44,6 +56,7 @@ html {
 
 body {
   font-size: 2rem;
+  font-family: "Times New Roman", Times, serif;
 }
 
 main {
@@ -51,7 +64,7 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: 100vw;
+  width: 100vw !important;
   height: 100vh;
 }
 
@@ -67,6 +80,10 @@ h1 {
   margin-bottom: 0.75rem;
 }
 
+.main-secondary {
+  margin: 0;
+}
+
 .main-container {
   display: flex;
   flex-direction: row;
@@ -77,16 +94,47 @@ h1 {
   padding: 5rem 10rem;
 }
 
-.main-left {
+.section-one .main-left {
   width: 60%;
 }
 
-.main-right {
+.section-one .main-right {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   width: 40%;
+}
+
+.section-two .main-left {
+  width: 80%;
+  height: 100%;
+}
+
+.section-two .main-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 30%;
+  height: 100%;
+  padding: 1rem;
+  border-left: 3px groove goldenrod;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+}
+.btn-func {
+  border: none;
+  outline: none;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.075rem;
+  background-color: goldenrod;
+  color: #f9f9f9;
 }
 
 /* Style the tab buttons */
@@ -684,4 +732,68 @@ h1 {
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.4);
   }
+}
+.notes {
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.notes .btn-func {
+  margin: 1rem 0;
+}
+
+.note {
+  background: rgba(245, 200, 86, 0.95);
+  color: rgba(25, 25, 25, 0.7490196078);
+  font-weight: 500;
+  border-radius: 5px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+.note-bar {
+  background: rgba(244, 94, 94, 0.864);
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.note input {
+  background: transparent;
+  font-family: transparent;
+  padding: 0.5rem;
+  font-size: 2rem;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+.note-title {
+  width: 60%;
+}
+.note-content {
+  font-family: transparent;
+  background: transparent;
+  min-height: -webkit-max-content !important;
+  min-height: -moz-max-content !important;
+  min-height: max-content !important;
+  resize: none;
+  padding: 1rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+}
+.note-content:active, .note-content:focus {
+  border: none;
+  outline: none;
 }/*# sourceMappingURL=index.css.map */

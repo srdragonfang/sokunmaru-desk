@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: scrollbox;
+  user-select: none;
 }
 
 html {
@@ -10,6 +12,8 @@ html {
 
 body {
   font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  // height: 100vh;
 }
 
 main {
@@ -17,7 +21,7 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: 100vw;
+  width: 100vw !important;
   height: 100vh;
 }
 
