@@ -28,7 +28,7 @@
     </header>
     <!-- ANCHOR *** [CENTER] -->
     <div class="allmain">
-      <main class="section-one">
+      <main class="section section-one">
         <!-- ! First View -->
         <!-- SECTION - Preview -->
         <div class="main-container">
@@ -113,37 +113,36 @@
               </div>
             </div>
             <div class="date" id="dd"></div>
-
-            <!-- * todoApp -->
-            <div class="app-todo">
-              <div class="todoApp">
-                <h2 class="sumTo">TodoList</h2>
-                <form
-                  id="form-1"
-                  onsubmit="createTodo()"
-                  class="todoApp-container"
-                >
-                  <div class="todoList"></div>
-                  <input id="inputText" type="text" placeholder="Todo..." />
-                </form>
-              </div>
-            </div>
           </div>
           <!-- * notification -->
           <!-- * quotes -->
         </div>
       </main>
-
-      <main class="section-two">
+      <main class="section section-two">
+        <!-- <div class="section-bg"> -->
+        <!-- * todoApp -->
+        <div class="app-todo">
+          <h1 class="sumTo">TodoList</h1>
+          <div class="todoApp">
+            <form id="form-1" onsubmit="createTodo()" class="todoApp-container">
+              <div class="todoList"></div>
+              <input id="inputText" type="text" placeholder="Todo..." />
+            </form>
+          </div>
+        </div>
+        <!-- </div> -->
+      </main>
+      <main class="section section-three">
         <div class="main-left">
           <div class="notes-list">
+            <!-- <h1>Note List</h1> -->
             <!-- <div class="note">
               <div class="note-bar">
-                <i class="fa-solid fa-thumbtack btn-pin" onclick="notePin()"></i>
+                <i class="fa-solid fa-thumbtack btn-pin"></i>
                 <h3 class="note-title">Call Girl</h3>
-                <i class="fa-solid fa-marker btn-edit" onclick="noteEdit()"></i>
-                <i class="fa-solid fa-expand btn-fullscr" onclick="noteFullscr()"></i>
-                <i class="fa-solid fa-xmark btn-del" onclick="noteDel()"></i>
+                <i class="fa-solid fa-marker btn-edit"></i>
+                <i class="fa-solid fa-expand btn-fullscr"></i>
+                <i class="fa-solid fa-xmark btn-del"></i>
               </div>
               <p class="note-text">
                 One thing that comes up often is how they relate to scrollbars.
@@ -165,18 +164,18 @@
           <!-- * input note -->
           <!-- * show note -->
           <div class="notes">
-            <div class="note">
+            <div class="note create-note">
               <div class="note-bar flex-row">
                 <i class="fa-solid fa-thumbtack"></i>
-                  <input
-                    class="input-title"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Title..."
-                    maxlength="50"
-                    required
-                  />
+                <input
+                  class="input-title"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Title..."
+                  maxlength="50"
+                  required
+                />
               </div>
               <textarea
                 class="note-text input-text"
@@ -185,11 +184,18 @@
                 oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
                 required
               ></textarea>
-              
             </div>
             <h4 class="note-alert"></h4>
-            <input class="btn btn-func btn-noteAdd" type="button" value="Add Note" />
-            <input class="btn btn-func btn-noteClear" type="button" value="Clear Notes" />
+            <input
+              class="btn btn-func btn-noteAdd"
+              type="button"
+              value="Add Note"
+            />
+            <input
+              class="btn btn-func btn-noteClear"
+              type="button"
+              value="Clear Notes"
+            />
           </div>
         </div>
       </main>

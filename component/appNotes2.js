@@ -23,7 +23,7 @@ function noteCreate() {
   noteAddBtn.addEventListener("click", () => {
     if (!editFlag) {
       if (noteTitleInput.value === "" && noteTextInput.value === "") {
-        noteAlertDOM.textContent = "Please fill in the blanks";
+        noteAlertDOM.innerHTML = "Please fill in the blanks";
       } else if (noteTitleInput.value !== "" && noteTextInput.value !== "") {
         noteRender();
         setBackToDefault();
@@ -94,8 +94,8 @@ function editNote(e) {
 
   noteAddBtn.value = "Save Note";
 
-  editTitleNote = e.currentTarget.parentElement.children[1].textContent;
-  editTextNote = e.currentTarget.parentElement.parentElement.children[1].textContent;
+  editTitleNote = e.currentTarget.parentElement.children[1].innerHTML;
+  editTextNote = e.currentTarget.parentElement.parentElement.children[1].innerHTML;
   noteTitleInput.value = editTitleNote;
   noteTextInput.value = editTextNote;
   editFlag = true;
@@ -106,7 +106,7 @@ function setBackToDefault() {
   noteTitleInput.value = "";
   noteTextInput.value = "";
 
-  noteAlertDOM.textContent = "";
+  noteAlertDOM.innerHTML = "";
 
   editFlag = false;
   editID = "";
