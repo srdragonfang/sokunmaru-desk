@@ -15,7 +15,9 @@ body {
   font-family: 'Times New Roman', Times, serif;
   // height: 100vh;
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 main {
   display: flex;
   flex-direction: row;

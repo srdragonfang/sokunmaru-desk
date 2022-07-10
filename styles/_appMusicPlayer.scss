@@ -195,12 +195,23 @@
     letter-spacing: 1px;
     transition: all 0.3s ease-in-out;
     overflow-y: scroll;
+    &::-webkit-scrollbar {
+      background: #19191975;
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #191919;
+    }
   }
+  // .dashboard::-webkit-scrollbar {
+  //   display: none;
+  // }
   .playlist {
     margin: 3rem 0 3rem 0;
   }
   .track {
     padding: 1rem 3rem 1rem 3rem;
+    font-size: 16px;
     overflow: hidden;
     cursor: pointer;
     border-bottom: 0.1px solid lightgray;
@@ -215,9 +226,7 @@
   .track.active .track-item {
     animation: playing 30s infinite;
   }
-  .playlist::-webkit-scrollbar {
-    display: none;
-  }
+
   @keyframes playing {
     0% {
       transform: translateX(-50px);
