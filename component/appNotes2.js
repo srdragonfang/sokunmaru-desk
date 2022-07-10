@@ -7,10 +7,10 @@ const noteAlertDOM = document.querySelector(".note-alert");
 const noteAddBtn = document.querySelector(".btn-noteAdd");
 
 // edit options
-let editElement;
+let editTitleNote;
+let editTextNote;
 let editFlag = false;
 let editID = "";
-
 
 // get value from
 const noteTitleInput = document.querySelector(".input-title");
@@ -21,57 +21,56 @@ noteCreate();
 // ANCHOR:          note conditional
 function noteCreate() {
   noteAddBtn.addEventListener("click", () => {
-    if (noteTitleInput.value === "" && noteTextInput.value === "") {
-      noteAlertDOM.textContent = "Please fill in the blanks";
-    } else {
-      noteAdd();
-      noteAlertDOM.textContent = "";
+    if (!editFlag) {
+      if (noteTitleInput.value === "" && noteTextInput.value === "") {
+        noteAlertDOM.textContent = "Please fill in the blanks";
+      } else if (noteTitleInput.value !== "" && noteTextInput.value !== "") {
+        noteRender();
+        setBackToDefault();
+      }
+    } else if (
+      noteTitleInput.value !== "" &&
+      noteTextInput.value !== "" &&
+      !!editFlag
+    ) {
+      editTitleNote.innerHTML = noteTitleInput.value;
+      editTextNote.innerHTML = noteTextInput.value;
     }
   });
 }
 
 //   ANCHOR *** create new note
-function noteAdd() {
+function noteRender() {
   const noteTitleValue = noteTitleInput.value;
   const noteTextValue = noteTextInput.value;
   const noteID = generateID();
+  const note = document.createElement("div");
+  note.setAttribute("data-id", noteID);
+  note.classList.add("note");
 
-  if (!editFlag) {
-    const note = document.createElement("div");
-    
-//    const attr = document.createAttribute("data-id")
-//     attr.value = noteID;
-    note.setAttribute("data-id", noteID)
-    note.classList.add("note");
-
-    note.innerHTML = `
+  note.innerHTML = `
           <div class="note-bar">
               <i class="fa-solid fa-thumbtack btn-pin"></i>
-              <h3 class="note-title">Note #${noteID}: ${noteTitleValue}</h3>
+              <h3 class="note-title">${noteTitleValue}</h3>
               <i class="fa-solid fa-marker btn-edit"></i>
               <i class="fa-solid fa-expand btn-fullscr"></i>
               <i class="fa-solid fa-xmark btn-del"></i>
           </div>
               <p class="note-text">${noteTextValue}</p>
       `;
-   
-    //   const btnPins = document.querySelectorAll(".btn-pin");
-    const btnDel = note.querySelector(".btn-del");     
-    console.log(btnDel); 
-    btnDel.addEventListener("click", deleteNote)
-    //   const btnEdits = document.querySelectorAll(".btn-edit");
-    //   const btnFullScreens = document.querySelectorAll(".btn-fullsrc");
 
+  //   const btnPins = document.querySelectorAll(".btn-pin");
+  const btnDel = note.querySelector(".btn-del");
+  // console.log(btnDel);
+  btnDel.addEventListener("click", deleteNote);
+  const btnEdit = note.querySelector(".btn-edit");
+  // console.log(btnEdit);
 
+  btnEdit.addEventListener("click", editNote);
+  //   const btnFullScreens = document.querySelectorAll(".btn-fullsrc");
 
-    //  append child
-      notesListDOM.appendChild(note);
-      // reset input value
-      noteTitleInput.value = "";
-      noteTextInput.value = "";
-    }
-
-
+  //  append child
+  notesListDOM.appendChild(note);
 }
 
 // create random ID
@@ -82,9 +81,34 @@ function generateID() {
 
 // TODO - delete note
 function deleteNote(e) {
-    const noteEl = e.currentTarget.parentElement.parentElement
-    const id = noteEl.dataset.id
-    // console.log(noteEl.parentElement.parentElement)
-    console.log(id)
-    notesListDOM.removeChild(noteEl)
+  const noteEl = e.currentTarget.parentElement.parentElement;
+  // get id to remove note from localStorage
+  // const id = noteEl.dataset.id
+
+  notesListDOM.removeChild(noteEl);
+}
+
+// TODO - edit note
+function editNote(e) {
+  const noteEl = e.currentTarget.parentElement.parentElement;
+
+  noteAddBtn.value = "Save Note";
+
+  editTitleNote = e.currentTarget.parentElement.children[1].textContent;
+  editTextNote = e.currentTarget.parentElement.parentElement.children[1].textContent;
+  noteTitleInput.value = editTitleNote;
+  noteTextInput.value = editTextNote;
+  editFlag = true;
+  editID = noteEl.dataset.id;
+}
+
+function setBackToDefault() {
+  noteTitleInput.value = "";
+  noteTextInput.value = "";
+
+  noteAlertDOM.textContent = "";
+
+  editFlag = false;
+  editID = "";
+  noteAddBtn.value = "Add Note";
 }
