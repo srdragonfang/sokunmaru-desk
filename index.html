@@ -1,142 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sokunmaru | Desk</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sokunmaru | Desk</title>
 
-    <link rel="stylesheet" href="styles/index.css" />
-    <link rel="shortcut icon" href="#" />
-    <link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="stylesheet" href="styles/index.css" />
+		<link rel="shortcut icon" href="#" />
+		<link rel="shortcut icon" href="/favicon.ico" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
-      rel="stylesheet"
-    />
+		<link
+			href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
+			rel="stylesheet"
+		/>
 
-    <script
-      src="https://kit.fontawesome.com/80ea5533be.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <!-- ANCHOR *** [HEADER] -->
-    <header>
-      <!-- menu-button -->
-      <!-- menu-container -->
-    </header>
-    <!-- ANCHOR *** [CENTER] -->
-    <div class="allmain">
-      <main class="section section-one">
-        <!-- ! First View -->
-        <!-- SECTION - Preview -->
-        <div class="main-container">
-          <div class="main-left">
-            <!-- * musicPlayer -->
-            <div class="app-musicPlayer">
-              <div class="player">
-                <div class="player__top">
-                  <div class="player-cover">
-                    <div
-                      class="player-cover__item"
-                      style="
-                        background-image: url('https://cdn.pixabay.com/photo/2012/04/14/14/32/skull-34133_960_720.png');
-                      "
-                    >
-                      <div class="cd-inner"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="progress" ref="progress">
-                  <div class="player-bar">
-                    <input
-                      id="audioRange"
-                      type="range"
-                      value="0"
-                      step="1"
-                      min="0"
-                      max="100"
-                    />
-                  </div>
-                  <div class="buttons">
-                    <button class="audio-controll-button" id="backward">
-                      <i class="fa-solid fa-backward-step"></i>
-                    </button>
-                    <button class="audio-controll-button" id="play">
-                      <i class="fa fa-play"></i>
-                      <i class="fa fa-pause"></i>
-                    </button>
-                    <button class="audio-controll-button" id="next">
-                      <i class="fa-solid fa-forward-step"></i>
-                    </button>
-                  </div>
-                  <div class="buttons">
-                    <button class="audio-controll-button" id="randomTrack">
-                      <i class="fa-solid fa-random"></i>
-                    </button>
-                    <button class="audio-controll-button" id="favTrack">
-                      <i class="fa fa-heart"></i>
-                    </button>
+		<script
+			src="https://kit.fontawesome.com/80ea5533be.js"
+			crossorigin="anonymous"
+		></script>
+	</head>
+	<body>
+		<!-- ANCHOR *** [HEADER] -->
+		<header>
+			<!-- menu-button -->
+			<!-- menu-container -->
+		</header>
+		<!-- ANCHOR *** [CENTER] -->
+		<div class="allmain">
+			<main class="section section-one">
+				<!-- ! First View -->
+				<!-- SECTION - Preview -->
+				<div class="main-container">
+					<div class="main-left">
+						<!-- * musicPlayer -->
+						<div class="app-musicPlayer">
+							<div class="player">
+								<div class="player__top">
+									<div class="player-cover">
+										<div
+											class="player-cover__item"
+											style="
+												background-image: url('https://cdn.pixabay.com/photo/2012/04/14/14/32/skull-34133_960_720.png');
+											"
+										>
+											<div class="cd-inner"></div>
+										</div>
+									</div>
+								</div>
+								<div class="progress" ref="progress">
+									<div class="player-bar">
+										<input
+											id="audioRange"
+											type="range"
+											value="0"
+											step="1"
+											min="0"
+											max="100"
+										/>
+									</div>
+									<div class="buttons">
+										<button
+											class="audio-controll-button"
+											id="backward"
+										>
+											<i
+												class="fa-solid fa-backward-step"
+											></i>
+										</button>
+										<button
+											class="audio-controll-button"
+											id="play"
+										>
+											<i class="fa fa-play"></i>
+											<i class="fa fa-pause"></i>
+										</button>
+										<button
+											class="audio-controll-button"
+											id="next"
+										>
+											<i
+												class="fa-solid fa-forward-step"
+											></i>
+										</button>
+									</div>
+									<div class="buttons">
+										<button
+											class="audio-controll-button"
+											id="randomTrack"
+										>
+											<i class="fa-solid fa-random"></i>
+										</button>
+										<button
+											class="audio-controll-button"
+											id="favTrack"
+										>
+											<i class="fa fa-heart"></i>
+										</button>
 
-                    <button class="audio-controll-button" id="repeatTrack">
-                      <i class="fa-solid fa-repeat"></i>
-                    </button>
-                  </div>
-                  <audio id="audio" src="assets/audio/5.mp3"></audio>
-                  <div class="album-info" v-if="currentTrack">
-                    <div class="album-info__name"></div>
-                    <div class="album-info__track"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="dashboard">
-                <div class="playlist"></div>
-              </div>
-            </div>
-          </div>
+										<button
+											class="audio-controll-button"
+											id="repeatTrack"
+										>
+											<i class="fa-solid fa-repeat"></i>
+										</button>
+									</div>
+									<audio
+										id="audio"
+										src="assets/audio/5.mp3"
+									></audio>
+									<div class="album-info" v-if="currentTrack">
+										<div class="album-info__name"></div>
+										<div class="album-info__track"></div>
+									</div>
+								</div>
+							</div>
+							<div class="dashboard">
+								<div class="playlist"></div>
+							</div>
+						</div>
+					</div>
 
-          <div class="main-right">
-            <h1>Sokunmaru Desk</h1>
-            <!-- * clock -->
-            <div class="clock">
-              <div class="hour">
-                <div class="hr" id="hr"></div>
-              </div>
-              <div class="break">:</div>
-              <div class="min">
-                <div class="mn" id="mn"></div>
-              </div>
-              <div class="break">:</div>
-              <div class="sec">
-                <div class="sc" id="sc"></div>
-              </div>
-            </div>
-            <div class="date" id="dd"></div>
-          </div>
-          <!-- * notification -->
-          <!-- * quotes -->
-        </div>
-      </main>
-      <main class="section section-two">
-        <!-- <div class="section-bg"> -->
-        <!-- * todoApp -->
-        <div class="app-todo">
-          <h1 class="sumTo">TodoList</h1>
-          <div class="todoApp">
-            <form id="form-1" onsubmit="createTodo()" class="todoApp-container">
-              <div class="todoList"></div>
-              <input id="inputText" type="text" placeholder="Todo..." />
-            </form>
-          </div>
-        </div>
-        <!-- </div> -->
-      </main>
-      <main class="section section-three">
-        <div class="main-left">
-          <div class="notes-list">
-            <!-- <h1>Note List</h1> -->
-            <!-- <div class="note">
+					<div class="main-right">
+						<h1>Sokunmaru Desk</h1>
+						<!-- * clock -->
+						<div class="clock">
+							<div class="hour">
+								<div class="hr" id="hr"></div>
+							</div>
+							<div class="break">:</div>
+							<div class="min">
+								<div class="mn" id="mn"></div>
+							</div>
+							<div class="break">:</div>
+							<div class="sec">
+								<div class="sc" id="sc"></div>
+							</div>
+						</div>
+						<div class="date" id="dd"></div>
+					</div>
+					<!-- * notification -->
+					<!-- * quotes -->
+				</div>
+			</main>
+			<main class="section section-two">
+				<!-- <div class="section-bg"> -->
+				<!-- * todoApp -->
+				<div class="app-todo">
+					<h1 class="sumTo">TodoList</h1>
+					<div class="todoApp">
+						<form
+							id="form-1"
+							onsubmit="createTodo()"
+							class="todoApp-container"
+						>
+							<div class="todoList"></div>
+							<input
+								id="inputText"
+								type="text"
+								placeholder="Todo..."
+							/>
+						</form>
+					</div>
+				</div>
+				<!-- </div> -->
+			</main>
+
+			<main class="section section-three">
+				<div class="main-left">
+					<div class="notes-list">
+						<!-- <h1>Note List</h1> -->
+						<!-- <div class="note">
               <div class="note-bar">
                 <i class="fa-solid fa-thumbtack btn-pin"></i>
                 <h3 class="note-title">Call Girl</h3>
@@ -156,57 +190,136 @@
                 for
               </p>
             </div> -->
-          </div>
-        </div>
-        <div class="main-right">
-          <!-- *  noteApp -->
-          <h1>Note</h1>
-          <!-- * input note -->
-          <div class="notes">
-            <div class="note create-note">
-              <div class="note-bar flex-row">
-                <i class="fa-solid fa-thumbtack"></i>
-                <input
-                  class="input-title"
-                  type="text"
-                  name=""
-                  id=""
-                  placeholder="Title..."
-                  maxlength="50"
-                  required
-                />
-              </div>
-              <textarea
-                class="note-text input-text"
-                cols="20"
-                name="text"
-                oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-                required
-              ></textarea>
-            </div>
-            <h4 class="note-alert"></h4>
-            <input
-              class="btn btn-func btn-noteAdd"
-              type="button"
-              value="Add Note"
-            />
-            <!-- <input
+					</div>
+				</div>
+				<div class="main-right">
+					<!-- *  noteApp -->
+					<h1>Note</h1>
+					<!-- * input note -->
+					<div class="notes">
+						<div class="note create-note">
+							<div class="note-bar flex-row">
+								<i class="fa-solid fa-thumbtack"></i>
+								<input
+									class="input-title"
+									type="text"
+									name=""
+									id=""
+									placeholder="Title..."
+									maxlength="50"
+									required
+								/>
+							</div>
+							<textarea
+								class="note-text input-text"
+								cols="20"
+								name="text"
+								oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+								required
+							></textarea>
+						</div>
+						<h4 class="note-alert"></h4>
+						<input
+							class="btn btn-func btn-noteAdd"
+							type="button"
+							value="Add Note"
+						/>
+						<!-- <input
               class="btn btn-func btn-noteClear"
               type="button"
               value="Clear Notes"
             /> -->
-          </div>
-        </div>
-      </main>
-    </div>
-    <!-- ANCHOR *** [FOOTER] -->
-    <footer></footer>
+					</div>
+				</div>
+			</main>
+            			<!-- ANCHOR scrum app -->
+			<main class="section section-two">
+				<div class="scrum-app">
+					<h1>SCRUM</h1>
+					<div class="scrum-taskbar">
+						<input
+							type="text"
+							name=""
+							id=""
+							placeholder="add task here..."
+						/>
+                        <select>
+                            <option value="Backlog">Backlog</option>
+                            <option value="InProgress">In Progress</option>
+                            <option value="Emergency">Emergency</option>
+                            <option value="Testing">Testing</option>
+                            <option value="Done">Done</option>
+                            <!-- <option value="Backlog"></option> -->
+                        </select>
+						<button type="submit">Submit</button>
+					</div>
+					<div class="scrum-dashboard">
+						<div class="scrum-col odd">
+							<h3>Backlog</h3>
+							<div class="scrum-list">
+								<div class="task">
+									<div class="task-status"></div>
+									<p class="task-content">
+										Create a scrum app
+									</p>
+								</div>
+								<div class="task">
+									<div class="task-status"></div>
+									<p class="task-content">
+										Create a scrum app
+									</p>
+								</div>
+								<div class="task">
+									<div class="task-status"></div>
+									<p class="task-content">
+										Create a scrum app
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="scrum-col even">
+							<h3>In Progress</h3>
+							<div class="scrum-list">
+								<div class="task">
+									<div class="task-status"></div>
+									<p class="task-content">
+										Create a scrum app
+									</p>
+								</div>
+								<div class="task">
+									<div class="task-status"></div>
+									<p class="task-content">Sokunmaru</p>
+								</div>
+							</div>
+						</div>
+						<div class="scrum-col odd">
+							<h3>Emergency</h3>
+							<div class="scrum-list"></div>
+						</div>
+						<div class="scrum-col even">
+							<h3>Testing</h3>
+							<div class="scrum-list"></div>
+						</div>
+						<div class="scrum-col odd">
+							<h3>Done</h3>
+							<div class="scrum-list"></div>
+						</div>
+						<div class="scrum-col even hide">
+							<h3>Remove</h3>
+							<div class="scrum-list"></div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+		<!-- ANCHOR *** [FOOTER] -->
+		<footer></footer>
 
-    <!-- ANCHOR *** [SCRIPT] -->
-    <script src="component/appMusicPlayer.js"></script>
-    <script src="component/appClock.js"></script>
-    <script src="component/appTodo.js"></script>
-    <!-- <script src="component/appNotes.js"></script> -->
-    <script src="component/appNotes2.js"></script>
-  </body>
+		<!-- ANCHOR *** [SCRIPT] -->
+		<script src="component/appMusicPlayer.js"></script>
+		<script src="component/appClock.js"></script>
+		<script src="component/appTodo.js"></script>
+		<!-- <script src="component/appNotes.js"></script> -->
+		<script src="component/appNotes2.js"></script>
+	</body>
 </html>

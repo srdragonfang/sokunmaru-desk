@@ -14,17 +14,24 @@ body {
   font-size: 2rem;
   font-family: "Times New Roman", Times, serif;
   // height: 100vh;
+
 }
 body::-webkit-scrollbar {
   display: none;
+}
+
+.allmain {
+  scroll-snap-type: mandatory;
+	scroll-snap-points-y: repeat(100vh);
 }
 main {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: 100vw !important;
+  width: 100vw;
   height: 100vh;
+  scroll-snap-align: start;
 }
 
 h1 {
