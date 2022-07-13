@@ -232,54 +232,37 @@
 					</div>
 				</div>
 			</main>
-            			<!-- ANCHOR scrum app -->
+			<!-- ANCHOR scrum app -->
 			<main class="section section-two">
 				<div class="scrum-app">
-					<h1>SCRUM</h1>
+					<h1>Scrum</h1>
 					<div class="scrum-taskbar">
 						<input
+							id="task-input"
 							type="text"
 							name=""
-							id=""
 							placeholder="add task here..."
 						/>
-                        <select>
-                            <option value="Backlog">Backlog</option>
-                            <option value="InProgress">In Progress</option>
-                            <option value="Emergency">Emergency</option>
-                            <option value="Testing">Testing</option>
-                            <option value="Done">Done</option>
-                            <!-- <option value="Backlog"></option> -->
-                        </select>
-						<button type="submit">Submit</button>
+						<select class="taskGroup-options">
+							<option class="taskGroup-option" value="Backlog">Backlog</option>
+							<option class="taskGroup-option" value="InProgress">In Progress</option>
+							<option class="taskGroup-option" value="Emergency">Emergency</option>
+							<option class="taskGroup-option" value="Testing">Testing</option>
+							<option class="taskGroup-option" value="Done">Done</option>
+							<!-- <option class="taskGroup-option" value="Backlog"></option> -->
+						</select>
+						<button type="submit" id="task-submit">Submit</button>
 					</div>
 					<div class="scrum-dashboard">
 						<div class="scrum-col odd">
 							<h3>Backlog</h3>
-							<div class="scrum-list">
-								<div class="task">
-									<div class="task-status"></div>
-									<p class="task-content">
-										Create a scrum app
-									</p>
-								</div>
-								<div class="task">
-									<div class="task-status"></div>
-									<p class="task-content">
-										Create a scrum app
-									</p>
-								</div>
-								<div class="task">
-									<div class="task-status"></div>
-									<p class="task-content">
-										Create a scrum app
-									</p>
-								</div>
+							<div class="scrum-list" id="backlog">
+
 							</div>
 						</div>
 						<div class="scrum-col even">
 							<h3>In Progress</h3>
-							<div class="scrum-list">
+							<div class="scrum-list" id="inprogress">
 								<div class="task">
 									<div class="task-status"></div>
 									<p class="task-content">
@@ -294,19 +277,19 @@
 						</div>
 						<div class="scrum-col odd">
 							<h3>Emergency</h3>
-							<div class="scrum-list"></div>
+							<div class="scrum-list" id="emergency"></div>
 						</div>
 						<div class="scrum-col even">
 							<h3>Testing</h3>
-							<div class="scrum-list"></div>
+							<div class="scrum-list" id="testing"></div>
 						</div>
 						<div class="scrum-col odd">
 							<h3>Done</h3>
-							<div class="scrum-list"></div>
+							<div class="scrum-list" id="done"></div>
 						</div>
 						<div class="scrum-col even hide">
 							<h3>Remove</h3>
-							<div class="scrum-list"></div>
+							<div class="scrum-list" id="remove"></div>
 						</div>
 					</div>
 				</div>
@@ -321,5 +304,6 @@
 		<script src="component/appTodo.js"></script>
 		<!-- <script src="component/appNotes.js"></script> -->
 		<script src="component/appNotes2.js"></script>
+		<script src="component/appScrum.js"></script>
 	</body>
 </html>
