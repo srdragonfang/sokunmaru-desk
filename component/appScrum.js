@@ -34,7 +34,7 @@ taskSubmit.addEventListener('click', () => {
 	} else {
 		console.log('check input value conditional:', taskInput.value !== '');
 		createNewTask();
-		console.log('appScrum', getTasksFromLocalStorage());
+		console.log('appScrumDev', getTasksFromLocalStorage());
 	}
 });
 
@@ -110,7 +110,7 @@ function getStatus() {
 // TODO drag task - function
 
 function getTasksFromLocalStorage() {
-	const items = JSON.parse(localStorage.getItem('appScrum'));
+	const items = JSON.parse(localStorage.getItem('appScrumDev'));
 
 	return items === null ? [] : items;
 }
@@ -118,7 +118,7 @@ function getTasksFromLocalStorage() {
 function addTaskToLocalStorage(item) {
 	// console.log(item);
 	let roses = getTasksFromLocalStorage();
-	localStorage.setItem('appScrum', JSON.stringify([...roses, item]));
+	localStorage.setItem('appScrumDev', JSON.stringify([...roses, item]));
 }
 
 function updateTasks(taskLS) {

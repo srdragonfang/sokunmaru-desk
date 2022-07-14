@@ -131,12 +131,12 @@ function addToLocalStorage(id, title, text) {
   const note = { id, title, text };
   let notes = getLocalStorage();
   notes.push(note);
-  localStorage.setItem("noteList", JSON.stringify(notes));
+  localStorage.setItem("noteListDev", JSON.stringify(notes));
 }
 
 function getLocalStorage() {
-  return localStorage.getItem("noteList")
-    ? JSON.parse(localStorage.getItem("noteList"))
+  return localStorage.getItem("noteListDev")
+    ? JSON.parse(localStorage.getItem("noteListDev"))
     : [];
 }
 
@@ -195,7 +195,7 @@ function removeFromLocalStorage(id) {
   });
 
   console.log("notes after deleted", notes);
-  localStorage.setItem("noteList", JSON.stringify(notes));
+  localStorage.setItem("noteListDev", JSON.stringify(notes));
 }
 
 function editFromLocalStorage(id, title, text) {
@@ -212,5 +212,5 @@ function editFromLocalStorage(id, title, text) {
   });
 
   console.log("notes after edited", notes);
-  localStorage.setItem("noteList", JSON.stringify(notes));
+  localStorage.setItem("noteListDev", JSON.stringify(notes));
 }
