@@ -55,8 +55,13 @@ function createNewTask() {
 	/* ----------------------------- create new task ---------------------------- */
 	// TODO task - declare object (id, title, statusGroup, statusTask)
 	let task = { id, title, statusGroup, statusTask };
+	/* ----------------------- create task ---------------------- */
+	createTask(task);
+	/* ----------------------- set element to localStorage ---------------------- */
+	addTaskToLocalStorage(task);
+}
 
-
+function createTask(task) {
 	/* ----------------------------- render to html ----------------------------- */
 	const taskEl = document.createElement('div');
 	taskEl.classList.add('task');
@@ -66,20 +71,23 @@ function createNewTask() {
                    <div class="task-status ${task.statusTask}"></div>
                    <p class="task-content">${task.title}</p>
                `;
-	backlogDOM.appendChild(taskEl);
 	/* -------------------------------- drag task ------------------------------- */
 	/* ------------------------------- delete task ------------------------------ */
 
-    taskEl.addEventListener('dblclick', (e) => {
-        e.preventDefault()
-        // console.log('dele')
-        alert('delete')
-        backlogDOM.removeChild(taskEl)
-    } )
+	taskEl.addEventListener('dblclick', (e) => {
+		e.preventDefault();
+        if (confirm('Are you sure you want to delete this task into the database?')) {
+            // Save it!
+            console.log('Task was deleted to the database.');
+            backlogDOM.removeChild(taskEl);
+          } else {
+            // Do nothing!
+            console.log('Task was not deleted to the database.');
+          }
+	});
 	/* -------------------------------- edit task ------------------------------- */
 	/* ------------------------------- appendChil ------------------------------- */
-	/* ----------------------- set element to localStorage ---------------------- */
-	addTaskToLocalStorage(task);
+	backlogDOM.appendChild(taskEl);
 }
 
 // TODO function - gereratorID
@@ -122,27 +130,13 @@ function addTaskToLocalStorage(item) {
 }
 
 function updateTasks(taskLS) {
-    let id = taskLS.id;
-    let title = taskLS.title;
-    let statusGroup = taskLS.statusGroup;
-    let statusTask = taskLS.statusTask;
+	let id = taskLS.id;
+	let title = taskLS.title;
+	let statusGroup = taskLS.statusGroup;
+	let statusTask = taskLS.statusTask;
 	/* ----------------------------- create new task ---------------------------- */
 	// TODO task - declare object (id, title, statusGroup, statusTask)
 	let task = { id, title, statusGroup, statusTask };
-
-	/* ----------------------------- render to html ----------------------------- */
-	const taskEl = document.createElement('div');
-	taskEl.classList.add('task');
-	taskEl.setAttribute('data-id', task.id);
-	taskEl.setAttribute('data-statusgroup', task.statusGroup);
-	taskEl.innerHTML = `
-                   <div class="task-status ${task.statusTask}"></div>
-                   <p class="task-content">${task.title}</p>
-               `;
-	backlogDOM.appendChild(taskEl);
-	/* -------------------------------- drag task ------------------------------- */
-	/* ------------------------------- delete task ------------------------------ */
-	/* -------------------------------- edit task ------------------------------- */
-	/* ------------------------------- appendChil ------------------------------- */
-	/* ----------------------- set element to localStorage ---------------------- */
+	createTask(task);
 }
+
