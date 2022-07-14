@@ -6,45 +6,43 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: flex-end;
+	justify-content: flex-start;
 }
 
 .scrum-taskbar {
-    width: 60%;
-    // background: brown;
-    margin-bottom: 3rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    & input {
-        flex: 1;
-        padding: 1rem 2rem;
-        font-size: 1.6rem;
-        border: none;
-        outline: none;
-        background: transparent
-    }
-    & select {
-        width: 100px;
-        color: #191919;
-        font-weight: 700;
-        border: none;
-        outline: none;
-        background: transparent
-    }
-    & button {
-        border: none;
-        outline: none;
-        padding: 1rem 2rem;
+	margin-bottom: 3rem;
+	width: 60%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	& input {
+		flex: 1;
+		padding: 1rem 2rem;
+		font-size: 1.6rem;
+		border: none;
+		outline: none;
+		background: transparent;
+	}
+	& select {
+		// width: 100px;
+		// color: #191919;
+		font-weight: 700;
+		border: none;
+		outline: none;
+		// background: transparent;
+	}
+	& button {
+		border: none;
+		outline: none;
+		padding: 1rem 2rem;
 
-        font-size: 1.6rem;
-        font-weight: 700;
-        background: #191919;
-        color: #f9f9f9;
-    }
+		font-size: 1.6rem;
+		font-weight: 700;
+		background: #191919;
+		color: #f9f9f9;
+	}
 }
-
 
 .scrum-dashboard {
 	display: flex;
@@ -52,7 +50,7 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 1rem;
-	height: 70%;
+	// height: 70%;
 	width: 100%;
 	// background-color: seagreen;
 }
@@ -61,98 +59,168 @@
 	// width: auto;
 	height: 100%;
 	width: calc(100% / 5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start ;
-    border-radius: 10px;
-    // background-color: rgba(0, 0, 0, 0.4);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	border-radius: 10px;
 
 	& h3 {
 		text-align: center;
-        padding: 1rem 0;
-        width: 100%;
+		padding: 1rem 0;
+		width: 100%;
 	}
 
-    & .scrum-list {
-        // background: brown;
-        // height: max-content;
-        // flex: 1;
-        width: 100%;
-        // margin-top: 1rem;
-        padding: 1rem;
-        & .task {
-            width: 100%;
-            height: auto;
-            // height: 100px;
-            // padding: .5rem 1rem;
-            // text-align: center;
-            // align-items: center;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-        }
-    }
+	& .scrum-list {
+		width: 100%;
+		padding-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		& .task {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+			margin-top: 0.5rem;
+			border: 1px groove goldenrod;
+			box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
+			& .task-status {
+				width: 10px;
+				height: 30px;
+			}
+			& .task-content {
+				flex: 1;
+				padding: 1rem;
+			}
+		}
+	}
 	&.odd {
-		// background: #f9f9f9;
-		// color: #191919;
-        & h3 {
-            border-bottom: 3px groove #191919;
-        }
-        & .scrum-list {
-            & .task {
-                background: #191919;
-                color: #f9f9f9;
-            }
-        }
+		& h3 {
+			border-bottom: 3px groove #191919;
+		}
 	}
 	&.even {
-        // background: #191919;
-		// color: #f9f9f9;
-        & h3 {
-            border-bottom: 3px groove #f9f9f9;
-        }
-        & .scrum-list {
-            & .task {
-                background: #f9f9f9;
-                color: #191919;
 
+		& h3 {
+			border-bottom: 3px groove #f9f9f9;
+		}
 
-            }
-        }
 	}
-    & .task + .task {
-        margin-top: .5rem;
-    }
-    & .task-status.higher {
-        // order: 1;
-        background: red;
-    }
-    & .task-status.high {
-        // order: 2;
-    background: brown;
 }
-& .task-status.medium {
-    // order: 3;
-    background: tomato;
+
+#backlog .task {
+	background: goldenrod;
+	color: #191919;
 }
-& .task-status.low {
-        background: #ada13a;
-        // order: 4;
-    }
-    & .task-status.lower {
-        // order: 5;
-        background: #230915
-    }
+
+#inprogress .task {
+	background: #1b6161;
+	color: #f9f9f9;
 }
-.task-status {
-    width: 10px;
-    height: 30px;
-    margin-right: 1rem;
-    background-color: tomato;
+
+#emergency .task {
+	background: #a22d22;
+	color: #f9f9f9;
 }
-.tast-content {
-    flex: 1;
+
+#testing .task {
+	background: #c3cce1;
+	color: #191919;
+}
+
+#done .task {
+	background: #eae5e6;
+	color: #191919;
+}
+.task.higher {
+	order: 1 !important;
+	animation: fadeUp 0.5s;
+}
+.task.high {
+	order: 2 !important;
+	animation: fadeUp 0.5s;
+}
+.task.medium {
+	order: 3 !important;
+}
+.task.low {
+	order: 4 !important;
+	animation: fadeDown 0.5s;
+}
+.task.lower {
+	order: 5 !important;
+	animation: fadeDown 0.5s;
+}
+@keyframes fadeDown {
+	0% {
+		opacity: 0;
+		background-color: rgba(255, 255, 255, 0.4);
+		transform: translateY(20px);
+	}
+	50% {
+		opacity: 1;
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+}
+
+@keyframes fadeUp {
+	0% {
+		opacity: 0;
+		background-color: rgba(255, 255, 255, 0.4);
+		transform: translateY(-20px);
+	}
+	50% {
+		opacity: 1;
+		background-color: rgba(255, 255, 255, 0.4);
+	}
+}
+.task-status.higher {
+	background: red;
+}
+.task-status.high {
+	background: yellow;
+}
+.task-status.medium {
+	background: #191919;
+}
+.task-status.low {
+	background: #1b6161;
+}
+.task-status.lower {
+	// order: 5;
+	background: #c3cce1;
+}
+option[value='higher'] {
+	background: red;
+}
+option[value='high'] {
+	background: yellow;
+    color: #191919;
+}
+option[value='medium'] {
+	background: #191919;
+}
+option[value='low'] {
+	background: #1b6161;
+}
+option[value='lower'] {
+	background: #c3cce1;
+}
+select {
+	/* Reset Select */
+	appearance: none;
+	box-shadow: none;
+	/* Personalize */
+	//   flex: 1;
+	padding: 1rem .5rem;
+	color: #fff;
+	background-color: #2c3e50;
+	background-image: none;
+	cursor: pointer;
+    margin-right: .3rem;
+    text-align: center;
 }

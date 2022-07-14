@@ -23,11 +23,15 @@ const removeDOM = getElement('#remove');
 const taskInput = getElement('#task-input');
 const taskSubmit = getElement('#task-submit');
 /* ------------------------------- task group option ------------------------------- */
-const taskGroupOptions = document.getElementById('sokunmaru');
+const taskGroupOptions = getElement('#task-statusGroup');
 let getTaskGroupValue = taskGroupOptions.value;
-console.log(getTaskGroupValue);
+console.log("first select", getTaskGroupValue);
+/* ------------------------------- task status option ------------------------------- */
+const taskStatusOptions = getElement('#task-statusTask');
+let getTaskStatusValue = taskStatusOptions.value;
+console.log("first select", getTaskStatusValue);
 
-// TODO get element from localStorage
+
 
 // TODO edit - declare variable (editElement, editFlag)
 
@@ -56,9 +60,9 @@ function createNewTask() {
 	let id = generatorID();
 	let title = taskValue;
 	let statusGroup = getTaskGroup();
-    console.log("task statusGroup set", statusGroup);
-	// let statusGroup = 'Done';
+	console.log('task Group set', statusGroup);
 	let statusTask = getTaskStatus();
+	console.log('task status set', statusTask);
 
 	// TODO task - declare object (id, title, statusGroup, statusTask)
 	let task = { id, title, statusGroup, statusTask };
@@ -66,6 +70,8 @@ function createNewTask() {
 	createTask(task);
 	/* ----------------------- set task to localStorage ---------------------- */
 	addTaskToLocalStorage(task);
+	/* ------------------------------- clean input ------------------------------ */
+	taskInput.value = '';
 }
 
 // TODO render tasks to html
@@ -73,6 +79,7 @@ function createTask(task) {
 	/* ----------------------------- render to html ----------------------------- */
 	const taskEl = document.createElement('div');
 	taskEl.classList.add('task');
+	taskEl.classList.add(`${task.statusTask}`);
 	taskEl.setAttribute('data-id', task.id);
 	taskEl.setAttribute('data-statusgroup', task.statusGroup);
 	taskEl.innerHTML = `
@@ -84,7 +91,7 @@ function createTask(task) {
 
 	taskEl.addEventListener('dblclick', (e) => {
 		e.preventDefault();
-        console.log("click to remove task id:", task.id);
+		console.log('click to remove task id:', task.id);
 		if (
 			confirm(
 				'Are you sure you want to delete this task into the database?'
@@ -92,17 +99,17 @@ function createTask(task) {
 		) {
 			// Save it!
 			console.log('Task was deleted to the database.');
-            if (task.statusGroup == 'Done') {
-                doneDOM.removeChild(taskEl);
-            } else if (task.statusGroup == 'Testing') {
-                testingDOM.removeChild(taskEl);
-            } else if (task.statusGroup == 'Emergency') {
-                emergencyDOM.removeChild(taskEl);
-            } else if (task.statusGroup == 'InProgress') {
-                inprogressDOM.removeChild(taskEl);
-            } else {
-                backlogDOM.removeChild(taskEl);
-            }
+			if (task.statusGroup == 'Done') {
+				doneDOM.removeChild(taskEl);
+			} else if (task.statusGroup == 'Testing') {
+				testingDOM.removeChild(taskEl);
+			} else if (task.statusGroup == 'Emergency') {
+				emergencyDOM.removeChild(taskEl);
+			} else if (task.statusGroup == 'InProgress') {
+				inprogressDOM.removeChild(taskEl);
+			} else {
+				backlogDOM.removeChild(taskEl);
+			}
 			removeTaskFromLocalStorage(task.id);
 		} else {
 			// Do nothing!
@@ -133,17 +140,18 @@ function generatorID() {
 function getTaskGroup() {
 	taskGroupOptions.addEventListener('change', (e) => {
 		getTaskGroupValue = e.target.value;
-        console.log("taskGroup Now", getTaskGroupValue);
+		console.log('taskGroup Now', getTaskGroupValue);
 	});
-    return getTaskGroupValue;
+	return getTaskGroupValue;
 }
+
 // TODO status task - function
 function getTaskStatus() {
-	return 'higher';
-	// if () {return "higher"}
-	// if () {return "high"}
-	// if () {return "medium"}
-	// if () {return "low"}
+	taskStatusOptions.addEventListener('change', (e) => {
+		getTaskStatusValue = e.target.value;
+		console.log('taskStatus Now', getTaskStatusValue);
+	});
+	return getTaskStatusValue;
 }
 
 function getTasksFromLocalStorage() {

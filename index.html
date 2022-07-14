@@ -243,13 +243,18 @@
 							name=""
 							placeholder="add task here..."
 						/>
-						<select id="sokunmaru">
-							<option data-idx="" value="Backlog">Backlog</option>
-							<option data-idx="" value="InProgress">In Progress</option>
-							<option data-idx="" value="Emergency">Emergency</option>
-							<option data-idx="" value="Testing">Testing</option>
-							<option data-idx="" value="Done">Done</option>
-							<!-- <option data-idx="" value="Backlog"></option> -->
+						<select id="task-statusTask">
+                            <option value="higher">Higher</option>
+                            <option value="high">High</option>
+                            <option value="medium" selected="selected">Medium</option>
+                            <option value="low">Low</option>
+                            <option value="lower">Lower</option>						</select>
+						<select id="task-statusGroup">
+							<option value="Backlog" selected="selected">Backlog</option>
+							<option value="InProgress">In Progress</option>
+							<option value="Emergency">Emergency</option>
+							<option value="Testing">Testing</option>
+							<option value="Done">Done</option>
 						</select>
 						<button type="submit" id="task-submit">Submit</button>
 					</div>
