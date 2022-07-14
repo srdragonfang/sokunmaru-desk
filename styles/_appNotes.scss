@@ -1,13 +1,11 @@
 .notes {
-  //   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 
   &-list {
-    // background: lightblue;
-    // width: 400px;
+
     flex: 1;
     height: 100%;
     padding: 1rem;

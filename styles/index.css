@@ -146,6 +146,7 @@ h1 {
 
 .section-four {
   height: unset !important;
+  min-height: 100vh !important;
 }
 
 .btn:hover {
@@ -618,9 +619,18 @@ h1 {
   background-color: red;
 }
 
-.todoApp {
-  background: rgba(245, 200, 86, 0.95);
-  color: rgba(25, 25, 25, 0.7490196078);
+.app-todo p span {
+  font-style: italic;
+  color: rgba(25, 25, 25, 0.5176470588);
+}
+.app-todo h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
+}
+.app-todo .todoApp {
+  background: rgba(244, 94, 94, 0.864);
+  color: #191919;
   font-weight: 500;
   margin-top: 3rem;
   /* max-width: 400px; */
@@ -631,31 +641,19 @@ h1 {
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
   padding-top: 1rem;
 }
-
-.todoApp h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.todoApp-tools {
-  height: 50px;
-}
-
-.todoApp-container {
+.app-todo .todoApp .todoApp-container {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
-
-.todoList {
+.app-todo .todoApp .todoApp-container .todoList {
   height: 400px;
   overflow-y: scroll;
   height: 300px;
   display: flex;
   flex-direction: column;
 }
-
-.todoList::-webkit-scrollbar {
+.app-todo .todoApp .todoApp-container .todoList::-webkit-scrollbar {
   display: none;
 }
 
@@ -665,12 +663,11 @@ h1 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: rgb(156, 218, 32);
+  background: rgba(245, 200, 86, 0.95);
   cursor: pointer;
   box-shadow: 2px 2px 1px #f9f9f9;
   padding: 0rem 1rem;
   margin: 0 1rem 0 1rem;
-  border-radius: 15px;
 }
 
 .todo + .todo {
@@ -864,7 +861,7 @@ h1 {
 }
 
 .scrum-app {
-  height: 100%;
+  height: 100% !important;
   width: 100%;
   padding: 3rem 1rem;
   display: flex;
@@ -885,21 +882,18 @@ h1 {
   justify-content: space-between;
 }
 .scrum-taskbar textarea {
+  outline: none;
+  resize: none;
   flex: 1;
   height: 50px;
   padding: 1rem 1rem;
-  font-size: 1.6rem;
   border: 1px groove goldenrod;
-  outline: none;
   font-family: transparent;
   background: transparent;
-  resize: none;
+  font-size: 2rem;
   overflow-y: scroll;
   white-space: pre-wrap;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-.scrum-taskbar textarea:active, .scrum-taskbar textarea:focus {
-  outline: none;
 }
 .scrum-taskbar textarea::-webkit-scrollbar {
   display: none;
@@ -924,6 +918,22 @@ h1 {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   cursor: pointer;
 }
+.scrum-taskbar select option[value=higher] {
+  background: red;
+}
+.scrum-taskbar select option[value=high] {
+  background: yellow;
+  color: #191919;
+}
+.scrum-taskbar select option[value=medium] {
+  background: #191919;
+}
+.scrum-taskbar select option[value=low] {
+  background: #1b6161;
+}
+.scrum-taskbar select option[value=lower] {
+  background: #c3cce1;
+}
 .scrum-taskbar button {
   border: none;
   outline: none;
@@ -946,8 +956,7 @@ h1 {
   gap: 1rem;
   width: 100%;
 }
-
-.scrum-col {
+.scrum-dashboard .scrum-col {
   height: 100%;
   width: 20%;
   display: flex;
@@ -955,12 +964,12 @@ h1 {
   align-items: center;
   justify-content: flex-start;
 }
-.scrum-col h3 {
+.scrum-dashboard .scrum-col h3 {
   text-align: center;
   padding: 1rem 0;
   width: 100%;
 }
-.scrum-col .scrum-list {
+.scrum-dashboard .scrum-col .scrum-list {
   width: 100%;
   margin-top: 1rem;
   display: flex;
@@ -969,83 +978,88 @@ h1 {
   justify-content: flex-start;
   background: rgba(0, 0, 0, 0.5);
 }
-.scrum-col .scrum-list .task {
+.scrum-dashboard .scrum-col .scrum-list .task {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   border: 1px groove goldenrod;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-.scrum-col .scrum-list .task .task-status {
+.scrum-dashboard .scrum-col .scrum-list .task .task-status {
   width: 10px;
   height: 30px;
 }
-.scrum-col .scrum-list .task .task-content {
+.scrum-dashboard .scrum-col .scrum-list .task .task-status.higher {
+  background: red;
+}
+.scrum-dashboard .scrum-col .scrum-list .task .task-status.high {
+  background: yellow;
+}
+.scrum-dashboard .scrum-col .scrum-list .task .task-status.medium {
+  background: #191919;
+}
+.scrum-dashboard .scrum-col .scrum-list .task .task-status.low {
+  background: #1b6161;
+}
+.scrum-dashboard .scrum-col .scrum-list .task .task-status.lower {
+  background: #c3cce1;
+}
+.scrum-dashboard .scrum-col .scrum-list .task .task-content {
   flex: 1;
   padding: 1rem;
   white-space: pre-wrap;
 }
-.scrum-col.odd h3 {
+.scrum-dashboard .scrum-col.odd h3 {
   border-bottom: 3px groove #191919;
 }
-.scrum-col.even h3 {
+.scrum-dashboard .scrum-col.even h3 {
   border-bottom: 3px groove #f9f9f9;
 }
-
-#backlog .task {
-  background: goldenrod;
-  color: #191919;
-}
-
-#inprogress .task {
-  background: #1b6161;
-  color: #f9f9f9;
-}
-
-#emergency .task {
-  background: #a22d22;
-  color: #f9f9f9;
-}
-
-#testing .task {
-  background: #c3cce1;
-  color: #191919;
-}
-
-#done .task {
-  background: #eae5e6;
-  color: #191919;
-}
-
-.task.higher {
+.scrum-dashboard .scrum-col .task.higher {
   order: 1 !important;
   -webkit-animation: fadeUp 0.5s;
           animation: fadeUp 0.5s;
 }
-
-.task.high {
+.scrum-dashboard .scrum-col .task.high {
   order: 2 !important;
   -webkit-animation: fadeUp 0.5s;
           animation: fadeUp 0.5s;
 }
-
-.task.medium {
+.scrum-dashboard .scrum-col .task.medium {
   order: 3 !important;
 }
-
-.task.low {
+.scrum-dashboard .scrum-col .task.low {
   order: 4 !important;
   -webkit-animation: fadeDown 0.5s;
           animation: fadeDown 0.5s;
 }
-
-.task.lower {
+.scrum-dashboard .scrum-col .task.lower {
   order: 5 !important;
   -webkit-animation: fadeDown 0.5s;
           animation: fadeDown 0.5s;
+}
+.scrum-dashboard #backlog .task {
+  background: goldenrod;
+  color: #191919;
+}
+.scrum-dashboard #inprogress .task {
+  background: #1b6161;
+  color: #f9f9f9;
+}
+.scrum-dashboard #emergency .task {
+  background: #a22d22;
+  color: #f9f9f9;
+}
+.scrum-dashboard #testing .task {
+  background: #c3cce1;
+  color: #191919;
+}
+.scrum-dashboard #done .task {
+  background: #eae5e6;
+  color: #191919;
 }
 
 @-webkit-keyframes fadeDown {
@@ -1092,44 +1106,4 @@ h1 {
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.4);
   }
-}
-.task-status.higher {
-  background: red;
-}
-
-.task-status.high {
-  background: yellow;
-}
-
-.task-status.medium {
-  background: #191919;
-}
-
-.task-status.low {
-  background: #1b6161;
-}
-
-.task-status.lower {
-  background: #c3cce1;
-}
-
-option[value=higher] {
-  background: red;
-}
-
-option[value=high] {
-  background: yellow;
-  color: #191919;
-}
-
-option[value=medium] {
-  background: #191919;
-}
-
-option[value=low] {
-  background: #1b6161;
-}
-
-option[value=lower] {
-  background: #c3cce1;
 }/*# sourceMappingURL=index.css.map */
