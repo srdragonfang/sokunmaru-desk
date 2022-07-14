@@ -1,3 +1,6 @@
+// TODO LIST
+// [o] Remove task from localStorage
+
 // TODO get element from DOM
 function getElement(selection) {
 	const element = document.querySelector(selection);
@@ -20,7 +23,9 @@ const removeDOM = getElement('#remove');
 const taskInput = getElement('#task-input');
 const taskSubmit = getElement('#task-submit');
 /* ------------------------------- task group option ------------------------------- */
-const taskGroupOptions = document.querySelectorAll('.taskGroup-option');
+const taskGroupOptions = document.getElementById('sokunmaru');
+let getTaskGroupValue = taskGroupOptions.value;
+console.log(getTaskGroupValue);
 
 // TODO get element from localStorage
 
@@ -50,17 +55,20 @@ function createNewTask() {
 	let taskValue = taskInput.value;
 	let id = generatorID();
 	let title = taskValue;
-	let statusGroup = getGroup();
-	let statusTask = getStatus();
-	/* ----------------------------- create new task ---------------------------- */
+	let statusGroup = getTaskGroup();
+    console.log("task statusGroup set", statusGroup);
+	// let statusGroup = 'Done';
+	let statusTask = getTaskStatus();
+
 	// TODO task - declare object (id, title, statusGroup, statusTask)
 	let task = { id, title, statusGroup, statusTask };
-	/* ----------------------- create task ---------------------- */
+	/* ----------------------- render tasks ---------------------- */
 	createTask(task);
-	/* ----------------------- set element to localStorage ---------------------- */
+	/* ----------------------- set task to localStorage ---------------------- */
 	addTaskToLocalStorage(task);
 }
 
+// TODO render tasks to html
 function createTask(task) {
 	/* ----------------------------- render to html ----------------------------- */
 	const taskEl = document.createElement('div');
@@ -76,18 +84,33 @@ function createTask(task) {
 
 	taskEl.addEventListener('dblclick', (e) => {
 		e.preventDefault();
-        if (confirm('Are you sure you want to delete this task into the database?')) {
-            // Save it!
-            console.log('Task was deleted to the database.');
-            backlogDOM.removeChild(taskEl);
-          } else {
-            // Do nothing!
-            console.log('Task was not deleted to the database.');
-          }
+		if (
+			confirm(
+				'Are you sure you want to delete this task into the database?'
+			)
+		) {
+			// Save it!
+			console.log('Task was deleted to the database.');
+			backlogDOM.removeChild(taskEl);
+			removeTaskFromLocalStorage(task.id);
+		} else {
+			// Do nothing!
+			console.log('Task was not deleted to the database.');
+		}
 	});
 	/* -------------------------------- edit task ------------------------------- */
 	/* ------------------------------- appendChil ------------------------------- */
-	backlogDOM.appendChild(taskEl);
+	if (task.statusGroup == 'Done') {
+		doneDOM.appendChild(taskEl);
+	} else if (task.statusGroup == 'Testing') {
+		testingDOM.appendChild(taskEl);
+	} else if (task.statusGroup == 'Emergency') {
+		emergencyDOM.appendChild(taskEl);
+	} else if (task.statusGroup == 'InProgress') {
+		inprogressDOM.appendChild(taskEl);
+	} else {
+		backlogDOM.appendChild(taskEl);
+	}
 }
 
 // TODO function - gereratorID
@@ -96,16 +119,15 @@ function generatorID() {
 }
 
 // TODO status task - function
-function getGroup() {
-	return taskGroupOptions[0].value;
-	// return "higher"
-	// if () {return "higher"}
-	// if () {return "high"}
-	// if () {return "medium"}
-	// if () {return "low"}
+function getTaskGroup() {
+	taskGroupOptions.addEventListener('change', (e) => {
+		getTaskGroupValue = e.target.value;
+        console.log("taskGroup Now", getTaskGroupValue);
+	});
+    return getTaskGroupValue;
 }
 // TODO status task - function
-function getStatus() {
+function getTaskStatus() {
 	return 'higher';
 	// if () {return "higher"}
 	// if () {return "high"}
@@ -113,22 +135,18 @@ function getStatus() {
 	// if () {return "low"}
 }
 
-// TODO delete task - function
-// TODO edit task - function
-// TODO drag task - function
-
 function getTasksFromLocalStorage() {
 	const items = JSON.parse(localStorage.getItem('appScrumDev'));
-
 	return items === null ? [] : items;
 }
-// TODO addTaskToLocalStorage
+// TODO add tasks to localStorage
 function addTaskToLocalStorage(item) {
 	// console.log(item);
 	let roses = getTasksFromLocalStorage();
 	localStorage.setItem('appScrumDev', JSON.stringify([...roses, item]));
 }
 
+// TODO render tasks from localStorage
 function updateTasks(taskLS) {
 	let id = taskLS.id;
 	let title = taskLS.title;
@@ -140,3 +158,11 @@ function updateTasks(taskLS) {
 	createTask(task);
 }
 
+// TODO remove task from localStorage
+function removeTaskFromLocalStorage(id) {
+	let tasks = getTasksFromLocalStorage().filter(function (task) {
+		return task.id !== id;
+	});
+	console.log('taskList after deleted', tasks);
+	localStorage.setItem('appScrumDev', JSON.stringify(tasks));
+}
