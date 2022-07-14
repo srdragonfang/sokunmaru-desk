@@ -22,16 +22,6 @@ const removeDOM = getElement('#remove');
 /* ------------------------------- task input ------------------------------- */
 const taskInput = getElement('#task-input');
 const taskSubmit = getElement('#task-submit');
-/* ------------------------------- task group option ------------------------------- */
-const taskGroupOptions = getElement('#task-statusGroup');
-let getTaskGroupValue = taskGroupOptions.value;
-console.log("first select", getTaskGroupValue);
-/* ------------------------------- task status option ------------------------------- */
-const taskStatusOptions = getElement('#task-statusTask');
-let getTaskStatusValue = taskStatusOptions.value;
-console.log("first select", getTaskStatusValue);
-
-
 
 // TODO edit - declare variable (editElement, editFlag)
 
@@ -136,8 +126,12 @@ function generatorID() {
 	return Math.floor(Math.random() * 100 + 1);
 }
 
-// TODO status task - function
+// TODO group task - function
 function getTaskGroup() {
+	/* ------------------------------- task group option ------------------------------- */
+	const taskGroupOptions = getElement('#task-statusGroup');
+	let getTaskGroupValue = taskGroupOptions.value;
+	console.log('first select', getTaskGroupValue);
 	taskGroupOptions.addEventListener('change', (e) => {
 		getTaskGroupValue = e.target.value;
 		console.log('taskGroup Now', getTaskGroupValue);
@@ -147,6 +141,10 @@ function getTaskGroup() {
 
 // TODO status task - function
 function getTaskStatus() {
+	/* ------------------------------- task status option ------------------------------- */
+	const taskStatusOptions = getElement('#task-statusTask');
+	let getTaskStatusValue = taskStatusOptions.value;
+	console.log('first select', getTaskStatusValue);
 	taskStatusOptions.addEventListener('change', (e) => {
 		getTaskStatusValue = e.target.value;
 		console.log('taskStatus Now', getTaskStatusValue);
