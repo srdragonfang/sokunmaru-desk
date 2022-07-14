@@ -84,6 +84,7 @@ function createTask(task) {
 
 	taskEl.addEventListener('dblclick', (e) => {
 		e.preventDefault();
+        console.log("click to remove task id:", task.id);
 		if (
 			confirm(
 				'Are you sure you want to delete this task into the database?'
@@ -91,7 +92,17 @@ function createTask(task) {
 		) {
 			// Save it!
 			console.log('Task was deleted to the database.');
-			backlogDOM.removeChild(taskEl);
+            if (task.statusGroup == 'Done') {
+                doneDOM.removeChild(taskEl);
+            } else if (task.statusGroup == 'Testing') {
+                testingDOM.removeChild(taskEl);
+            } else if (task.statusGroup == 'Emergency') {
+                emergencyDOM.removeChild(taskEl);
+            } else if (task.statusGroup == 'InProgress') {
+                inprogressDOM.removeChild(taskEl);
+            } else {
+                backlogDOM.removeChild(taskEl);
+            }
 			removeTaskFromLocalStorage(task.id);
 		} else {
 			// Do nothing!
