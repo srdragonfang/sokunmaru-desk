@@ -67,8 +67,6 @@ main {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  width: 100vw;
-  height: 100vh;
   scroll-snap-align: start;
 }
 
@@ -98,6 +96,12 @@ h1 {
   width: 100%;
   height: 100%;
   padding: 5rem 10rem;
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+  margin-bottom: 10rem;
 }
 
 .section-bg {
@@ -141,9 +145,7 @@ h1 {
 }
 
 .section-four {
-  height: -webkit-max-content !important;
-  height: -moz-max-content !important;
-  height: max-content !important;
+  height: unset !important;
 }
 
 .btn:hover {
@@ -864,11 +866,15 @@ h1 {
 .scrum-app {
   height: 100%;
   width: 100%;
-  padding: 1rem 1rem 3rem;
+  padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+}
+.scrum-app p span {
+  font-style: italic;
+  color: rgba(25, 25, 25, 0.5176470588);
 }
 
 .scrum-taskbar {
@@ -877,36 +883,66 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.scrum-taskbar textarea {
+  flex: 1;
+  height: 50px;
+  padding: 1rem 1rem;
+  font-size: 1.6rem;
+  border: 1px groove goldenrod;
+  outline: none;
+  font-family: transparent;
+  background: transparent;
+  resize: none;
+  overflow-y: scroll;
+  white-space: pre-wrap;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.scrum-taskbar input {
-  flex: 1;
-  padding: 1rem 2rem;
-  font-size: 1.6rem;
-  border: none;
+.scrum-taskbar textarea:active, .scrum-taskbar textarea:focus {
   outline: none;
-  background: transparent;
+}
+.scrum-taskbar textarea::-webkit-scrollbar {
+  display: none;
 }
 .scrum-taskbar select {
-  font-weight: 700;
+  /* Reset Select */
   border: none;
   outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  box-shadow: none;
+  /* Personalize */
+  width: 100px !important;
+  height: 50px !important;
+  padding: 1rem 0.5rem;
+  margin-left: 0.3rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  background-color: #2c3e50;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
 }
 .scrum-taskbar button {
   border: none;
   outline: none;
-  padding: 1rem 2rem;
+  width: 100px !important;
+  height: 50px !important;
+  padding: 1rem 0.5rem;
+  margin-left: 0.3rem;
   font-size: 1.6rem;
   font-weight: 700;
   background: #191919;
   color: #f9f9f9;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .scrum-dashboard {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 1rem;
   width: 100%;
 }
@@ -918,7 +954,6 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 10px;
 }
 .scrum-col h3 {
   text-align: center;
@@ -927,11 +962,12 @@ h1 {
 }
 .scrum-col .scrum-list {
   width: 100%;
-  padding-top: 1rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background: rgba(0, 0, 0, 0.5);
 }
 .scrum-col .scrum-list .task {
   width: 100%;
@@ -950,6 +986,7 @@ h1 {
 .scrum-col .scrum-list .task .task-content {
   flex: 1;
   padding: 1rem;
+  white-space: pre-wrap;
 }
 .scrum-col.odd h3 {
   border-bottom: 3px groove #191919;
@@ -1095,20 +1132,4 @@ option[value=low] {
 
 option[value=lower] {
   background: #c3cce1;
-}
-
-select {
-  /* Reset Select */
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  box-shadow: none;
-  /* Personalize */
-  padding: 1rem 0.5rem;
-  color: #fff;
-  background-color: #2c3e50;
-  background-image: none;
-  cursor: pointer;
-  margin-right: 0.3rem;
-  text-align: center;
 }/*# sourceMappingURL=index.css.map */

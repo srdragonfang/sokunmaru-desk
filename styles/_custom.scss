@@ -12,6 +12,11 @@
   
 }
 
+.section {
+    width: 100vw;
+	height: 100vh;
+    margin-bottom: 10rem;
+}
 .section-bg {
   width: 90%;
   height: 90%;
@@ -60,7 +65,8 @@
 
 
 .section-four {
-    height: max-content !important;
+    height: unset !important;
+    // padding: 3rem 0;
 }
 
 .btn {

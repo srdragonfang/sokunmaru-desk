@@ -139,12 +139,10 @@
 						</div>
 						<div class="date" id="dd"></div>
 					</div>
-					<!-- * notification -->
-					<!-- * quotes -->
 				</div>
 			</main>
+
 			<main class="section section-two">
-				<!-- <div class="section-bg"> -->
 				<!-- * todoApp -->
 				<div class="app-todo">
 					<h1 class="sumTo">TodoList</h1>
@@ -163,33 +161,12 @@
 						</form>
 					</div>
 				</div>
-				<!-- </div> -->
+
 			</main>
 
 			<main class="section section-three">
 				<div class="main-left">
 					<div class="notes-list">
-						<!-- <h1>Note List</h1> -->
-						<!-- <div class="note">
-              <div class="note-bar">
-                <i class="fa-solid fa-thumbtack btn-pin"></i>
-                <h3 class="note-title">Call Girl</h3>
-                <i class="fa-solid fa-marker btn-edit"></i>
-                <i class="fa-solid fa-expand btn-fullscr"></i>
-                <i class="fa-solid fa-xmark btn-del"></i>
-              </div>
-              <p class="note-text">
-                One thing that comes up often is how they relate to scrollbars.
-                For example, if an element is sized to 100vw and stretches
-                edge-to-edge, that’s fine so long as the page doesn’t have a
-                vertical scrollbar. If it does have a vertical scrollbar, then
-                100vw is too wide, and the presence of that vertical scrollbar
-                triggers a horizontal scrollbar because viewport units don’t
-                have an elegant/optional way of handling that. So you might be
-                hiding overflow on the body when you otherwise wouldn’t need to,
-                for
-              </p>
-            </div> -->
 					</div>
 				</div>
 				<div class="main-right">
@@ -232,25 +209,34 @@
 					</div>
 				</div>
 			</main>
+
 			<!-- ANCHOR scrum app -->
-			<main class="section section-two">
+			<main class="section section-four">
 				<div class="scrum-app">
 					<h1>Kanban Board</h1>
 					<div class="scrum-taskbar">
-						<input
+						<textarea
 							id="task-input"
-							type="text"
 							name=""
 							placeholder="add task here..."
-						/>
+							cols="20"
+							min-rows="1"
+							oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+							required
+						></textarea>
 						<select id="task-statusTask">
-                            <option value="higher">Higher</option>
-                            <option value="high">High</option>
-                            <option value="medium" selected="selected">Medium</option>
-                            <option value="low">Low</option>
-                            <option value="lower">Lower</option>						</select>
+							<option value="higher">Higher</option>
+							<option value="high">High</option>
+							<option value="medium" selected="selected">
+								Medium
+							</option>
+							<option value="low">Low</option>
+							<option value="lower">Lower</option>
+						</select>
 						<select id="task-statusGroup">
-							<option value="Backlog" selected="selected">Backlog</option>
+							<option value="Backlog" selected="selected">
+								Backlog
+							</option>
 							<option value="InProgress">In Progress</option>
 							<option value="Emergency">Emergency</option>
 							<option value="Testing">Testing</option>
@@ -258,29 +244,64 @@
 						</select>
 						<button type="submit" id="task-submit">Submit</button>
 					</div>
+					<p>
+						<span>
+							<strong>Double Click</strong> to edit task -
+						</span>
+						<span>
+							<strong>Right Click</strong> to delete task
+						</span>
+					</p>
 					<div class="scrum-dashboard">
 						<div class="scrum-col odd">
 							<h3>Backlog</h3>
-							<div class="scrum-list" id="backlog">
-
-							</div>
+							<div
+								class="scrum-list"
+								id="backlog"
+								ondrop="drop(event)"
+								ondragover="allowDrop(event)"
+								ondragenter="dragEnter(0)"
+							></div>
 						</div>
 						<div class="scrum-col even">
 							<h3>In Progress</h3>
-							<div class="scrum-list" id="inprogress">
-							</div>
+							<div
+								class="scrum-list"
+								id="inprogress"
+								ondrop="drop(event)"
+								ondragover="allowDrop(event)"
+								ondragenter="dragEnter(1)"
+							></div>
 						</div>
 						<div class="scrum-col odd">
 							<h3>Emergency</h3>
-							<div class="scrum-list" id="emergency"></div>
+							<div
+								class="scrum-list"
+								id="emergency"
+								ondrop="drop(event)"
+								ondragover="allowDrop(event)"
+								ondragenter="dragEnter(2)"
+							></div>
 						</div>
 						<div class="scrum-col even">
 							<h3>Testing</h3>
-							<div class="scrum-list" id="testing"></div>
+							<div
+								class="scrum-list"
+								id="testing"
+								ondrop="drop(event)"
+								ondragover="allowDrop(event)"
+								ondragenter="dragEnter(3)"
+							></div>
 						</div>
 						<div class="scrum-col odd">
 							<h3>Done</h3>
-							<div class="scrum-list" id="done"></div>
+							<div
+								class="scrum-list"
+								id="done"
+								ondrop="drop(event)"
+								ondragover="allowDrop(event)"
+								ondragenter="dragEnter(4)"
+							></div>
 						</div>
 						<div class="scrum-col even hide">
 							<h3>Remove</h3>

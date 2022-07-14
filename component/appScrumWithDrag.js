@@ -1,5 +1,4 @@
-// TODO LIST
-// [o] Remove task from localStorage
+// ! Drag function not working
 
 // TODO get element from DOM
 function getElement(selection) {
@@ -22,6 +21,15 @@ const removeDOM = getElement('#remove');
 /* ------------------------------- task input ------------------------------- */
 const taskInput = getElement('#task-input');
 const taskSubmit = getElement('#task-submit');
+
+const listColumns = document.querySelectorAll('.scrum-list')
+
+// Drag Functionality
+let draggedItem;
+let dragging = false;
+let currentColumn;
+
+
 
 // TODO edit - declare variable (editElement, editFlag)
 
@@ -73,8 +81,10 @@ function createTask(task) {
 	taskEl.setAttribute('data-id', task.id);
 	taskEl.setAttribute('data-statusgroup', task.statusGroup);
 
-	// taskEl.draggable = 'true';
-	taskEl.contentEditable = false;
+    taskEl.draggable = 'true';
+    taskEl.setAttribute('onfocusout', `updateItem(${task.statusGroup})`);
+    taskEl.setAttribute('ondragstart', 'drag(event)');
+
 
 	taskEl.innerHTML = `
                    <div class="task-status ${task.statusTask}"></div>
@@ -83,7 +93,7 @@ function createTask(task) {
 	/* -------------------------------- drag task ------------------------------- */
 	/* ------------------------------- delete task ------------------------------ */
 
-	taskEl.addEventListener('contextmenu', (e) => {
+	taskEl.addEventListener('dblclick', (e) => {
 		e.preventDefault();
 		console.log('click to remove task id:', task.id);
 		if (
@@ -111,23 +121,18 @@ function createTask(task) {
 		}
 	});
 	/* -------------------------------- edit task ------------------------------- */
-	taskEl.addEventListener('dblclick', () => {
-		taskSubmit.value = 'Save Note';
-        console.log("id task edit before:", task.id)
-		editTask(taskEl, task.id);
-	});
 	/* ------------------------------- appendChil ------------------------------- */
-	if (task.statusGroup == 'Done') {
-		doneDOM.appendChild(taskEl);
-	} else if (task.statusGroup == 'Testing') {
-		testingDOM.appendChild(taskEl);
-	} else if (task.statusGroup == 'Emergency') {
-		emergencyDOM.appendChild(taskEl);
-	} else if (task.statusGroup == 'InProgress') {
-		inprogressDOM.appendChild(taskEl);
-	} else {
-		backlogDOM.appendChild(taskEl);
-	}
+	// if (task.statusGroup == 'Done') {
+	// 	doneDOM.appendChild(taskEl);
+	// } else if (task.statusGroup == 'Testing') {
+	// 	testingDOM.appendChild(taskEl);
+	// } else if (task.statusGroup == 'Emergency') {
+	// 	emergencyDOM.appendChild(taskEl);
+	// } else if (task.statusGroup == 'InProgress') {
+	// 	inprogressDOM.appendChild(taskEl);
+	// } else {
+    // }
+    backlogDOM.appendChild(taskEl);
 }
 
 // TODO function - gereratorID
@@ -193,12 +198,50 @@ function removeTaskFromLocalStorage(id) {
 	localStorage.setItem('appScrumDev', JSON.stringify(tasks));
 }
 
-// TODO - edit note
-function editTask(task, id) {
-    console.log(id)
-    // console.log(taskEl.children[1])
-	taskInput.value = task.children[1].textContent.trim();
-    task.remove()
-    removeTaskFromLocalStorage(id)
-	task.children[1].textContent = taskInput.value;
-}
+// When Item Enters Column Area
+function dragEnter(column) {
+    listColumns[column].classList.add('over');
+    currentColumn = column;
+  }
+  
+  // When Item Starts Dragging
+  function drag(e) {
+    draggedItem = e.target;
+    dragging = true;
+  }
+  
+  // Column Allows for Item to Drop
+  function allowDrop(e) {
+    e.preventDefault();
+  }
+  
+  // Dropping Item in Column
+  function drop(e) {
+    e.preventDefault();
+    console.log(draggedItem)
+    const parent = listColumns[currentColumn];
+    // console.log(parent)
+    // Remove Background Color/Padding
+    listColumns.forEach((column) => {
+      column.classList.remove('over');
+    });
+    // Add item to Column
+    // parent.appendChild(draggedItem);
+    // Dragging complete
+    dragging = false;
+    // rebuildArrays();
+  }
+
+  // Update Item - Delete if necessary, or update Array value
+function updateItem(id, column) {
+    const selectedArray = listArrays[column];
+    const selectedColumn = listColumns[column].children;
+    if (!dragging) {
+      if (!selectedColumn[id].textContent) {
+        delete selectedArray[id];
+      } else {
+        selectedArray[id] = selectedColumn[id].textContent;
+      }
+      updateDOM();
+    }
+  }
