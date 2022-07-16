@@ -24,7 +24,7 @@ const progressDuration = $(".progress__duration");
 
 
 const dashboard = $('.dashboard')
-const btnPlaylist = $('.btn-playlist .fa-bars')
+const btnPlaylist = $('.btn-playlist .fa-sliders')
 const btnPlaylistClose = $('.btn-playlist .fa-xmark')
 
 const app = {

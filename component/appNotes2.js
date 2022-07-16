@@ -7,6 +7,7 @@ const noteAlertDOM = document.querySelector(".note-alert");
 const noteAddBtn = document.querySelector(".btn-noteAdd");
 const noteApp = document.querySelector("#noteApp");
 const notePinBtn = document.querySelector("#note-pin");
+const noteFullScr = document.querySelector("#btn-fullscr");
 // edit options
 let editTitleNote;
 let editTextNote;
@@ -25,7 +26,7 @@ function noteCreate() {
     console.log("edit status conditional 1", !!editID);
     console.log("edit status conditional 2 ", editID != "" && !!editFlag);
     if (!editFlag) {
-      if (noteTitleInput.value === "" && noteTextInput.value === "") {
+      if (noteTitleInput.value === "" || noteTextInput.value === "") {
         noteAlertDOM.innerHTML = "Please fill in the blanks";
       } else if (noteTitleInput.value !== "" && noteTextInput.value !== "") {
         noteRender();
@@ -54,10 +55,8 @@ function noteRender() {
 
   note.innerHTML = `
           <div class="note-bar">
-              <i class="fa-solid fa-thumbtack btn-pin"></i>
               <h3 class="note-title">${noteTitleValue}</h3>
-              <i class="fa-solid fa-marker btn-edit"></i>
-              <i class="fa-solid fa-expand btn-fullscr"></i>
+              <i class="fa-solid fa-pencil btn-edit"></i>
               <i class="fa-solid fa-xmark btn-del"></i>
           </div>
               <p class="note-text">${noteTextValue}</p>
@@ -164,10 +163,8 @@ function noteRender2(id, title, text) {
 
   note.innerHTML = `
           <div class="note-bar">
-              <i class="fa-solid fa-thumbtack btn-pin"></i>
               <h3 class="note-title">${noteTitleValue}</h3>
-              <i class="fa-solid fa-marker btn-edit"></i>
-              <i class="fa-solid fa-expand btn-fullscr"></i>
+              <i class="fa-solid fa-pencil btn-edit"></i>
               <i class="fa-solid fa-xmark btn-del"></i>
           </div>
               <p class="note-text">${noteTextValue}</p>
@@ -217,5 +214,9 @@ function editFromLocalStorage(id, title, text) {
 }
 
 notePinBtn.addEventListener("click", () => {
-    noteApp.classList.toggle('pinNote')
+    noteApp.classList.toggle('pinNote') 
+    noteApp.classList.toggle('note-smallSrc')
+})
+noteFullScr.addEventListener("click", () => {
+    noteApp.classList.toggle('note-fullscreen')
 })

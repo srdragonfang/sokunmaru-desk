@@ -33,7 +33,8 @@
 							<p>The Lullaby Of Soul</p>
 							<div class="player__top">
 								<div class="btn-playlist">
-									<i class="fa-solid fa-bars"></i>
+                                    <i class="fa-solid fa-sliders"></i>
+									<!-- <i class="fa-solid fa-bars"></i> -->
 									<i class="fa-solid fa-xmark"></i>
 								</div>
 								<div class="player-cover">
@@ -166,17 +167,11 @@
 			</section>
 
 			<section class="section section-three">
-				<div class="main-left">
-					<div class="notes-list"></div>
-				</div>
-				<div class="main-right">
-					<!-- *  noteApp -->
-					<h1>Note</h1>
-					<!-- * input note -->
+				<div class="noteApp-container">
+					<h1>Notes</h1>
 					<div class="notes" id="noteApp">
 						<div class="note create-note">
 							<div class="note-bar flex-row">
-								<i class="fa-solid fa-thumbtack" id="note-pin"></i>
 								<input
 									class="input-title"
 									type="text"
@@ -186,7 +181,15 @@
 									maxlength="50"
 									required
 								/>
+								<i
+									class="fa-solid fa-thumbtack"
+									id="note-pin"
+								></i>
+								<i
+									class="fa-solid fa-square-plus btn-noteAdd"
+								></i>
 							</div>
+                            <p class="note-alert"></p>
 							<textarea
 								class="note-text input-text"
 								cols="20"
@@ -196,16 +199,9 @@
 							></textarea>
 						</div>
 						<h4 class="note-alert"></h4>
-						<input
-							class="btn btn-func btn-noteAdd"
-							type="button"
-							value="Add Note"
-						/>
-						<!-- <input
-              class="btn btn-func btn-noteClear"
-              type="button"
-              value="Clear Notes"
-            /> -->
+					</div>
+					<div class="notes-list">
+						<!-- * input note -->
 					</div>
 				</div>
 			</section>

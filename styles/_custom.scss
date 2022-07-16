@@ -13,29 +13,27 @@ html {
 body {
 	font-size: 2rem;
 	font-family: 'Times New Roman', Times, serif;
-    background-image: url('/assets/images/paper_fibers.png');
-
+	background-image: url('/assets/images/paper_fibers.png');
 }
 body::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 .section-wrapper {
-    height: 100vh;
-    // width: 100vw;
-    overflow: hidden;
+	height: 100vh;
+	// width: 100vw;
+	overflow: hidden;
 	@include flexbox(row, flex-start);
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch; 
-    overflow-y: auto;
-    overflow-x: hidden;
-    
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always; // mặc định là normal
-    min-width: 100vw !important;
+	scroll-snap-align: start;
+	scroll-snap-stop: always; // mặc định là normal
+	min-width: 100vw !important;
 }
 
 h1 {
@@ -51,8 +49,6 @@ h1 {
 	width: 100%;
 	text-align: center;
 }
-
-
 
 // .section {
 // 	min-height: max-content !important;
@@ -80,47 +76,57 @@ h1 {
 	margin: 0;
 }
 
-
 .section {
 	width: 100vw;
 	height: 100vh;
 	// margin-bottom: 10rem;
-    // @include flexbox(row, center);
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+	// @include flexbox(row, center);
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
 }
 // section-one
 .section-one {
 	width: 100%;
 	height: 100%;
 	padding: 10rem;
-    // background: brown;
-    @include flexbox(row, space-around);
+	// background: brown;
+	@include flexbox(row, space-around);
 }
 
 .section-one .main-left {
 	width: 65%;
-    height: 100%;
-    @include flexbox(column, center);
+	height: 100%;
+	@include flexbox(column, center);
 }
 .section-one .main-right {
-    @include flexbox(column, center);
+	@include flexbox(column, center);
 	width: 35%;
-    height: 100%;
-    z-index: 1001;
+	height: 100%;
+	z-index: 1001;
 }
 
 .section-two {
-    @include flexbox(row, center);
+	@include flexbox(row, center);
+}
+.section-three {
+    position: relative;
+    overflow: hidden;
+	@include flexbox(column, flex-start);
+    padding: 3rem 1rem 1rem;
+    // background: brown;
+    // background-image: url('/assets/images/bg-5.JPG');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .section-four {
-    @include flexbox(column, flex-start);
+	@include flexbox(column, flex-start);
 }
 .section-two,
 .section-three,
 .section-four {
-    width: 100%;
+	width: 100%;
 	height: 100%;
 }
 .section-three .main-left {
@@ -128,12 +134,6 @@ h1 {
 	width: 80%;
 	height: 100%;
 	border: 2px groove goldenrod;
-}
-.section-three .main-right {
-	@include flexbox(column, flex-start);
-	width: 30%;
-	height: 100%;
-	padding: 1rem;
 }
 
 .section-four {

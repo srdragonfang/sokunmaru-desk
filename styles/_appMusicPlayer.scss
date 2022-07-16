@@ -11,7 +11,7 @@
 	box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
 	padding: 5rem;
 	position: relative;
-
+    // border: 3px groove #191919;
 	&:hover .dashboard {
 		animation: dashboard-hover 1s;
 		z-index: 1;
@@ -235,16 +235,17 @@
 .btn-playlist {
 	position: absolute;
 	right: -40px;
-	top: -5px;
+	bottom: -220px;
     padding: 1rem;
-	border-radius: 0 0 50% 50%;
-	z-index: 1001;
-	background-color: lightblue;
+    & i {
+        color: #191919;
+    }
 	& .fa-xmark {
 		display: none;
 	}
 }
-.show-playlist {
+
+    .show-playlist {
 	right: 120px;
 	animation: dashboard-show 1.5s;
 	z-index: 1;
