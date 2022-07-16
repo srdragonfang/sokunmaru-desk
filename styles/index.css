@@ -1,40 +1,3 @@
-.allmain {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.section {
-  min-height: -webkit-max-content !important;
-  min-height: -moz-max-content !important;
-  min-height: max-content !important;
-}
-
-.flex-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.btn {
-  outline: none;
-  border: none;
-}
-
-.btn-cycle {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0.5rem;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -49,25 +12,29 @@ html {
 body {
   font-size: 2rem;
   font-family: "Times New Roman", Times, serif;
+  background-image: url("/assets/images/paper_fibers.png");
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
 
-.allmain {
-  -ms-scroll-snap-type: mandatory;
-      scroll-snap-type: mandatory;
-  -ms-scroll-snap-points-y: repeat(100vh);
-      scroll-snap-points-y: repeat(100vh);
-}
-
-main {
+.section-wrapper {
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+section {
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-width: 100vw !important;
 }
 
 h1 {
@@ -84,53 +51,101 @@ h1 {
   text-align: center;
 }
 
-.main-secondary {
-  margin: 0;
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: none;
 }
 
-.main-container {
+.flex-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  height: 100%;
-  padding: 5rem 10rem;
+  justify-content: none;
+}
+
+.btn {
+  outline: none;
+  border: none;
+}
+
+.btn-cycle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0.5rem;
+}
+
+.main-secondary {
+  margin: 0;
 }
 
 .section {
   width: 100vw;
   height: 100vh;
-  margin-bottom: 10rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
-.section-bg {
-  width: 90%;
-  height: 90%;
-  margin: 1rem 1rem;
-  border: 4px solid transparent;
-  box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05), inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3), inset 0 15px 15px rgba(0, 0, 0, 0.3);
+.section-one {
+  width: 100%;
+  height: 100%;
+  padding: 10rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .section-one .main-left {
-  width: 60%;
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .section-one .main-right {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+  z-index: 1001;
+}
+
+.section-two {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-four {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
-  width: 40%;
+}
+
+.section-two,
+.section-three,
+.section-four {
+  width: 100%;
+  height: 100%;
 }
 
 .section-three .main-left {
-  width: 80%;
-  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  width: 80%;
+  height: 100%;
   border: 2px groove goldenrod;
 }
 
@@ -172,115 +187,80 @@ h1 {
   display: flex;
 }
 
-/* Style the tab buttons */
-.tablink,
-.tablink-2 {
-  background-color: #555;
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  width: 25%;
-}
-
-/* Change background color of buttons on hover */
-.tablink:hover,
-.tablink-2:hover {
-  background-color: #777;
-}
-
-/* Set default styles for tab content */
-.tabcontent {
-  height: 37vh;
-}
-
-.tabcontent-2 {
-  height: 100vh;
-}
-
-.tabcontent,
-.tabcontent-2 {
-  color: white;
-  display: none;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 3rem !important;
-}
-
-/* Style each tab content individually */
-#London {
-  background-color: rgb(2, 45, 88);
-}
-
-#Paris {
-  background-color: green;
-}
-
-#Tokyo {
-  background-color: blue;
-}
-
-#Oslo {
-  background-color: orange;
-}
-
-#Home {
-  background-color: #022d58;
-}
-
-#News {
-  background-color: green;
-}
-
-#Contact {
-  background-color: blue;
-}
-
-#About {
-  background-color: orange;
-}
-
 .app-musicPlayer {
-  /* width: 100%; */
   display: flex;
+  flex-direction: none;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   position: relative;
 }
 
 .player {
   background-color: lightblue;
+  width: 410px !important;
+  height: 580px;
+  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+  padding: 5rem;
+  position: relative;
+}
+.player:hover .dashboard {
+  -webkit-animation: dashboard-hover 1s;
+          animation: dashboard-hover 1s;
+  z-index: 1;
+}
+.player p {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: -70px;
+  top: calc(50% - 20px);
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: "Great Vibes", cursive;
+  letter-spacing: 0.25rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+  text-shadow: 2px 2px 5px #eda73d;
+  color: #c59d5f;
+}
+
+.player:after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  z-index: -1;
+  background-color: lightblue;
   width: 410px;
   height: 580px;
   box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
-  padding: 30px;
 }
 
 .player-bar {
+  display: flex;
+  flex-direction: none;
+  align-items: center;
+  justify-content: none;
   background: #191919;
   border-radius: 15px 0 0 15px;
   width: 100px;
-  height: 30px;
+  height: 10px;
+  border-top: 1px solid goldenrod;
+  border-left: 1px solid goldenrod;
+  border-bottom: 1px solid goldenrod;
   box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
-  position: relative;
-  left: 40%;
-  top: -180px;
-  z-index: 1001;
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem;
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .buttons {
-  width: 50%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 50%;
 }
 
 .buttons + .buttons {
@@ -289,13 +269,14 @@ h1 {
 }
 
 .audio-controll-button {
+  display: flex;
+  flex-direction: none;
+  align-items: center;
+  justify-content: center;
   width: 30px;
   height: 30px;
   outline: none;
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 2.5rem;
   background: transparent;
 }
@@ -309,8 +290,8 @@ h1 {
   -moz-appearance: none;
        appearance: none;
   width: 100%; /* Full-width */
-  height: 5px;
-  background-color: lightblue;
+  height: 100%;
+  background-color: transparent;
   outline: none; /* Remove outline */
   opacity: 0.7;
   border-radius: 25px;
@@ -407,7 +388,7 @@ h1 {
 
 .progress {
   width: 100%;
-  margin-top: 1rem;
+  padding: 3rem 2rem;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -421,44 +402,38 @@ h1 {
 }
 
 .album-info {
-  color: #71829e;
   flex: 1;
-  padding-right: 60px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   text-shadow: 0 2px #f9f9f9;
 }
 
 .album-info__name {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 12px;
   line-height: 1.3em;
+  white-space: nowrap;
 }
 
 .album-info__track {
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 2rem;
   opacity: 0.7;
   line-height: 1.3em;
-  min-height: 52px;
 }
 
 .dashboard {
   position: relative;
-  right: 120px;
+  right: 300px;
   width: 350px;
   height: 480px;
   text-decoration: none;
-  background: rgba(179, 142, 184, 0.797);
   box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);
-  color: rgb(251, 226, 255);
+  color: goldenrod;
   font-weight: bold;
   letter-spacing: 1px;
   transition: all 0.3s ease-in-out;
   overflow-y: scroll;
+  z-index: -1;
+  border: 3px groove goldenrod;
 }
 .dashboard::-webkit-scrollbar {
   background: rgba(25, 25, 25, 0.4588235294);
@@ -468,8 +443,114 @@ h1 {
   background-color: #191919;
 }
 
+.btn-playlist {
+  position: absolute;
+  right: -40px;
+  top: -5px;
+  padding: 1rem;
+  border-radius: 0 0 50% 50%;
+  z-index: 1001;
+  background-color: lightblue;
+}
+.btn-playlist .fa-xmark {
+  display: none;
+}
+
+.show-playlist {
+  right: 120px;
+  -webkit-animation: dashboard-show 1.5s;
+          animation: dashboard-show 1.5s;
+  z-index: 1;
+}
+
+.hide-playlist {
+  right: 300px;
+  -webkit-animation: dashboard-hide 1.5s;
+          animation: dashboard-hide 1.5s;
+  z-index: -1;
+}
+
+@-webkit-keyframes dashboard-show {
+  0% {
+    right: 300px;
+    z-index: -1;
+  }
+  50% {
+    right: 0;
+    z-index: -1;
+  }
+  75% {
+    right: -15px;
+    z-index: -1;
+  }
+  100% {
+    right: 120px;
+    z-index: 1;
+  }
+}
+
+@keyframes dashboard-show {
+  0% {
+    right: 300px;
+    z-index: -1;
+  }
+  50% {
+    right: 0;
+    z-index: -1;
+  }
+  75% {
+    right: -15px;
+    z-index: -1;
+  }
+  100% {
+    right: 120px;
+    z-index: 1;
+  }
+}
+@-webkit-keyframes dashboard-hide {
+  0% {
+    right: 120px;
+    z-index: 1;
+  }
+  50% {
+    right: -15px;
+    z-index: -1;
+  }
+  75% {
+    right: 0px;
+    z-index: -1;
+  }
+  100% {
+    right: 300px;
+    z-index: -1;
+  }
+}
+@keyframes dashboard-hide {
+  0% {
+    right: 120px;
+    z-index: 1;
+  }
+  50% {
+    right: -15px;
+    z-index: -1;
+  }
+  75% {
+    right: 0px;
+    z-index: -1;
+  }
+  100% {
+    right: 300px;
+    z-index: -1;
+  }
+}
+.dashboard::-webkit-scrollbar {
+  display: none;
+}
+
 .playlist {
-  margin: 3rem 0 3rem 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/bg-3.jpg");
 }
 
 .track {
@@ -482,10 +563,6 @@ h1 {
 
 .track:hover {
   background: rgba(206, 168, 211, 0.413);
-}
-
-.track.active {
-  background: rgba(158, 114, 164, 0.547);
 }
 
 .track.active .track-item {
@@ -518,12 +595,12 @@ h1 {
 }
 @media screen and (max-width: 768px) {
   .player {
-    width: 100%;
-    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    padding: 30px;
   }
   .progress {
     display: flex;
@@ -555,6 +632,8 @@ h1 {
 .clock {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: none;
   font-size: 7rem;
   background-color: inherit;
   width: 280px;
@@ -569,11 +648,11 @@ h1 {
 }
 
 .weather-info-top {
-  min-height: 70px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  min-height: 70px;
   padding: 0.5rem 1rem;
 }
 .weather-info-city {
@@ -582,8 +661,8 @@ h1 {
 .weather-info-detail {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
 }
 .weather-info-status {
   display: flex;
@@ -626,43 +705,50 @@ h1 {
 .app-todo h1 {
   text-align: center;
   margin-bottom: 1rem;
+}
+.app-todo h1 span {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif !important;
 }
 .app-todo .todoApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: none;
   background: rgba(244, 94, 94, 0.864);
   color: #191919;
   font-weight: 500;
   margin-top: 3rem;
-  /* max-width: 400px; */
   border-radius: 5px;
   width: 400px;
-  display: flex;
-  flex-direction: column;
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
   padding-top: 1rem;
 }
 .app-todo .todoApp .todoApp-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: none;
   flex: 1;
 }
 .app-todo .todoApp .todoApp-container .todoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: none;
   height: 400px;
   overflow-y: scroll;
   height: 300px;
-  display: flex;
-  flex-direction: column;
 }
 .app-todo .todoApp .todoApp-container .todoList::-webkit-scrollbar {
   display: none;
 }
 
 .todo {
-  text-align: left;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  text-align: left;
   background: rgba(245, 200, 86, 0.95);
   cursor: pointer;
   box-shadow: 2px 2px 1px #f9f9f9;
@@ -700,12 +786,12 @@ h1 {
   border: none;
   outline: none;
   background: rgba(213, 213, 219, 0.1);
-  /* color: var(--clr-light); */
   padding: 1rem;
   border-top: 0.1px solid rgb(241, 213, 213);
   font-size: 16px;
   letter-spacing: 0.075rem;
   margin-top: 1rem;
+  width: 100%;
 }
 
 .done {
@@ -793,31 +879,35 @@ h1 {
 }
 
 .note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: none;
   background: rgba(245, 200, 86, 0.95);
   color: rgba(25, 25, 25, 0.7490196078);
   font-weight: 500;
   border-radius: 5px;
   width: 300px;
-  display: flex;
-  flex-direction: column;
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
 }
 .note-bar {
-  background: rgba(244, 94, 94, 0.864);
-  height: 50px;
-  padding: 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background: rgba(244, 94, 94, 0.864);
+  height: 50px;
+  padding: 1rem;
+  width: 100%;
 }
 .note-bar h3 {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-size: 1.6rem;
 }
 .note input {
   background: transparent;
@@ -832,6 +922,7 @@ h1 {
   width: 60%;
 }
 .note-text {
+  width: 100%;
   font-family: transparent;
   background: transparent;
   min-height: -webkit-max-content !important;
@@ -844,6 +935,7 @@ h1 {
   outline: none;
   overflow-y: scroll;
   white-space: pre-wrap;
+  text-align: left !important;
 }
 .note-text:active, .note-text:focus {
   border: none;
@@ -861,13 +953,13 @@ h1 {
 }
 
 .scrum-app {
-  height: 100% !important;
-  width: 100%;
-  padding: 3rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  height: 100% !important;
+  width: 100%;
+  padding: 3rem 1rem;
 }
 .scrum-app p span {
   font-style: italic;
@@ -875,11 +967,12 @@ h1 {
 }
 
 .scrum-taskbar {
-  margin-bottom: 3rem;
-  width: 60%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 3rem;
+  width: 60%;
 }
 .scrum-taskbar textarea {
   outline: none;
@@ -957,12 +1050,12 @@ h1 {
   width: 100%;
 }
 .scrum-dashboard .scrum-col {
-  height: 100%;
-  width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  height: 100%;
+  width: 20%;
 }
 .scrum-dashboard .scrum-col h3 {
   text-align: center;
@@ -970,20 +1063,20 @@ h1 {
   width: 100%;
 }
 .scrum-dashboard .scrum-col .scrum-list {
-  width: 100%;
-  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
+  margin-top: 1rem;
   background: rgba(0, 0, 0, 0.5);
 }
 .scrum-dashboard .scrum-col .scrum-list .task {
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
   margin-bottom: 0.5rem;
   border: 1px groove goldenrod;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

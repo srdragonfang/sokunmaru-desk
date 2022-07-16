@@ -1,11 +1,8 @@
 .scrum-app {
+    @include flexbox(column, flex-start);
 	height: 100% !important;
 	width: 100%;
 	padding: 3rem 1rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
 	& p span {
 		font-style: italic;
 		color: #19191984;
@@ -13,12 +10,9 @@
 }
 
 .scrum-taskbar {
+    @include flexbox(row, space-between);
 	margin-bottom: 3rem;
 	width: 60%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-
 	& textarea {
         // reset
         outline: none;
@@ -98,31 +92,23 @@
 	gap: 1rem;
 	width: 100%;
     & .scrum-col {
+        @include flexbox(column, flex-start);
         height: 100%;
         width: calc(100% / 5);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
+
         & h3 {
             text-align: center;
             padding: 1rem 0;
             width: 100%;
         }
         & .scrum-list {
+            @include flexbox(column, flex-start);
             width: 100%;
             margin-top: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
             background: rgba(0, 0, 0, 0.5);
             & .task {
+                @include flexbox(row, flex-start);
                 width: 100%;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: flex-start;
                 margin-bottom: 0.5rem;
                 border: 1px groove goldenrod;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

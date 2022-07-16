@@ -61,9 +61,9 @@ function createTodo(todoItem) {
 function countTodo() {
   let sum = todoList.children.length;
   if (sum == 0) {
-    sumTodo.innerHTML = "TodoList"
+    sumTodo.innerHTML = ""
   }
-  sumTodo.innerHTML = "TodoList" + " [" + sum + "]";
+  sumTodo.innerHTML ="[" + sum + "]"
 }
 
 

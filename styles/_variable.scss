@@ -1,0 +1,21 @@
+$clr-dark: #191919;
+$clr-light: #fff;
+$clr-golden: #daa520;
+
+$font-size-text: 20px;
+$font-size-h1: 2.5rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.5rem;
+@media screen and (max-width: 768px) {
+  $font-size-text: 16px;
+  $font-size-h1: 1rem;
+  $font-size-h2: 0.7rem;
+  $font-size-h3: 0.5rem;
+}
+
+$padding-base: 1rem 3rem;
+$margin-base: 1rem 3rem;
+@media screen and (max-width: 768px) {
+  $padding-base: 0.5rem 1rem;
+  $margin-base: 0.5rem 1rem;
+}

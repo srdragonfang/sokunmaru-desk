@@ -1,9 +1,5 @@
 .notes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-
+  @include flexbox(column, flex-start);
   &-list {
     flex: 1;
     height: 100%;
@@ -34,28 +30,26 @@
 }
 
 .note {
+    @include flexbox(column, none);
   background: rgba(245, 200, 86, 0.95);
   color: #191919bf;
   font-weight: 500;
   border-radius: 5px;
   width: 300px;
-  display: flex;
-  flex-direction: column;
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
   height: min-content;
   &-bar {
+      @include flexbox(row, space-between);
     background: rgba(244, 94, 94, 0.864);
     height: 50px;
-
     padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
+
     & h3 {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      font-size: 1.6rem;
     }
   }
   & input {
@@ -70,10 +64,9 @@
 
   &-title {
     width: 60%;
-
-    // background-color: brown;
   }
   &-text {
+      width: 100%;
     font-family: transparent;
     background: transparent;
     min-height: max-content !important;
@@ -84,6 +77,7 @@
     outline: none;
     overflow-y: scroll;
     white-space: pre-wrap;
+    text-align: left !important;
     &:active,
     &:focus {
       border: none;

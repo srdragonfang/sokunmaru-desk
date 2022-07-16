@@ -1,14 +1,3 @@
-// const APIURL = "tracks";
-
-// getTracks(APIURL);
-// function getTracks(APIURL) {
-//   fetch(APIURL)
-//     .then((res) => res.json())
-//     .then((data) => showTracks(data));
-// }
-// function showTracks(tracks) {
-//   console.log(tracks);
-// }
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -32,6 +21,11 @@ const favBtn = $("#favTrack");
 const progress = $("#audioRange");
 const progressTime = $(".progress__time");
 const progressDuration = $(".progress__duration");
+
+
+const dashboard = $('.dashboard')
+const btnPlaylist = $('.btn-playlist .fa-bars')
+const btnPlaylistClose = $('.btn-playlist .fa-xmark')
 
 const app = {
   currentIndex: 0,
@@ -242,6 +236,19 @@ const app = {
         audio.play();
       }
     };
+
+    btnPlaylist.onclick = function () {
+        dashboard.classList.remove('hide-playlist')
+        btnPlaylist.style.display = 'none'
+        btnPlaylistClose.style.display = 'flex'
+        dashboard.classList.add('show-playlist')
+    }
+    btnPlaylistClose.onclick = function () {
+        dashboard.classList.remove('show-playlist')
+        btnPlaylistClose.style.display = 'none'
+        btnPlaylist.style.display = 'flex'
+        dashboard.classList.add('hide-playlist')
+    }
   },
   prevTrack: function () {
     this.currentIndex--;

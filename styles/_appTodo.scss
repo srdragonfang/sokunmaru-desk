@@ -6,30 +6,28 @@
 	& h1 {
 		text-align: center;
 		margin-bottom: 1rem;
-		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+        & span {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+        }
 	}
 	& .todoApp {
+        @include flexbox(column, none);
 		background: rgba(244, 94, 94, 0.864);
 		color: #191919;
 		font-weight: 500;
 		margin-top: 3rem;
-		/* max-width: 400px; */
 		border-radius: 5px;
 		width: 400px;
-		display: flex;
-		flex-direction: column;
 		box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
 		padding-top: 1rem;
 		& .todoApp-container {
-			display: flex;
-			flex-direction: column;
+            @include flexbox(column, none);
 			flex: 1;
 			& .todoList {
+                @include flexbox(column, none);
 				height: 400px;
 				overflow-y: scroll;
 				height: 300px;
-				display: flex;
-				flex-direction: column;
 			}
 			& .todoList::-webkit-scrollbar {
 				display: none;
@@ -39,12 +37,8 @@
 }
 
 .todo {
+    @include flexbox(row, space-between);
 	text-align: left;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	// width: 100%;
 	background: rgba(245, 200, 86, 0.95);
 	cursor: pointer;
 	box-shadow: 2px 2px 1px #f9f9f9;
@@ -65,13 +59,6 @@
 	animation: done 0.5s;
 }
 
-// .todo-space {
-//   width: 20px;
-//   height: 100%;
-//   background: lightgray;
-//   // padding: .5rem;
-//   // border-right: 1px solid brown;
-// }
 .todo-item {
 	flex: 1;
 	padding: 0.5rem 1rem;
@@ -84,12 +71,12 @@
 	border: none;
 	outline: none;
 	background: rgba(213, 213, 219, 0.1);
-	/* color: var(--clr-light); */
 	padding: 1rem;
 	border-top: 0.1px solid rgb(241, 213, 213);
 	font-size: 16px;
 	letter-spacing: 0.075rem;
 	margin-top: 1rem;
+    width: 100%;
 }
 .done {
 	order: 3;
