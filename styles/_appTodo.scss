@@ -17,7 +17,6 @@
 		font-weight: 500;
 		margin-top: 3rem;
 		border-radius: 5px;
-		width: 400px;
 		box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
 		padding-top: 1rem;
 		& .todoApp-container {
@@ -25,8 +24,9 @@
 			flex: 1;
 			& .todoList {
                 @include flexbox(column, none);
+                width: 400px;
 				height: 300px;
-                width: 100%;
+                // width: 100%;
 				overflow-y: scroll;
 			}
 			& .todoList::-webkit-scrollbar {

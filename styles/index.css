@@ -719,7 +719,6 @@ h1 {
   font-weight: 500;
   margin-top: 3rem;
   border-radius: 5px;
-  width: 400px;
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
   padding-top: 1rem;
 }
@@ -735,8 +734,8 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: none;
+  width: 400px;
   height: 300px;
-  width: 100%;
   overflow-y: scroll;
 }
 .app-todo .todoApp .todoApp-container .todoList::-webkit-scrollbar {
@@ -1073,7 +1072,7 @@ h1 {
   justify-content: flex-start;
   width: 100%;
   margin-top: 1rem;
-  background: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
 }
 .scrum-dashboard .scrum-col .scrum-list .task {
   display: flex;

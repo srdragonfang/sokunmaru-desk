@@ -105,7 +105,7 @@
             @include flexbox(column, flex-start);
             width: 100%;
             margin-top: 1rem;
-            background: rgba(0, 0, 0, 0.5);
+            overflow-y: scroll;
             & .task {
                 @include flexbox(row, flex-start);
                 width: 100%;
