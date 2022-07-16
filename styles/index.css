@@ -735,15 +735,16 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: none;
-  height: 400px;
-  overflow-y: scroll;
   height: 300px;
+  width: 100%;
+  overflow-y: scroll;
 }
 .app-todo .todoApp .todoApp-container .todoList::-webkit-scrollbar {
   display: none;
 }
 
 .todo {
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -913,11 +914,11 @@ h1 {
   font-size: 1.6rem;
 }
 .note input {
+  width: 100%;
   background: transparent;
   font-family: transparent;
   padding: 0.5rem;
   font-size: 2rem;
-  width: 100%;
   border: none;
   outline: none;
 }

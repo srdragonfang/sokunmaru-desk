@@ -25,9 +25,9 @@
 			flex: 1;
 			& .todoList {
                 @include flexbox(column, none);
-				height: 400px;
-				overflow-y: scroll;
 				height: 300px;
+                width: 100%;
+				overflow-y: scroll;
 			}
 			& .todoList::-webkit-scrollbar {
 				display: none;
@@ -37,6 +37,7 @@
 }
 
 .todo {
+    width: 100%;
     @include flexbox(row, space-between);
 	text-align: left;
 	background: rgba(245, 200, 86, 0.95);
