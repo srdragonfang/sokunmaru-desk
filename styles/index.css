@@ -1155,6 +1155,8 @@ h1 {
 }
 .scrum-dashboard .scrum-col .scrum-list .task .task-status.lower {
   background: #c3cce1;
+  text-decoration: line-through;
+  opacity: 75%;
 }
 .scrum-dashboard .scrum-col .scrum-list .task .task-content {
   flex: 1;

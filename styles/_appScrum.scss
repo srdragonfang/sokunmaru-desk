@@ -142,6 +142,8 @@
 					}
 					&.lower {
 						background: #c3cce1;
+                        text-decoration: line-through;
+                        opacity: 75%;
 					}
 				}
 				& .task-content {
