@@ -1,8 +1,11 @@
 .notes {
   @include flexbox(column, flex-start);
+  width: 100%;
+  height: 100%;
   &-list {
-    flex: 1;
+    width: 100%;
     height: 100%;
+    flex: 1;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -30,6 +33,7 @@
 }
 
 .note {
+    
     @include flexbox(column, none);
   background: rgba(245, 200, 86, 0.95);
   color: #191919bf;
