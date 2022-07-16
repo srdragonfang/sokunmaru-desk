@@ -22,11 +22,13 @@ body::-webkit-scrollbar {
 
 .section-wrapper {
     height: 100vh;
+    // width: 100vw;
     overflow: hidden;
 	@include flexbox(row, flex-start);
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; 
-
+    overflow-y: auto;
+    overflow-x: hidden;
     
 }
 

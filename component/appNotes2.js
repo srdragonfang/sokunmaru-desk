@@ -5,7 +5,8 @@ const noteTextDOM = document.querySelector(".note-text");
 const noteAlertDOM = document.querySelector(".note-alert");
 // buttons
 const noteAddBtn = document.querySelector(".btn-noteAdd");
-
+const noteApp = document.querySelector("#noteApp");
+const notePinBtn = document.querySelector("#note-pin");
 // edit options
 let editTitleNote;
 let editTextNote;
@@ -214,3 +215,7 @@ function editFromLocalStorage(id, title, text) {
   console.log("notes after edited", notes);
   localStorage.setItem("noteList", JSON.stringify(notes));
 }
+
+notePinBtn.addEventListener("click", () => {
+    noteApp.classList.toggle('pinNote')
+})

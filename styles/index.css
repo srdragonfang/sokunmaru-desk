@@ -29,6 +29,8 @@ body::-webkit-scrollbar {
   -ms-scroll-snap-type: x mandatory;
       scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 section {
@@ -859,12 +861,12 @@ h1 {
   flex: 1;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-wrap: no-wrap;
+  flex-wrap: wrap;
   gap: 1rem;
-  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .notes-list h1 {
   margin: 1rem 0;
@@ -953,6 +955,12 @@ h1 {
 }
 .create-note .note-text {
   max-height: 300px !important;
+}
+
+.pinNote {
+  position: fixed !important;
+  left: 0;
+  bottom: 0;
 }
 
 .scrum-app {
@@ -1059,6 +1067,7 @@ h1 {
   justify-content: flex-start;
   height: 100%;
   width: 20%;
+  overflow: hidden !important;
 }
 .scrum-dashboard .scrum-col h3 {
   text-align: center;
@@ -1071,8 +1080,18 @@ h1 {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+  height: auto;
+  max-height: 300px;
   margin-top: 1rem;
+  background-color: rgba(44, 62, 80, 0.0823529412);
   overflow-y: scroll;
+}
+.scrum-dashboard .scrum-col .scrum-list::-webkit-scrollbar {
+  width: 5px;
+}
+.scrum-dashboard .scrum-col .scrum-list::-webkit-scrollbar-thumb {
+  background-color: #2c3e50;
+  width: 5px;
 }
 .scrum-dashboard .scrum-col .scrum-list .task {
   display: flex;

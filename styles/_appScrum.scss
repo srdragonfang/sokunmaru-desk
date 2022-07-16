@@ -1,5 +1,5 @@
 .scrum-app {
-    @include flexbox(column, flex-start);
+	@include flexbox(column, flex-start);
 	height: 100% !important;
 	width: 100%;
 	padding: 3rem 1rem;
@@ -10,15 +10,15 @@
 }
 
 .scrum-taskbar {
-    @include flexbox(row, space-between);
+	@include flexbox(row, space-between);
 	margin-bottom: 3rem;
 	width: 60%;
 	& textarea {
-        // reset
-        outline: none;
+		// reset
+		outline: none;
 		resize: none;
 		flex: 1;
-        height: 50px;
+		height: 50px;
 		padding: 1rem 1rem;
 		border: 1px groove goldenrod;
 		font-family: transparent;
@@ -50,24 +50,23 @@
 		background-color: #2c3e50;
 		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 		cursor: pointer;
-        
-        & option[value='higher'] {
-            background: red;
-        }
-        & option[value='high'] {
-            background: yellow;
-            color: #191919;
-        }
-        & option[value='medium'] {
-            background: #191919;
-        }
-        & option[value='low'] {
-            background: #1b6161;
-        }
-        & option[value='lower'] {
-            background: #c3cce1;
-        }
-        
+
+		& option[value='higher'] {
+			background: red;
+		}
+		& option[value='high'] {
+			background: yellow;
+			color: #191919;
+		}
+		& option[value='medium'] {
+			background: #191919;
+		}
+		& option[value='low'] {
+			background: #1b6161;
+		}
+		& option[value='lower'] {
+			background: #c3cce1;
+		}
 	}
 	& button {
 		border: none;
@@ -75,7 +74,7 @@
 		width: 100px !important;
 		height: 50px !important;
 		padding: 1rem 0.5rem;
-        margin-left: 0.3rem;
+		margin-left: 0.3rem;
 		font-size: 1.6rem;
 		font-weight: 700;
 		background: #191919;
@@ -91,108 +90,121 @@
 	justify-content: flex-start;
 	gap: 1rem;
 	width: 100%;
-    & .scrum-col {
-        @include flexbox(column, flex-start);
-        height: 100%;
-        width: calc(100% / 5);
+	& .scrum-col {
+		@include flexbox(column, flex-start);
+		height: 100%;
+		width: calc(100% / 5);
+		overflow: hidden !important;
+		& h3 {
+			text-align: center;
+			padding: 1rem 0;
+			width: 100%;
+		}
+		& .scrum-list {
+			@include flexbox(column, flex-start);
+			width: 100%;
+			height: auto;
+			max-height: 300px;
+			margin-top: 1rem;
+            background-color: #2c3e5015;
+			overflow-y: scroll;
+			&::-webkit-scrollbar {
+				// display: none;
+                width: 5px;
+                // background: goldenrod;
+			}
+			&::-webkit-scrollbar-thumb {
+                // display: none;
+                background-color: #2c3e50;
+                width: 5px;
+			}
+			& .task {
+				@include flexbox(row, flex-start);
+				width: 100%;
+				margin-bottom: 0.5rem;
+				border: 1px groove goldenrod;
+				box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 
-        & h3 {
-            text-align: center;
-            padding: 1rem 0;
-            width: 100%;
-        }
-        & .scrum-list {
-            @include flexbox(column, flex-start);
-            width: 100%;
-            margin-top: 1rem;
-            overflow-y: scroll;
-            & .task {
-                @include flexbox(row, flex-start);
-                width: 100%;
-                margin-bottom: 0.5rem;
-                border: 1px groove goldenrod;
-                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    
-                & .task-status {
-                    width: 10px;
-                    height: 30px;
-                    &.higher {
-                        background: red;
-                    }
-                    &.high {
-                        background: yellow;
-                    }
-                    &.medium {
-                        background: #191919;
-                    }
-                    &.low {
-                        background: #1b6161;
-                    }
-                    &.lower {
-                        background: #c3cce1;
-                    }
-                }
-                & .task-content {
-                    flex: 1;
-                    padding: 1rem;
-                    white-space: pre-wrap;
-                }
-            }
-        }
-        &.odd {
-            & h3 {
-                border-bottom: 3px groove #191919;
-            }
-        }
-        &.even {
-            & h3 {
-                border-bottom: 3px groove #f9f9f9;
-            }
-        }
-        & .task.higher {
-            order: 1 !important;
-            animation: fadeUp 0.5s;
-        }
-        & .task.high {
-            order: 2 !important;
-            animation: fadeUp 0.5s;
-        }
-        & .task.medium {
-            order: 3 !important;
-        }
-        & .task.low {
-            order: 4 !important;
-            animation: fadeDown 0.5s;
-        }
-        & .task.lower {
-            order: 5 !important;
-            animation: fadeDown 0.5s;
-        }
-    }
-    & #backlog .task {
-        background: goldenrod;
-        color: #191919;
-    }
-    
-    & #inprogress .task {
-        background: #1b6161;
-        color: #f9f9f9;
-    }
-    
-    & #emergency .task {
-        background: #a22d22;
-        color: #f9f9f9;
-    }
-    
-    & #testing .task {
-        background: #c3cce1;
-        color: #191919;
-    }
-    
-    & #done .task {
-        background: #eae5e6;
-        color: #191919;
-    }
+				& .task-status {
+					width: 10px;
+					height: 30px;
+					&.higher {
+						background: red;
+					}
+					&.high {
+						background: yellow;
+					}
+					&.medium {
+						background: #191919;
+					}
+					&.low {
+						background: #1b6161;
+					}
+					&.lower {
+						background: #c3cce1;
+					}
+				}
+				& .task-content {
+					flex: 1;
+					padding: 1rem;
+					white-space: pre-wrap;
+				}
+			}
+		}
+		&.odd {
+			& h3 {
+				border-bottom: 3px groove #191919;
+			}
+		}
+		&.even {
+			& h3 {
+				border-bottom: 3px groove #f9f9f9;
+			}
+		}
+		& .task.higher {
+			order: 1 !important;
+			animation: fadeUp 0.5s;
+		}
+		& .task.high {
+			order: 2 !important;
+			animation: fadeUp 0.5s;
+		}
+		& .task.medium {
+			order: 3 !important;
+		}
+		& .task.low {
+			order: 4 !important;
+			animation: fadeDown 0.5s;
+		}
+		& .task.lower {
+			order: 5 !important;
+			animation: fadeDown 0.5s;
+		}
+	}
+	& #backlog .task {
+		background: goldenrod;
+		color: #191919;
+	}
+
+	& #inprogress .task {
+		background: #1b6161;
+		color: #f9f9f9;
+	}
+
+	& #emergency .task {
+		background: #a22d22;
+		color: #f9f9f9;
+	}
+
+	& #testing .task {
+		background: #c3cce1;
+		color: #191919;
+	}
+
+	& #done .task {
+		background: #eae5e6;
+		color: #191919;
+	}
 }
 
 @keyframes fadeDown {
@@ -218,4 +230,3 @@
 		background-color: rgba(255, 255, 255, 0.4);
 	}
 }
-
