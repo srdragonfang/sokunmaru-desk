@@ -164,11 +164,6 @@ h1 {
   border: 2px groove goldenrod;
 }
 
-.section-four {
-  height: unset !important;
-  min-height: 100vh !important;
-}
-
 .btn:hover {
   transform: scale(1.2);
 }
@@ -1002,13 +997,23 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 100% !important;
-  width: 100%;
-  padding: 3rem 1rem;
+  height: 100vh;
+  width: 100vw;
+  padding: 3rem 1rem 1rem;
+  overflow: hidden;
 }
 .scrum-app p span {
   font-style: italic;
   color: rgba(25, 25, 25, 0.5176470588);
+}
+
+.scrum-header {
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .scrum-taskbar {
@@ -1016,7 +1021,6 @@ h1 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 3rem;
   width: 60%;
 }
 .scrum-taskbar textarea {
@@ -1087,20 +1091,19 @@ h1 {
 }
 
 .scrum-dashboard {
+  flex: 0.6;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: flex-start;
   gap: 1rem;
   width: 100%;
-  height: 60%;
 }
 .scrum-dashboard .scrum-col {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 100%;
   width: 20%;
   overflow: hidden !important;
 }
@@ -1115,7 +1118,7 @@ h1 {
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-height: 60vh;
+  height: 50vh;
   margin-top: 1rem;
   background-color: rgba(44, 62, 80, 0.0823529412);
   overflow-y: scroll;

@@ -209,45 +209,47 @@
 			<!-- ANCHOR scrum app -->
 			<section class="section section-four">
 				<div class="scrum-app" id="kanbanApp">
-					<h1>Kanban Board</h1>
-					<div class="scrum-taskbar">
-						<textarea
-							id="task-input"
-							name=""
-							placeholder="add task here..."
-							cols="20"
-							min-rows="1"
-							oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-							required
-						></textarea>
-						<select id="task-statusTask">
-							<option value="higher">Higher</option>
-							<option value="high">High</option>
-							<option value="medium" selected="selected">
-								Medium
-							</option>
-							<option value="low">Low</option>
-							<option value="lower">Lower</option>
-						</select>
-						<select id="task-statusGroup">
-							<option value="Backlog" selected="selected">
-								Backlog
-							</option>
-							<option value="InProgress">In Progress</option>
-							<option value="Emergency">Emergency</option>
-							<option value="Testing">Testing</option>
-							<option value="Done">Done</option>
-						</select>
-						<button type="submit" id="task-submit">Submit</button>
-					</div>
-					<p>
-						<span>
-							<strong>Double Click</strong> to edit task -
-						</span>
-						<span>
-							<strong>Right Click</strong> to delete task
-						</span>
-					</p>
+<div class="scrum-header">
+    <h1>Kanban Board</h1>
+    <div class="scrum-taskbar">
+        <textarea
+            id="task-input"
+            name=""
+            placeholder="add task here..."
+            cols="20"
+            min-rows="1"
+            oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+            required
+        ></textarea>
+        <select id="task-statusTask">
+            <option value="higher">Higher</option>
+            <option value="high">High</option>
+            <option value="medium" selected="selected">
+                Medium
+            </option>
+            <option value="low">Low</option>
+            <option value="lower">Lower</option>
+        </select>
+        <select id="task-statusGroup">
+            <option value="Backlog" selected="selected">
+                Backlog
+            </option>
+            <option value="InProgress">In Progress</option>
+            <option value="Emergency">Emergency</option>
+            <option value="Testing">Testing</option>
+            <option value="Done">Done</option>
+        </select>
+        <button type="submit" id="task-submit">Submit</button>
+    </div>
+    <p>
+        <span>
+            <strong>Double Click</strong> to edit task -
+        </span>
+        <span>
+            <strong>Right Click</strong> to delete task
+        </span>
+    </p>
+</div>
 					<div class="scrum-dashboard">
 						<div class="scrum-col odd">
 							<h3>Backlog</h3>
