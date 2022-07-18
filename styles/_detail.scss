@@ -10,7 +10,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1001;
 }
 .menu-container{
     @include flexbox(row, flex-start);
@@ -19,20 +18,25 @@ header {
     width: max-content;
     padding: 1rem 2rem;
     background: #191919;
+    z-index: 1001;
 }
 .menu-item {
     @include flexbox(row, flex-start);
     gap: 1rem;
     color: #fff;
     text-decoration: unset;
-    padding: 1rem;
+    padding: .5rem;
     border-radius: 5px;
     &:hover {
         background: goldenrod;
         
     }
-}
-
-.menu-item + .menu-item {
-    line-break: 1;
+    
+    &:nth-child(7) {
+        background: goldenrod;
+        &:hover {
+            background: #fff;
+            color: goldenrod;
+        }
+    }
 }

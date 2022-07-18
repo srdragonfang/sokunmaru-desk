@@ -196,7 +196,6 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1001;
 }
 
 .menu-container {
@@ -211,6 +210,7 @@ header {
   width: max-content;
   padding: 1rem 2rem;
   background: #191919;
+  z-index: 1001;
 }
 
 .menu-item {
@@ -221,15 +221,18 @@ header {
   gap: 1rem;
   color: #fff;
   text-decoration: unset;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 5px;
 }
 .menu-item:hover {
   background: goldenrod;
 }
-
-.menu-item + .menu-item {
-  line-break: 1;
+.menu-item:nth-child(7) {
+  background: goldenrod;
+}
+.menu-item:nth-child(7):hover {
+  background: #fff;
+  color: goldenrod;
 }
 
 .app-musicPlayer {
@@ -898,6 +901,10 @@ header {
 }
 
 .notes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   position: absolute;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -907,16 +914,13 @@ header {
   height: max-content;
   right: 1rem;
   bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  z-index: 101;
 }
 .notes input {
   width: 100%;
   background: transparent;
   font-family: transparent;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-size: 2rem;
   border: none;
   outline: none;
@@ -969,6 +973,7 @@ header {
   background: rgba(244, 94, 94, 0.864);
   padding: 1rem 1rem 1rem 0;
   width: 100%;
+  border-radius: 5px 5px 0 0;
 }
 .note-bar h3 {
   flex: 1;
