@@ -48,14 +48,14 @@
 					<!-- <p>Note App</p> -->
 				</a>
 				<a href="#writerApp" class="menu-item">
-                    <i class="fa-solid fa-pencil"></i>
+					<i class="fa-solid fa-pencil"></i>
 					<!-- <p>Writter App</p> -->
 				</a>
 				<a href="#kanbanApp" class="menu-item">
 					<i class="fa-solid fa-list-check"></i>
 					<!-- <p>Kanban App</p> -->
 				</a>
-                <!-- <i class="fa-solid fa-chevron-down menu-item"></i> -->
+				<!-- <i class="fa-solid fa-chevron-down menu-item"></i> -->
 			</div>
 		</header>
 		<!-- ANCHOR *** [CENTER] -->
@@ -245,8 +245,10 @@
 			<section class="section section-three">
 				<h1>Writer</h1>
 				<div class="postApp-container" id="writerApp">
-					<div class="posts-list">
-						<!-- * input post -->
+					<div class="posts-list-scroll">
+						<div class="posts-list">
+							<!-- * input post -->
+						</div>
 					</div>
 					<div class="posts" id="postApp">
 						<div class="create-post">
@@ -273,7 +275,7 @@
 								class="post-text input-post-text"
 								cols="20"
 								name="text"
-								oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+								oninput='this.style.height = "";this.style.height = this.scrollHeight + "px";'
 								required
 							></textarea>
 						</div>

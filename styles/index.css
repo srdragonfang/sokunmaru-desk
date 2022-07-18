@@ -188,7 +188,6 @@ h1 {
 }
 
 header {
-  width: 100%;
   background: brown;
   position: fixed;
   top: 1rem;
@@ -199,6 +198,7 @@ header {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  z-index: 1001;
 }
 
 .menu-container {
@@ -213,7 +213,6 @@ header {
   width: max-content;
   padding: 1rem 2rem;
   background: #191919;
-  z-index: 1001;
 }
 
 .menu-item {
@@ -917,7 +916,7 @@ header {
   height: max-content;
   right: 1rem;
   bottom: 1rem;
-  z-index: 101;
+  z-index: 1001;
 }
 .notes input {
   width: 100%;
@@ -1052,7 +1051,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 3rem;
+  gap: 2rem;
   overflow: hidden !important;
   padding-bottom: 2rem;
 }
@@ -1062,6 +1061,7 @@ header {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.05);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 .posts input {
   width: 100%;
@@ -1082,9 +1082,6 @@ header {
   color: rgba(25, 25, 25, 0.7490196078);
   font-weight: 500;
   border-radius: 5px;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
 }
 .posts .create-post .post-bar {
   display: flex;
@@ -1126,19 +1123,23 @@ header {
   display: none;
 }
 
-.posts-list {
+.posts-list-scroll {
   padding: 1rem;
   width: 30%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.posts-list {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: nowrap;
-  gap: 1rem;
   overflow-y: scroll;
-  background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  gap: 1rem;
 }
 .posts-list h1 {
   margin: 1rem 0;

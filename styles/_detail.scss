@@ -1,5 +1,4 @@
 header {
-    width: 100%;
     background: brown;
     // position:fixed;
     position: fixed;
@@ -11,6 +10,7 @@ header {
     justify-content: center;
     align-items: center;
     width: max-content;
+    z-index: 1001;
 
 }
 .menu-container{
@@ -20,7 +20,6 @@ header {
     width: max-content;
     padding: 1rem 2rem;
     background: #191919;
-    z-index: 1001;
 }
 .menu-item {
     @include flexbox(row, flex-start);
