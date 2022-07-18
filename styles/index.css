@@ -189,13 +189,16 @@ h1 {
 
 header {
   width: 100%;
+  background: brown;
   position: fixed;
-  right: 0;
-  bottom: 1rem;
-  left: 0;
+  top: 1rem;
+  right: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .menu-container {

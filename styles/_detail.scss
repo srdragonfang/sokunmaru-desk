@@ -1,15 +1,17 @@
 header {
     width: 100%;
-    // background: brown;
+    background: brown;
     // position:fixed;
     position: fixed;
-    // top: 0;
-    right: 0;
-    bottom: 1rem;
-    left: 0;
+    top: 1rem;
+    right: 1rem;
+    // bottom: 1rem;
+    // left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: max-content;
+
 }
 .menu-container{
     @include flexbox(row, flex-start);
