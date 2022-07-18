@@ -108,8 +108,6 @@ function editNote(e) {
   editTextNote = e.currentTarget.parentElement.parentElement.children[1];
 
   // get input(title, text) value
-  console.log(editTitleNote);
-  alert(editTitleNote.innerHTML)
   noteTitleInput.value = editTitleNote.innerHTML;
   noteTextInput.value = editTextNote.innerHTML;
   editFlag = true;

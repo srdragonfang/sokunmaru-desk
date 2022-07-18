@@ -187,6 +187,51 @@ h1 {
   display: flex;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+  right: 0;
+  bottom: 1rem;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  box-shadow: 2px 2px 4px #191919;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 1rem 2rem;
+  background: #191919;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  color: #fff;
+  text-decoration: unset;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.menu-item:hover {
+  background: goldenrod;
+}
+
+.menu-item + .menu-item {
+  line-break: 1;
+}
+
 .app-musicPlayer {
   display: flex;
   flex-direction: none;
@@ -847,6 +892,9 @@ h1 {
 }
 .noteApp-container {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .notes {
@@ -864,6 +912,16 @@ h1 {
   align-items: center;
   justify-content: flex-start;
 }
+.notes input {
+  width: 100%;
+  background: transparent;
+  font-family: transparent;
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+}
+
 .notes-list {
   width: 100%;
   height: 100%;
@@ -885,9 +943,6 @@ h1 {
 }
 .notes-list::-webkit-scrollbar-thumb {
   background-color: #191919;
-}
-.notes .btn-func {
-  margin: 1rem 0;
 }
 
 .note {
@@ -928,15 +983,6 @@ h1 {
 }
 .note-bar i + i {
   margin-left: 1rem;
-}
-.note input {
-  width: 100%;
-  background: transparent;
-  font-family: transparent;
-  padding: 0.5rem;
-  font-size: 2rem;
-  border: none;
-  outline: none;
 }
 .note-title {
   width: 60%;
@@ -988,6 +1034,184 @@ h1 {
   bottom: 1rem;
 }
 .pinNote #note-pin {
+  transform: rotate(30deg);
+  opacity: 100%;
+}
+
+.postApp-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 3rem;
+  overflow: hidden !important;
+  padding-bottom: 2rem;
+}
+
+.posts {
+  flex: 1;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.posts input {
+  width: 100%;
+  background: transparent;
+  font-family: transparent;
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+}
+.posts .create-post {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: none;
+  color: rgba(25, 25, 25, 0.7490196078);
+  font-weight: 500;
+  border-radius: 5px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+.posts .create-post .post-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  background: rgba(244, 94, 94, 0.864);
+  border-radius: 5px 5px 0 0;
+  padding: 1rem;
+  width: 100%;
+  height: 10%;
+}
+.posts .create-post .post-bar h3 {
+  flex: 1;
+  margin: 0 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 1.6rem;
+}
+.posts .create-post .post-bar i:first-of-type {
+  font-size: 1.6rem;
+}
+.posts .create-post .post-bar i + i {
+  margin-left: 1rem;
+}
+.posts .create-post .post-text {
+  height: 600px !important;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: transparent;
+  background: transparent;
+  resize: none;
+  padding: 2rem;
+  font-size: 2rem;
+}
+.posts .create-post .post-text::-webkit-scrollbar {
+  display: none;
+}
+
+.posts-list {
+  padding: 1rem;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+}
+.posts-list h1 {
+  margin: 1rem 0;
+}
+.posts-list::-webkit-scrollbar {
+  background: rgba(25, 25, 25, 0.4588235294);
+  width: 5px;
+  display: none;
+}
+.posts-list::-webkit-scrollbar-thumb {
+  background-color: #191919;
+}
+.posts-list .post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: none;
+  background: rgba(245, 200, 86, 0.95);
+  color: rgba(25, 25, 25, 0.7490196078);
+  border-radius: 5px;
+  width: 100%;
+}
+.posts-list .post-bar {
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  background: rgba(244, 94, 94, 0.864);
+  padding: 1rem 1rem 1rem 0;
+  width: 100%;
+}
+.posts-list .post-bar h3 {
+  flex: 1;
+  margin: 0 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 2rem;
+  font-weight: normal;
+}
+.posts-list .post-bar i:first-of-type {
+  font-size: 1.6rem;
+}
+.posts-list .post-bar i + i {
+  margin-left: 1rem;
+}
+.posts-list .post-title {
+  width: 60%;
+}
+.posts-list .post-text {
+  width: 100%;
+  resize: none;
+  padding: 1rem;
+  font-size: 2rem;
+  white-space: pre-wrap;
+  text-align: left !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.posts-list .post-text:active, .posts-list .post-text:focus {
+  border: none;
+  outline: none;
+}
+
+#post-pin {
+  opacity: 50%;
+}
+
+.pinpost {
+  position: fixed;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  right: 1rem;
+  bottom: 1rem;
+}
+.pinpost #post-pin {
   transform: rotate(30deg);
   opacity: 100%;
 }

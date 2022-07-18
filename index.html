@@ -21,7 +21,42 @@
 	</head>
 	<body>
 		<!-- ANCHOR *** [HEADER] -->
-
+		<header>
+			<!-- <div class="btn-menu">
+                    <div class="nav__btn-close" id="nav-btn-close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="nav__btn-open" id="nav-btn-open">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+            </div> -->
+			<div class="menu-container">
+				<a href="#musicApp" class="menu-item">
+					<i class="fa-solid fa-music"></i>
+					<!-- <p>Music App</p> -->
+				</a>
+				<a href="#clockApp" class="menu-item">
+					<i class="fa-solid fa-clock"></i>
+					<!-- <p>Clock App</p> -->
+				</a>
+				<a href="#todoApp" class="menu-item">
+					<i class="fa-solid fa-check-double"></i>
+					<!-- <p>Todo App</p> -->
+				</a>
+				<a href="#noteApp" class="menu-item">
+					<i class="fa-solid fa-note-sticky"></i>
+					<!-- <p>Note App</p> -->
+				</a>
+				<a href="#writerApp" class="menu-item">
+                    <i class="fa-solid fa-pencil"></i>
+					<!-- <p>Writter App</p> -->
+				</a>
+				<a href="#kanbanApp" class="menu-item">
+					<i class="fa-solid fa-list-check"></i>
+					<!-- <p>Kanban App</p> -->
+				</a>
+			</div>
+		</header>
 		<!-- ANCHOR *** [CENTER] -->
 		<div class="section-wrapper">
 			<section class="section section-one">
@@ -33,7 +68,7 @@
 							<p>The Lullaby Of Soul</p>
 							<div class="player__top">
 								<div class="btn-playlist">
-                                    <i class="fa-solid fa-sliders"></i>
+									<i class="fa-solid fa-sliders"></i>
 									<!-- <i class="fa-solid fa-bars"></i> -->
 									<i class="fa-solid fa-xmark"></i>
 								</div>
@@ -167,8 +202,11 @@
 			</section>
 
 			<section class="section section-three">
+				<h1>Notes</h1>
 				<div class="noteApp-container">
-					<h1>Notes</h1>
+					<div class="notes-list">
+						<!-- * input note -->
+					</div>
 					<div class="notes" id="noteApp">
 						<div class="note create-note">
 							<div class="note-bar flex-row">
@@ -189,7 +227,7 @@
 									class="fa-solid fa-square-plus btn-noteAdd"
 								></i>
 							</div>
-                            <p class="note-alert"></p>
+							<p class="note-alert"></p>
 							<textarea
 								class="note-text input-text"
 								cols="20"
@@ -200,56 +238,93 @@
 						</div>
 						<h4 class="note-alert"></h4>
 					</div>
-					<div class="notes-list">
-						<!-- * input note -->
-					</div>
 				</div>
 			</section>
 
+			<section class="section section-three">
+				<h1>posts</h1>
+				<div class="postApp-container" id="writerApp">
+					<div class="posts-list">
+						<!-- * input post -->
+					</div>
+					<div class="posts" id="postApp">
+						<div class="create-post">
+							<div class="post-bar">
+								<input
+									class="input-post-title"
+									type="text"
+									name=""
+									id=""
+									placeholder="Title..."
+									maxlength="50"
+									required
+								/>
+								<i
+									class="fa-solid fa-thumbtack"
+									id="post-pin"
+								></i>
+								<i
+									class="fa-solid fa-square-plus btn-postAdd"
+								></i>
+							</div>
+							<p class="post-alert"></p>
+							<textarea
+								class="post-text input-post-text"
+								cols="20"
+								name="text"
+								oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+								required
+							></textarea>
+						</div>
+					</div>
+				</div>
+			</section>
 			<!-- ANCHOR scrum app -->
 			<section class="section section-four">
 				<div class="scrum-app" id="kanbanApp">
-<div class="scrum-header">
-    <h1>Kanban Board</h1>
-    <div class="scrum-taskbar">
-        <textarea
-            id="task-input"
-            name=""
-            placeholder="add task here..."
-            cols="20"
-            min-rows="1"
-            oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-            required
-        ></textarea>
-        <select id="task-statusTask">
-            <option value="higher">Higher</option>
-            <option value="high">High</option>
-            <option value="medium" selected="selected">
-                Medium
-            </option>
-            <option value="low">Low</option>
-            <option value="lower">Lower</option>
-        </select>
-        <select id="task-statusGroup">
-            <option value="Backlog" selected="selected">
-                Backlog
-            </option>
-            <option value="InProgress">In Progress</option>
-            <option value="Emergency">Emergency</option>
-            <option value="Testing">Testing</option>
-            <option value="Done">Done</option>
-        </select>
-        <button type="submit" id="task-submit">Submit</button>
-    </div>
-    <p>
-        <span>
-            <strong>Double Click</strong> to edit task -
-        </span>
-        <span>
-            <strong>Right Click</strong> to delete task
-        </span>
-    </p>
-</div>
+					<div class="scrum-header">
+						<h1>Kanban Board</h1>
+						<div class="scrum-taskbar">
+							<textarea
+								id="task-input"
+								name=""
+								placeholder="add task here..."
+								cols="20"
+								min-rows="1"
+								oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+								required
+							></textarea>
+							<select id="task-statusTask">
+								<option value="higher">Higher</option>
+								<option value="high">High</option>
+								<option value="medium" selected="selected">
+									Medium
+								</option>
+								<option value="low">Low</option>
+								<option value="lower">Lower</option>
+							</select>
+							<select id="task-statusGroup">
+								<option value="Backlog" selected="selected">
+									Backlog
+								</option>
+								<option value="InProgress">In Progress</option>
+								<option value="Emergency">Emergency</option>
+								<option value="Testing">Testing</option>
+								<option value="Done">Done</option>
+							</select>
+							<button type="submit" id="task-submit">
+								Submit
+							</button>
+						</div>
+						<p>
+							<span>
+								<strong>Double Click</strong> to edit task -
+							</span>
+							<span>
+								<strong>Right Click</strong> to delete task
+							</span>
+						</p>
+					</div>
 					<div class="scrum-dashboard">
 						<div class="scrum-col odd">
 							<h3>Backlog</h3>
@@ -318,6 +393,7 @@
 		<script src="component/appTodo.js"></script>
 		<!-- <script src="component/appNotes.js"></script> -->
 		<script src="component/appNotes2.js"></script>
+		<script src="component/appWriter.js"></script>
 		<script src="component/appScrum.js"></script>
 	</body>
 </html>
