@@ -26,14 +26,18 @@ const dashboard = $('.dashboard');
 const btnPlaylist = $('.btn-playlist .fa-sliders');
 const btnPlaylistClose = $('.btn-playlist .fa-xmark');
 
-// var trackAPI = '/data/tracks.json';
+var trackAPI = '/data/tracks.json';
 
-// function getSong(trackAPI) {
+// async function getSong(trackAPI) {
 //     fetch(trackAPI)
-//     .then(response => response.json())
+//     .then(response => {await response.json()})
 //     .then(data => data.tracks)
 // }
-
+	// function getSong (trackAPI) {
+	// fetch(trackAPI)
+    // .then(response => response.json())
+    // .then(data => data.tracks)
+	// }
 // console.log(getSong(trackAPI));
 
 // console.log(getSong(trackAPI));
@@ -53,78 +57,78 @@ const app = {
 	//     console.log(data)
 	//     return data;
 	// },
-    tracks: getSong(trackAPI),
+    // tracks: getSong(trackAPI),
 
-	// tracks: [
-	// 	{
-	// 		title: 'たぶん',
-	// 		artist: 'Yoasobi',
-	// 		path: './assets/audio/Tabun.mp3',
-	// 		imgUrl: './assets/audio/Tabun.jpg',
-	// 	},
+	tracks: [
+		{
+			title: 'たぶん',
+			artist: 'Yoasobi',
+			path: './assets/audio/Tabun.mp3',
+			imgUrl: './assets/audio/Tabun.jpg',
+		},
 
-	// 	{
-	// 		title: 'Still Life',
-	// 		artist: 'Big Bang',
-	// 		path: './assets/audio/1.mp3',
-	// 		imgUrl: './assets/audio/1.jpg',
-	// 	},
-	// 	{
-	// 		title: 'Unstopable',
-	// 		artist: 'Sia',
-	// 		path: './assets/audio/2.mp3',
-	// 		imgUrl: './assets/audio/2.jpg',
-	// 	},
-	// 	{
-	// 		title: 'Runaway',
-	// 		artist: 'Aurora',
-	// 		path: './assets/audio/3.mp3',
-	// 		imgUrl: './assets/audio/3.jpg',
-	// 	},
+		{
+			title: 'Still Life',
+			artist: 'Big Bang',
+			path: './assets/audio/1.mp3',
+			imgUrl: './assets/audio/1.jpg',
+		},
+		{
+			title: 'Unstopable',
+			artist: 'Sia',
+			path: './assets/audio/2.mp3',
+			imgUrl: './assets/audio/2.jpg',
+		},
+		{
+			title: 'Runaway',
+			artist: 'Aurora',
+			path: './assets/audio/3.mp3',
+			imgUrl: './assets/audio/3.jpg',
+		},
 
-	// 	{
-	// 		title: 'In The End',
-	// 		artist: 'Linkin Park',
-	// 		path: './assets/audio/4.mp3',
-	// 		imgUrl: './assets/audio/4.jpg',
-	// 	},
-	// 	{
-	// 		title: 'Arcade',
-	// 		artist: 'Duncan Laurence',
-	// 		path: './assets/audio/5.mp3',
-	// 		imgUrl: './assets/audio/5.jpg',
-	// 	},
-	// 	{
-	// 		title: 'Waiting For Love',
-	// 		artist: 'Avicii',
-	// 		path: './assets/audio/6.mp3',
-	// 		imgUrl: './assets/audio/6.jpg',
-	// 	},
-	// 	{
-	// 		title: 'Life Goes On',
-	// 		artist: 'Oliver Tree',
-	// 		path: './assets/audio/7.mp3',
-	// 		imgUrl: './assets/audio/7.jpg',
-	// 	},
-	// 	{
-	// 		title: 'Numb',
-	// 		artist: 'Linkin Park',
-	// 		path: './assets/audio/8.mp3',
-	// 		imgUrl: './assets/audio/8.jpg',
-	// 	},
-	// 	{
-	// 		title: 'Counting Stars',
-	// 		artist: 'OneRepublic',
-	// 		path: './assets/audio/9.mp3',
-	// 		imgUrl: './assets/audio/9.jpg',
-	// 	},
-	// 	{
-	// 		title: 'Warriors',
-	// 		artist: 'Imagine Dragons',
-	// 		path: './assets/audio/10.mp3',
-	// 		imgUrl: './assets/audio/10.jpg',
-	// 	},
-	// ],
+		{
+			title: 'In The End',
+			artist: 'Linkin Park',
+			path: './assets/audio/4.mp3',
+			imgUrl: './assets/audio/4.jpg',
+		},
+		{
+			title: 'Arcade',
+			artist: 'Duncan Laurence',
+			path: './assets/audio/5.mp3',
+			imgUrl: './assets/audio/5.jpg',
+		},
+		{
+			title: 'Waiting For Love',
+			artist: 'Avicii',
+			path: './assets/audio/6.mp3',
+			imgUrl: './assets/audio/6.jpg',
+		},
+		{
+			title: 'Life Goes On',
+			artist: 'Oliver Tree',
+			path: './assets/audio/7.mp3',
+			imgUrl: './assets/audio/7.jpg',
+		},
+		{
+			title: 'Numb',
+			artist: 'Linkin Park',
+			path: './assets/audio/8.mp3',
+			imgUrl: './assets/audio/8.jpg',
+		},
+		{
+			title: 'Counting Stars',
+			artist: 'OneRepublic',
+			path: './assets/audio/9.mp3',
+			imgUrl: './assets/audio/9.jpg',
+		},
+		{
+			title: 'Warriors',
+			artist: 'Imagine Dragons',
+			path: './assets/audio/10.mp3',
+			imgUrl: './assets/audio/10.jpg',
+		},
+	],
 	setConfig: function (key, value) {
 		this.config[key] = value;
 		localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));

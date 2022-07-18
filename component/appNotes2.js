@@ -104,10 +104,12 @@ function editNote(e) {
 
   noteAddBtn.value = "Save Note";
   // get element DOM
-  editTitleNote = e.currentTarget.parentElement.children[1];
+  editTitleNote = e.currentTarget.parentElement.children[0];
   editTextNote = e.currentTarget.parentElement.parentElement.children[1];
 
   // get input(title, text) value
+  console.log(editTitleNote);
+  alert(editTitleNote.innerHTML)
   noteTitleInput.value = editTitleNote.innerHTML;
   noteTextInput.value = editTextNote.innerHTML;
   editFlag = true;
