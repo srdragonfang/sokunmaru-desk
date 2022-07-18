@@ -249,7 +249,7 @@ header {
   background-color: lightblue;
   width: 410px !important;
   height: 580px;
-  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+  box-shadow: 2px 2px 4px #191919;
   padding: 5rem;
   position: relative;
 }
@@ -282,7 +282,7 @@ header {
   background-color: lightblue;
   width: 410px;
   height: 580px;
-  box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+  box-shadow: 2px 2px 4px #191919;
 }
 
 .player-bar {
@@ -294,17 +294,63 @@ header {
   border-radius: 15px 0 0 15px;
   width: 100px;
   height: 10px;
-  border-top: 1px solid goldenrod;
-  border-left: 1px solid goldenrod;
-  border-bottom: 1px solid goldenrod;
-  box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
+  border-top: 0.1px solid goldenrod;
+  border-left: 0.1px solid goldenrod;
+  border-bottom: 0.1px solid goldenrod;
+  box-shadow: 2px 2px 4px #191919;
   position: absolute;
   right: -5px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  padding: 0.5rem;
 }
 
+.player-bar:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+  background: #191919;
+}
+
+.player-bar:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: -10px;
+  background: #191919;
+}
+
+.progressBar {
+  -webkit-animation: playerBar;
+          animation: playerBar;
+}
+
+@-webkit-keyframes playerBar {
+  0% {
+    transform: rotate(60deg);
+    transform-origin: right;
+  }
+  100% {
+    transform: rotate(0deg);
+    transform-origin: right;
+  }
+}
+
+@keyframes playerBar {
+  0% {
+    transform: rotate(60deg);
+    transform-origin: right;
+  }
+  100% {
+    transform: rotate(0deg);
+    transform-origin: right;
+  }
+}
 .buttons {
   display: flex;
   flex-direction: row;
@@ -386,13 +432,13 @@ header {
   position: absolute;
   left: 0;
   top: 0;
+  box-shadow: 2px 2px 4px #191919;
 }
 
 .player-cover__item:before {
   content: "";
   height: calc(100% + 40px);
   width: calc(100% + 40px);
-  /* box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5); */
   position: absolute;
   top: -20px;
   left: -20px;
@@ -476,7 +522,7 @@ header {
   width: 350px;
   height: 480px;
   text-decoration: none;
-  box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);
+  box-shadow: 2px 2px 4px #191919;
   color: goldenrod;
   font-weight: bold;
   letter-spacing: 1px;
@@ -769,7 +815,7 @@ header {
   font-weight: 500;
   margin-top: 3rem;
   border-radius: 5px;
-  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px #191919;
   padding-top: 1rem;
 }
 .app-todo .todoApp .todoApp-container {
@@ -786,6 +832,7 @@ header {
   justify-content: none;
   width: 400px;
   height: 300px;
+  padding: 0 1rem;
   overflow-y: scroll;
 }
 .app-todo .todoApp .todoApp-container .todoList::-webkit-scrollbar {
@@ -962,7 +1009,7 @@ header {
   border-radius: 5px;
   max-width: 300px;
   min-width: 150px;
-  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px #191919;
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
@@ -1060,7 +1107,7 @@ header {
   flex: 1;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px #191919;
   overflow: hidden;
 }
 .posts input {
@@ -1128,7 +1175,7 @@ header {
   width: 30%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.05);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px #191919;
 }
 
 .posts-list {
@@ -1225,6 +1272,19 @@ header {
   opacity: 100%;
 }
 
+.editor-toolbar {
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CodeMirror {
+  width: 100%;
+  padding: 2rem;
+}
+
 .scrum-app {
   display: flex;
   flex-direction: column;
@@ -1268,7 +1328,7 @@ header {
   font-size: 2rem;
   overflow-y: scroll;
   white-space: pre-wrap;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: 2px 2px 4px #191919;
 }
 .scrum-taskbar textarea::-webkit-scrollbar {
   display: none;
@@ -1290,7 +1350,7 @@ header {
   text-align: center;
   color: #fff;
   background-color: #2c3e50;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: 2px 2px 4px #191919;
   cursor: pointer;
 }
 .scrum-taskbar select option[value=higher] {
@@ -1320,7 +1380,7 @@ header {
   font-weight: 700;
   background: #191919;
   color: #f9f9f9;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: 2px 2px 4px #191919;
 }
 
 .scrum-dashboard {
@@ -1371,7 +1431,7 @@ header {
   width: 100%;
   margin-bottom: 0.5rem;
   border: 1px groove goldenrod;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: 2px 2px 4px #191919;
 }
 .scrum-dashboard .scrum-col .scrum-list .task .task-status {
   width: 10px;

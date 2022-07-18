@@ -1,13 +1,24 @@
+// TODO get element from DOM
+function getElement(selection) {
+	const element = document.querySelector(selection);
+
+	if (element) {
+		return element;
+	}
+	throw new Error(
+		`Please check ${selection} selector, no such element exists`
+	);
+}
 // elements
-const notesListDOM = document.querySelector(".notes-list");
-const noteTitleDOM = document.querySelector(".note-title");
-const noteTextDOM = document.querySelector(".note-text");
-const noteAlertDOM = document.querySelector(".note-alert");
+const notesListDOM = getElement(".notes-list");
+const noteTitleDOM = getElement(".note-title");
+const noteTextDOM = getElement(".note-text");
+const noteAlertDOM = getElement(".note-alert");
 // buttons
-const noteAddBtn = document.querySelector(".btn-noteAdd");
-const noteApp = document.querySelector("#noteApp");
-const notePinBtn = document.querySelector("#note-pin");
-const noteFullScr = document.querySelector("#btn-fullscr");
+const noteAddBtn = getElement(".btn-noteAdd");
+const noteApp = getElement("#noteApp");
+const notePinBtn = getElement("#note-pin");
+// const noteFullScr = getElement("#btn-fullscr");
 // edit options
 let editTitleNote;
 let editTextNote;
@@ -15,8 +26,8 @@ let editFlag = false;
 let editID = "";
 
 // get value from
-const noteTitleInput = document.querySelector(".input-title");
-const noteTextInput = document.querySelector(".input-text");
+const noteTitleInput = getElement(".input-title");
+const noteTextInput = getElement(".input-text");
 noteCreate();
 
 // ANCHOR:          note conditional
@@ -62,7 +73,7 @@ function noteRender() {
               <p class="note-text">${noteTextValue}</p>
       `;
 
-  //   const btnPins = document.querySelectorAll(".btn-pin");
+  //   const btnPins = getElementAll(".btn-pin");
   const btnDel = note.querySelector(".btn-del");
   // console.log(btnDel);
   btnDel.addEventListener("click", deleteNote);
@@ -72,7 +83,7 @@ function noteRender() {
   btnEdit.addEventListener("click", () => {
     editNote();
   });
-  //   const btnFullScreens = document.querySelectorAll(".btn-fullsrc");
+  //   const btnFullScreens = getElementAll(".btn-fullsrc");
 
   //  append child
   notesListDOM.appendChild(note);
@@ -169,7 +180,7 @@ function noteRender2(id, title, text) {
           </div>
               <p class="note-text">${noteTextValue}</p>
       `;
-  //   const btnPins = document.querySelectorAll(".btn-pin");
+  //   const btnPins = getElementAll(".btn-pin");
   const btnDel = note.querySelector(".btn-del");
   // console.log(btnDel);
   btnDel.addEventListener("click", deleteNote);
@@ -177,7 +188,7 @@ function noteRender2(id, title, text) {
   // console.log(btnEdit);
 
   btnEdit.addEventListener("click", editNote);
-  //   const btnFullScreens = document.querySelectorAll(".btn-fullsrc");
+  //   const btnFullScreens = getElementAll(".btn-fullsrc");
 
   //  append child
   notesListDOM.appendChild(note);

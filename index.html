@@ -18,6 +18,9 @@
 			src="https://kit.fontawesome.com/80ea5533be.js"
 			crossorigin="anonymous"
 		></script>
+        <link rel="stylesheet" href="http://lab.lepture.com/editor/editor.css" />
+        <script type="text/javascript" src="http://lab.lepture.com/editor/editor.js"></script>
+        <script type="text/javascript" src="http://lab.lepture.com/editor/marked.js"></script>
 	</head>
 	<body>
 		<!-- ANCHOR *** [HEADER] -->
@@ -212,7 +215,7 @@
 						<div class="note create-note">
 							<div class="note-bar flex-row">
 								<input
-									class="input-title"
+									class="note-title input-title"
 									type="text"
 									name=""
 									id=""
@@ -271,13 +274,14 @@
 								></i>
 							</div>
 							<p class="post-alert"></p>
-							<textarea
+							<!-- <textarea
 								class="post-text input-post-text"
 								cols="20"
 								name="text"
 								oninput='this.style.height = "";this.style.height = this.scrollHeight + "px";'
 								required
-							></textarea>
+							></textarea> -->
+                            <textarea class="post-text input-post-text"></textarea>
 						</div>
 					</div>
 				</div>
@@ -391,6 +395,7 @@
 		<footer></footer>
 
 		<!-- ANCHOR *** [SCRIPT] -->
+
 		<script src="component/appMusicPlayer.js"></script>
 		<script src="component/appClock.js"></script>
 		<script src="component/appTodo.js"></script>

@@ -13,7 +13,7 @@
 	flex: 1;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.05);
-	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 4px #191919;
 	overflow: hidden;
 	& input {
 		width: 100%;
@@ -76,7 +76,7 @@
 	width: 30%;
 	height: 100%;
     background-color: rgba(0, 0, 0, 0.05);
-	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 4px #191919;
 }
 .posts-list {
     height: 100%;
@@ -165,4 +165,17 @@
 		transform: rotate(30deg);
 		opacity: 100%;
 	}
+}
+
+
+.editor-toolbar {
+    width: 100%;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.CodeMirror {
+    width: 100%;
+    padding: 2rem;
 }

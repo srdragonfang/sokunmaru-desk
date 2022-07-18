@@ -17,7 +17,7 @@
 		font-weight: 500;
 		margin-top: 3rem;
 		border-radius: 5px;
-		box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 2px 4px #191919;
 		padding-top: 1rem;
 		& .todoApp-container {
             @include flexbox(column, none);
@@ -26,6 +26,7 @@
                 @include flexbox(column, none);
                 width: 400px;
 				height: 300px;
+                padding: 0 1rem ;
                 // width: 100%;
 				overflow-y: scroll;
 			}

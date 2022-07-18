@@ -8,6 +8,7 @@ const trackName = $('.album-info__name');
 const trackSinger = $('.album-info__track');
 const trackThumb = $('.player-cover__item');
 const trackURL = $('#audio');
+const progressBar = $('.player-bar');
 
 const playBtn = $('#play');
 const playIcon = $('.fa-play');
@@ -179,6 +180,7 @@ const app = {
 				pauseIcon.style.display = 'flex';
 				playStatus.classList.add('playing');
 				trackThumbAnimate.play();
+                progressBar.classList.add("progressBar")
 			};
 			audio.onpause = function () {
 				_this.isPlaying = false;
@@ -186,6 +188,8 @@ const app = {
 				pauseIcon.style.display = 'none';
 				playStatus.classList.remove('playing');
 				trackThumbAnimate.pause();
+                progressBar.classList.remove("progressBar")
+
 			};
 		};
 		// track prev/next audio
@@ -195,9 +199,12 @@ const app = {
 			} else {
 				_this.prevTrack();
 			}
+            progressBar.classList.remove("progressBar")
 			audio.play();
+            progressBar.classList.add("progressBar")
 			_this.render();
 			_this.scrollToAcitveSong();
+
 		};
 		nextBtn.onclick = function () {
 			if (_this.isRandom) {
@@ -205,7 +212,9 @@ const app = {
 			} else {
 				_this.nextTrack();
 			}
+            progressBar.classList.remove("progressBar")
 			audio.play();
+            progressBar.classList.add("progressBar")
 			_this.render();
 			_this.scrollToAcitveSong();
 		};
@@ -217,6 +226,9 @@ const app = {
 					(audio.currentTime / audio.duration) * 100
 				);
 				progress.value = progressPercent;
+                console.log(audio.duration)
+                progressBar.style.animationDuration = `${audio.duration + 10}s`
+
 			}
 		};
 		progress.onchange = function (e) {

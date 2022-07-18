@@ -31,7 +31,7 @@
 		font-size: 2rem;
 		overflow-y: scroll;
 		white-space: pre-wrap;
-		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        box-shadow: 2px 2px 4px #191919;
 
 		&::-webkit-scrollbar {
 			display: none;
@@ -52,7 +52,7 @@
 		text-align: center;
 		color: #fff;
 		background-color: #2c3e50;
-		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        box-shadow: 2px 2px 4px #191919;
 		cursor: pointer;
 
 		& option[value='higher'] {
@@ -83,7 +83,7 @@
 		font-weight: 700;
 		background: #191919;
 		color: #f9f9f9;
-		box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        box-shadow: 2px 2px 4px #191919;
 	}
 }
 
@@ -126,7 +126,7 @@
 				width: 100%;
 				margin-bottom: 0.5rem;
 				border: 1px groove goldenrod;
-				box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                box-shadow: 2px 2px 4px #191919;
 
 				& .task-status {
 					width: 10px;

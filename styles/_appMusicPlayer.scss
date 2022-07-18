@@ -8,7 +8,7 @@
 	background-color: lightblue;
 	width: 410px !important;
 	height: 580px;
-	box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+    box-shadow: 2px 2px 4px #191919;
 	padding: 5rem;
 	position: relative;
     // border: 3px groove #191919;
@@ -41,7 +41,7 @@
 	background-color: lightblue;
 	width: 410px;
 	height: 580px;
-	box-shadow: 0px 15px 35px -5px rgba(50, 88, 130, 0.32);
+    box-shadow: 2px 2px 4px #191919;
 }
 
 .player-bar {
@@ -50,18 +50,49 @@
 	border-radius: 15px 0 0 15px;
 	width: 100px;
 	height: 10px;
-    border-top: 1px solid goldenrod;
-    border-left: 1px solid goldenrod;
-    border-bottom: 1px solid goldenrod;
-	box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
+    border-top: 0.1px solid goldenrod;
+    border-left: 0.1px solid goldenrod;
+    border-bottom: 0.1px solid goldenrod;
+    box-shadow: 2px 2px 4px #191919;
 	position: absolute;
 	right: -5px;
 	top: 50%;
     transform: translateY(-50%);
 	z-index: 1;
-	// padding: 0 0.5rem;
-}
+	padding: 0.5rem;
 
+}
+.player-bar:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    left: -10px;
+    background: #191919;
+}
+.player-bar:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    // border-radius: 50%;
+    position: absolute;
+    right: -10px;
+    background: #191919;
+}
+.progressBar {
+    animation: playerBar;
+}
+@keyframes playerBar {
+    0% {
+        transform: rotate(60deg);
+        transform-origin: right;
+    }
+    100% {
+        transform: rotate(0deg);
+        transform-origin: right;
+    }
+}
 .buttons {
 	@include flexbox(row, space-between);
 	width: 50%;
@@ -129,13 +160,14 @@
 	position: absolute;
 	left: 0;
 	top: 0;
+    box-shadow: 2px 2px 4px #191919;
+
 }
 
 .player-cover__item:before {
 	content: '';
 	height: calc(100% + 40px);
 	width: calc(100% + 40px);
-	/* box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5); */
 	position: absolute;
 	top: -20px;
 	left: -20px;
@@ -213,7 +245,7 @@
 	width: 350px;
 	height: 480px;
 	text-decoration: none;
-	box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);
+    box-shadow: 2px 2px 4px #191919;
 	color: goldenrod;
 	font-weight: bold;
 	letter-spacing: 1px;

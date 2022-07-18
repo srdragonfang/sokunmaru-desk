@@ -1,44 +1,45 @@
-// get element from DOM
-function getElement(selection) {
-    const element = document.querySelector(selection)
-    if (element) {
-        return element
-    }
-    throw new Error(
-        `Please check ${selection} selector, no such element exists`
-        )
-}
 // elements
-const postsListDOM = getElement('.posts-list');
-const postAlertDOM = getElement('.post-alert');
+const postsListDOM = document.querySelector('.posts-list');
+// const postTitleDOM = document.querySelector('.post-title');
+// const postTextDOM = document.querySelector('.CodeMirror-code');
+const postAlertDOM = document.querySelector('.post-alert');
 // buttons
-const postAddBtn = getElement('.btn-postAdd');
-const postApp = getElement('#postApp');
-const postPinBtn = getElement('#post-pin');
-
+const postAddBtn = document.querySelector('.btn-postAdd');
+const postApp = document.querySelector('#postApp');
+const postPinBtn = document.querySelector('#post-pin');
+const postFullScr = document.querySelector('#btn-fullscr');
 // edit options
 let editTitlePost;
 let editTextPost;
 let editFlagPost = false;
 let editIDPost = '';
 
+var editor = new Editor({
+    element: document.querySelector('.post-text')
+    // toolbar: []
+});
+
+editor.render();
 // get value from
-const postTitleInput = getElement('.input-post-title');
-const postTextInput = getElement('.input-post-text');
+const postTitleInput = document.querySelector('.input-post-title');
+const postTextInput = document.querySelector('.CodeMirror-code').children[0];
+console.log(postTextInput.textContent);
 postCreateNew();
 
+
+// console.log(localStorage.getItem('postList')) 
 // ANCHOR:          post conditional
 function postCreateNew() {
 	postAddBtn.addEventListener('click', () => {
-		console.log('edit status conditional', editIDPost != '');
-		console.log('edit status conditional 1', !!editIDPost);
-		console.log('edit status conditional 2 ', editIDPost != '' && !!editFlagPost);
+		// console.log('edit status conditional', editIDPost != '');
+		// console.log('edit status conditional 1', !!editIDPost);
+		// console.log('edit status conditional 2 ', editIDPost != '' && !!editFlagPost);
 		if (!editFlagPost) {
-			if (postTitleInput.value === '' || postTextInput.value === '') {
+			if (postTitleInput.value === '' || postTextInput.textContent === '') {
 				postAlertDOM.innerHTML = 'Please fill in the blanks';
 			} else if (
 				postTitleInput.value !== '' &&
-				postTextInput.value !== ''
+				postTextInput.textContent !== ''
 			) {
 				createNewPostNew();
 				setBackToDefaultNew();
@@ -48,15 +49,15 @@ function postCreateNew() {
 				'what is',
 				editIDPost,
 				postTitleInput.value,
-				postTextInput.value
+				postTextInput.textContent
 			);
 			console.log('what is', editTitlePost.parentElement);
 			editTitlePost.innerHTML = postTitleInput.value;
-			editTextPost.innerHTML = postTextInput.value;
+			editTextPost.innerHTML = postTextInput.textContent;
 			editFromLocalStorageNew(
 				editIDPost,
 				postTitleInput.value,
-				postTextInput.value
+				postTextInput.textContent
 			);
 			setBackToDefaultNew();
 		}
@@ -66,7 +67,7 @@ function postCreateNew() {
 //   ANCHOR *** create new post
 function createNewPostNew() {
 	let postTitleValue = postTitleInput.value;
-	let postTextValue = postTextInput.value;
+	let postTextValue = editor.codemirror.getValue();;
 	let postID = generateIDNew();
 	postRenderNew(postTitleValue, postTextValue, postID);
 	addToLocalStorageNew(postID, postTitleValue, postTextValue);
@@ -85,7 +86,7 @@ function postRenderNew(title, text, id) {
               <p class="post-text">${text}</p>
       `;
 
-	//   const btnPins = getElementAll(".btn-pin");
+	//   const btnPins = document.querySelectorAll(".btn-pin");
 	const btnDelPost = post.querySelector('.btn-del-post');
 	btnDelPost.addEventListener('click', deletePostNew);
 	const btnEditPost = post.querySelector('.btn-edit-post');
@@ -114,21 +115,23 @@ function deletePostNew(e) {
 function editPostNew(e) {
 	const postEl = e.currentTarget.parentElement.parentElement;
 	const id = postEl.dataset.id;
+    // console.log(postEl) 
 	// get element DOM
 	editTitlePost = e.currentTarget.parentElement.children[0];
 	editTextPost = e.currentTarget.parentElement.parentElement.children[1];
 
 	// get input(title, text) value
 	postTitleInput.value = editTitlePost.innerHTML;
-	postTextInput.value = editTextPost.innerHTML;
+	postTextInput.textContent = editTextPost.innerHTML;
 	editFlagPost = true;
 	editIDPost = postEl.dataset.id;
 	console.log('title value before edit', editTitlePost, editIDPost);
 }
 
 function setBackToDefaultNew() {
-	postTitleInput.value = '';
-	postTextInput.value = '';
+    postTitleInput.value = '';
+	postTextInput.textContent = undefined;
+    document.querySelector('.post-text').value = '';
 
 	postAlertDOM.innerHTML = '';
 
@@ -155,7 +158,7 @@ function getLocalStorageNew() {
 function setupItemsNew() {
 	// get posts from local storage
 	let posts = getLocalStorageNew();
-	console.log(posts);
+	// console.log(posts);
 	if (posts.length > 0) {
 		posts.forEach((post) => {
             // console.log(post.id, post.title, post.text);
@@ -193,7 +196,7 @@ function editFromLocalStorageNew(id, title, text) {
 	posts = posts.filter(function (post) {
 		if (post.id == id) {
 			post.title = postTitleInput.value;
-			post.text = postTextInput.value;
+			post.text = postTextInput.textContent;
 		}
 		return post;
 	});
@@ -206,5 +209,4 @@ postPinBtn.addEventListener('click', () => {
 	postApp.classList.toggle('pinPost');
 	postApp.classList.toggle('post-smallSrc');
 });
-
 
