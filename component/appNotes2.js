@@ -217,6 +217,6 @@ notePinBtn.addEventListener("click", () => {
     noteApp.classList.toggle('pinNote') 
     noteApp.classList.toggle('note-smallSrc')
 })
-noteFullScr.addEventListener("click", () => {
-    noteApp.classList.toggle('note-fullscreen')
-})
+// noteFullScr.addEventListener("click", () => {
+//     noteApp.classList.toggle('note-fullscreen')
+// })
