@@ -73,18 +73,13 @@
 		<!-- ANCHOR *** [CENTER] -->
 		<div class="section-wrapper">
 			<section class="section section-one">
-				<!-- SECTION - appMusicPlayer -->
+                <!-- ----------------------------------------------------------------------- -->
+                <!--                             musicPlayer-app                             -->
+                <!-- ----------------------------------------------------------------------- -->
 				<div class="main-left">
-					<!-- * musicPlayer -->
 					<div class="app-musicPlayer" id="musicApp">
 						<div class="player">
-							<p>The Lullaby Of Soul</p>
-							<div class="player__top">
-								<div class="btn-playlist">
-									<i class="fa-solid fa-sliders"></i>
-									<!-- <i class="fa-solid fa-bars"></i> -->
-									<i class="fa-solid fa-xmark"></i>
-								</div>
+                            <div class="player__top">
 								<div class="player-cover">
 									<div
 										class="player-cover__item"
@@ -94,20 +89,18 @@
 									>
 										<div class="cd-inner"></div>
 									</div>
-									<div class="player-bar">
-										<input
-											id="audioRange"
-											type="range"
-											value="0"
-											step="1"
-											min="0"
-											max="100"
-										/>
-									</div>
+									<div class="player-bar"></div>
 								</div>
+                                <div class="album__info-artist"></div>
 							</div>
 							<div class="progress" ref="progress">
 								<div class="buttons">
+									<button
+										class="audio-controll-button"
+										id="repeatTrack"
+									>
+										<i class="fa-solid fa-repeat"></i>
+									</button>
 									<button
 										class="audio-controll-button"
 										id="backward"
@@ -129,8 +122,6 @@
 									>
 										<i class="fa-solid fa-forward-step"></i>
 									</button>
-								</div>
-								<div class="buttons">
 									<button
 										class="audio-controll-button"
 										id="randomTrack"
@@ -138,27 +129,27 @@
 										<i class="fa-solid fa-random"></i>
 									</button>
 									<button
-										class="audio-controll-button"
-										id="favTrack"
+										class="btn-playlist audio-controll-button"
 									>
-										<i class="fa fa-heart"></i>
-									</button>
-
-									<button
-										class="audio-controll-button"
-										id="repeatTrack"
-									>
-										<i class="fa-solid fa-repeat"></i>
+										<i class="fa-solid fa-sliders"></i>
+										<!-- <i class="fa-solid fa-bars"></i> -->
+										<i class="fa-solid fa-xmark"></i>
 									</button>
 								</div>
+								<input
+									id="audioRange"
+									type="range"
+									value="0"
+									step="1"
+									min="0"
+									max="100"
+								/>
+								<div class="album__info-name"></div>
+								<div class="album-info"></div>
 								<audio
 									id="audio"
 									src="assets/audio/5.mp3"
 								></audio>
-								<div class="album-info" v-if="currentTrack">
-									<div class="album-info__name"></div>
-									<div class="album-info__track"></div>
-								</div>
 							</div>
 						</div>
 						<div class="dashboard curved">
@@ -406,16 +397,16 @@
 				<div class="room">
 					<h1>On Desk</h1>
 					<div class="room-container">
-                        <div class="room-writer">
-                            <h1>Writer</h1>
-                        </div>
-                        <div class="room-developer">
-                            <h1>Developer</h1>
-                            <div class="projects">
-                                <h2>Javascript Handbook</h2>
-                            </div>
-                        </div>
-                    </div>
+						<div class="room-writer">
+							<h1>Writer</h1>
+						</div>
+						<div class="room-developer">
+							<h1>Developer</h1>
+							<div class="projects">
+								<h2>Javascript Handbook</h2>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 

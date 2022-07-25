@@ -2,10 +2,11 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const PLAYER_STORAGE_KEY = 'MUSIC_PLAYER_2';
+const sectionOne = $('.section-one');
 const playStatus = $('.player');
 const playlist = $('.playlist');
-const trackName = $('.album-info__name');
-const trackSinger = $('.album-info__track');
+const trackName = $('.album__info-name');
+const trackSinger = $('.album__info-artist');
 const trackThumb = $('.player-cover__item');
 const trackURL = $('#audio');
 const progressBar = $('.player-bar');
@@ -47,7 +48,7 @@ const app = {
 	isPlaying: false,
 	isRandom: false,
 	isRepeat: false,
-	isFav: false,
+	// isFav: false,
 	config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
 
 	// trackAPI: url("/data/tracks.json"),
@@ -61,6 +62,12 @@ const app = {
     // tracks: getSong(trackAPI),
 
 	tracks: [
+        {
+			title: 'Torches',
+			artist: 'Aimer',
+			path: './assets/audio/18.mp3',
+			imgUrl: './assets/audio/18.jpg',
+		},
 		{
 			title: 'たぶん',
 			artist: 'Yoasobi',
@@ -161,9 +168,18 @@ const app = {
 			path: './assets/audio/15.mp3',
 			imgUrl: './assets/audio/15.jpg',
 		},
-
-
-
+						{
+			title: 'Lover',
+			artist: '7!!',
+			path: './assets/audio/16.mp3',
+			imgUrl: './assets/audio/16.jpg',
+		},
+						{
+			title: '蝶々結び',
+			artist: 'Aimer',
+			path: './assets/audio/17.mp3',
+			imgUrl: './assets/audio/17.jpg',
+		}
 	],
 	setConfig: function (key, value) {
 		this.config[key] = value;
@@ -290,11 +306,11 @@ const app = {
 			_this.setConfig('isRepeat', _this.isRepeat);
 			repeatBtn.classList.toggle('active', this.isRepeat);
 		};
-		favBtn.onclick = function (e) {
-			_this.isFav = !_this.isFav;
-			_this.setConfig('isFav', _this.isFav);
-			favBtn.classList.toggle('active', this.isFav);
-		};
+		// favBtn.onclick = function (e) {
+		// 	_this.isFav = !_this.isFav;
+		// 	_this.setConfig('isFav', _this.isFav);
+		// 	favBtn.classList.toggle('active', this.isFav);
+		// };
 
 		// playlist
 		playlist.onclick = function (e) {
@@ -354,12 +370,13 @@ const app = {
 	loadConfig: function () {
 		this.isRandom = this.config.isRandom;
 		this.isRepeat = this.config.isRepeat;
-		this.isFav = this.config.isFav;
+		// this.isFav = this.config.isFav;
 	},
 	loadCurrentTrack: function () {
 		trackName.textContent = this.currentTrack.title;
 		trackSinger.textContent = this.currentTrack.artist;
 		trackURL.src = this.currentTrack.path;
+		// sectionOne.style.backgroundImage = `url('${this.currentTrack.imgUrl}')`;
 		trackThumb.style.backgroundImage = `url('${this.currentTrack.imgUrl}')`;
 	},
 	start: function () {
@@ -372,7 +389,7 @@ const app = {
 
 		randomBtn.classList.toggle('active', this.isRandom);
 		repeatBtn.classList.toggle('active', this.isRepeat);
-		favBtn.classList.toggle('active', this.isFav);
+		// favBtn.classList.toggle('active', this.isFav);
 	},
 };
 app.start();

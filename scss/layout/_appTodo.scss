@@ -1,9 +1,11 @@
 @use '../globals' as g;
+@use '../util/' as u;
 
+// start -- [appTodo]
 .app-todo {
 	& p span {
 		font-style: italic;
-		color: #19191984;
+		// color: #19191984;
 	}
 	& h1 {
 		text-align: center;
@@ -19,22 +21,27 @@
 		font-weight: 500;
 		margin-top: 3rem;
 		border-radius: 5px;
-        box-shadow: 2px 2px 4px #191919;
 		padding-top: 1rem;
+        box-shadow: 2px 2px 4px #191919;
+
 		& .todoApp-container {
+            flex: 1;
             @include g.flexbox(column, none);
-			flex: 1;
+
 			& .todoList {
-                @include g.flexbox(column, none);
                 width: 400px;
-				height: 300px;
-                padding: 0 1rem ;
                 // width: 100%;
+				height: 300px;
+                padding: 0 1rem;;
 				overflow-y: scroll;
+
+                @include g.flexbox(column, none);
+
 			}
-			& .todoList::-webkit-scrollbar {
-				display: none;
-			}
+
+			// & .todoList::-webkit-scrollbar {
+			// 	display: none;
+			// }
 		}
 	}
 }
@@ -46,8 +53,9 @@
 	background: rgba(245, 200, 86, 0.95);
 	cursor: pointer;
 	box-shadow: 2px 2px 1px #f9f9f9;
-	padding: 0rem 1rem;
-	margin: 0 1rem 0 1rem;
+
+	padding: 0 1rem;;
+	margin: 0 1rem;;
 }
 
 .todo + .todo {
@@ -111,3 +119,5 @@
 		background-color: rgba(255, 255, 255, 0.4);
 	}
 }
+
+// [appTodo] -- end.

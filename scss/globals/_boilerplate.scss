@@ -7,28 +7,26 @@ html {
     scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+	display: none;
+}
+
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-
-    font-family: u.$font;
+    // font-family: u.$font;
     // font-family: 'Times New Roman', Times, serif;
-    // font-size: 1.6rem;
     font-size: 2rem;
-    // background-color: var(--background-color);
-    // color: var(--text-color);
     background-image: url('/assets/images/paper_fibers.png');
 }
 
-body::-webkit-scrollbar {
-	display: none;
-}
+
 
 section {
 	scroll-snap-align: start;
