@@ -3,7 +3,6 @@
 /*                                  clockApp                                  */
 /* -------------------------------------------------------------------------- */
 
-
 .clock {
 	position: relative;
 	top: -180px;
@@ -55,34 +54,35 @@
 		width: 80px;
 		height: 530px;
 		padding: 3rem auto;
+
 		position: absolute;
 		bottom: 20%;
 		right: -110px;
+
 		font-size: 5rem;
 		font-weight: 900;
 		transform: rotate(20deg);
 		text-transform: uppercase;
 		text-align: center;
+		box-shadow: 0px 8px 16px #191919;
 		@include g.themeMode;
 	}
+
 	& .desk {
 		position: relative;
-		right: -23px;
-		font-size: 3rem;
+        bottom: -3px;
+		right: -117px;
 		padding: 1rem;
-		width: 100px;
-		height: 100px;
+		width: 106px;
+		height: 106px;
 		border-radius: 50%;
-		display: block;
-		margin: 0 auto;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
-		// background-color: #191919;
-		@include g.themeMode;
-
+		font-size: 3rem;
+		box-shadow: 0px 8px 16px #191919;
 		animation: desk__rotate 5s linear infinite;
+		@include g.themeMode;
 	}
 
 	@keyframes desk__rotate {
@@ -94,6 +94,7 @@
 	& .date {
 		font-size: 4rem;
 		padding: 0 3rem;
+		box-shadow: 0px 8px 16px #191919;
 		@include g.themeMode;
 	}
 	& .monday {
@@ -105,23 +106,24 @@
 		transform: rotate(-35deg);
 		z-index: -1;
 		padding: 0 1rem;
+		box-shadow: 0px 8px 16px #191919;
+		animation: monday__moving 5s 2.5s linear infinite;
 		@include g.themeMode;
-        animation: monday__moving 5s 2.5s linear infinite;
 	}
 
-    @keyframes monday__moving {
-        0% {
-            bottom: 105px;
-            right: 5px;
-        }
-		50% {
-            bottom: 120px;
-            right: -10px;
+	@keyframes monday__moving {
+		0% {
+			bottom: 105px;
+			right: 5px;
 		}
-        100% {
-            bottom: 105px;
-            right: 5px;
-        }
+		50% {
+			bottom: 120px;
+			right: -10px;
+		}
+		100% {
+			bottom: 105px;
+			right: 5px;
+		}
 	}
 }
 
