@@ -8,10 +8,10 @@
 	background-color: lightblue;
 	width: 410px !important;
 	height: 580px;
-    box-shadow: 2px 2px 4px #191919;
+	box-shadow: 2px 2px 4px #191919;
 	padding: 5rem;
 	position: relative;
-    // border: 3px groove #191919;
+	// border: 3px groove #191919;
 	&:hover .dashboard {
 		animation: dashboard-hover 1s;
 		z-index: 1;
@@ -29,7 +29,6 @@
 		line-height: 1.25;
 		text-shadow: 2px 2px 5px #eda73d;
 		color: #c59d5f;
-
 	}
 }
 .player:after {
@@ -41,7 +40,7 @@
 	background-color: lightblue;
 	width: 410px;
 	height: 580px;
-    box-shadow: 2px 2px 4px #191919;
+	box-shadow: 2px 2px 4px #191919;
 }
 
 .player-bar {
@@ -50,48 +49,47 @@
 	border-radius: 15px 0 0 15px;
 	width: 100px;
 	height: 10px;
-    border-top: 0.1px solid goldenrod;
-    border-left: 0.1px solid goldenrod;
-    border-bottom: 0.1px solid goldenrod;
-    box-shadow: 2px 2px 4px #191919;
+	// border-top: 0.1px solid goldenrod;
+	// border-left: 0.1px solid goldenrod;
+	// border-bottom: 0.1px solid goldenrod;
+	box-shadow: 2px 2px 4px #191919;
 	position: absolute;
 	right: -5px;
 	top: 50%;
-    transform: translateY(-50%);
+	transform: translateY(-50%);
 	z-index: 1;
 	padding: 0.5rem;
-
 }
 .player-bar:before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: absolute;
-    left: -10px;
-    background: #191919;
+	content: '';
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	position: absolute;
+	left: -10px;
+	background: #191919;
 }
 .player-bar:after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    // border-radius: 50%;
-    position: absolute;
-    right: -10px;
-    background: #191919;
+	content: '';
+	width: 20px;
+	height: 20px;
+	// border-radius: 50%;
+	position: absolute;
+	right: -10px;
+	background: #191919;
 }
 .progressBar {
-    animation: playerBar;
+	animation: playerBar;
 }
 @keyframes playerBar {
-    0% {
-        transform: rotate(60deg);
-        transform-origin: right;
-    }
-    100% {
-        transform: rotate(0deg);
-        transform-origin: right;
-    }
+	0% {
+		transform: rotate(60deg);
+		transform-origin: right;
+	}
+	100% {
+		transform: rotate(0deg);
+		transform-origin: right;
+	}
 }
 .buttons {
 	@include flexbox(row, space-between);
@@ -160,8 +158,7 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-    box-shadow: 2px 2px 4px #191919;
-
+	box-shadow: 2px 2px 4px #191919;
 }
 
 .player-cover__item:before {
@@ -212,7 +209,7 @@
 	width: 100%;
 	padding: 3rem 2rem;
 	user-select: none;
-    // background-color: brown;
+	// background-color: brown;
 }
 .progress__top {
 	display: flex;
@@ -229,7 +226,7 @@
 	font-size: 3rem;
 	font-weight: bold;
 	line-height: 1.3em;
-    white-space: nowrap;
+	white-space: nowrap;
 }
 
 .album-info__track {
@@ -244,15 +241,18 @@
 	right: 300px;
 	width: 350px;
 	height: 480px;
-	text-decoration: none;
-    box-shadow: 2px 2px 4px #191919;
+    background-image: url('/assets/images/bg-3.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-shadow: 2px 2px 4px #191919;
 	color: goldenrod;
+	// text-decoration: none;
 	font-weight: bold;
 	letter-spacing: 1px;
 	transition: all 0.3s ease-in-out;
 	overflow-y: scroll;
 	z-index: -1;
-    border: 3px groove goldenrod;
+	border: 3px groove goldenrod;
 	&::-webkit-scrollbar {
 		background: #19191975;
 		width: 5px;
@@ -261,23 +261,21 @@
 		background-color: #191919;
 	}
 }
-  
-
 
 .btn-playlist {
 	position: absolute;
 	right: -40px;
 	bottom: -220px;
-    padding: 1rem;
-    & i {
-        color: #191919;
-    }
+	padding: 1rem;
+	& i {
+		color: #191919;
+	}
 	& .fa-xmark {
 		display: none;
 	}
 }
 
-    .show-playlist {
+.show-playlist {
 	right: 120px;
 	animation: dashboard-show 1.5s;
 	z-index: 1;
@@ -324,14 +322,13 @@
 	}
 }
 .dashboard::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
 .playlist {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: auto;
 	// margin: 3rem 0 3rem 0;
-    background-image: url('/assets/images/bg-3.jpg');
 
 }
 .track {

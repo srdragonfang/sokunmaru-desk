@@ -149,6 +149,20 @@ const app = {
 			path: './assets/audio/13.mp3',
 			imgUrl: './assets/audio/13.jpg',
 		},
+				{
+			title: 'Sparkle ',
+			artist: 'Radwimps',
+			path: './assets/audio/14.mp3',
+			imgUrl: './assets/audio/14.jpg',
+		},
+						{
+			title: 'Nandemonaiya',
+			artist: 'Thai Trinh - Cover',
+			path: './assets/audio/15.mp3',
+			imgUrl: './assets/audio/15.jpg',
+		},
+
+
 
 	],
 	setConfig: function (key, value) {
