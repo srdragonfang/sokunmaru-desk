@@ -1,5 +1,7 @@
+@use '../globals' as g;
+
 .app-musicPlayer {
-	@include flexbox(none, center);
+	@include g.flexbox(none, center);
 	// min-height: 100vh;
 	position: relative;
 	// margin-left: 5rem;
@@ -44,7 +46,7 @@
 }
 
 .player-bar {
-	@include flexbox(none, none);
+	@include g.flexbox(none, none);
 	background: #191919;
 	border-radius: 15px 0 0 15px;
 	width: 100px;
@@ -92,7 +94,7 @@
 	}
 }
 .buttons {
-	@include flexbox(row, space-between);
+	@include g.flexbox(row, space-between);
 	width: 50%;
 }
 .buttons + .buttons {
@@ -100,7 +102,7 @@
 	margin-bottom: 1rem;
 }
 .audio-controll-button {
-	@include flexbox(none, center);
+	@include g.flexbox(none, center);
 	width: 30px;
 	height: 30px;
 	outline: none;
@@ -363,12 +365,12 @@
 
 @media screen and (max-width: 768px) {
 	.player {
-		@include flexbox(column, center);
+		@include g.flexbox(column, center);
 		width: 100%;
 		padding: 30px;
 	}
 	.progress {
-		@include flexbox(column, center);
+		@include g.flexbox(column, center);
 	}
 	.player-bar {
 		width: 120px;

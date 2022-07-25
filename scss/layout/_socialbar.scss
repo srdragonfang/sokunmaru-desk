@@ -1,20 +1,23 @@
+@use '../globals' as g;
+
 // * START >>> [SOCIALBAR]
 .socialBar {
-	@include flexbox(column, none);
-	width: 100%;
-    height: 100%;
+    @include g.fullbox;
+	@include g.flexbox(column, none);
+
 	&-bottom {
-		@include flexbox(row, space-between);
-		width: 100%;
+        width: 100%;
 		height: 10rem;
 		padding: 0 3rem;
 		border-top: 1px groove goldenrod;
 		gap: 1rem;
-		background: #191919;
-		color: #f9f9f9 !important;
+
+        // @include themeMode;
+		@include g.flexbox(row, space-between);
+
 		&-info {
 			flex: 1;
-			@include flexbox(row, space-between);
+			@include g.flexbox(row, space-between);
 		}
 	}
 	&-list {
@@ -27,13 +30,15 @@
 	}
 	&-item a {
 		color: inherit;
+        border: dashed 1px transparent;
+
 		&:hover {
 			border: dashed 1px goldenrod;
 		}
 	}
 	&-top {
 		flex: 1;
-		justify-content: center;
+        @include g.flexbox(column, center);
 	}
 }
 

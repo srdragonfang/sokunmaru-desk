@@ -1,5 +1,7 @@
+@use '../globals' as g;
+
 .scrum-app {
-	@include flexbox(column, flex-start);
+	@include g.flexbox(column, flex-start);
 	height: 100vh;
 	width: 100vw;
 	padding: 3rem 1rem 1rem;
@@ -11,11 +13,11 @@
 }
 .scrum-header {
     flex: 0.4;
-    @include flexbox(column, space-around);
+    @include g.flexbox(column, space-around);
     width: 100%;
 }
 .scrum-taskbar {
-	@include flexbox(row, space-between);
+	@include g.flexbox(row, space-between);
 	width: 60%;
 	& textarea {
 		// reset
@@ -96,7 +98,7 @@
 	gap: 1rem;
 	width: 100%;
 	& .scrum-col {
-		@include flexbox(column, flex-start);
+		@include g.flexbox(column, flex-start);
 		width: calc(100% / 5);
 		overflow: hidden !important;
 		& h3 {
@@ -105,7 +107,7 @@
 			width: 100%;
 		}
 		& .scrum-list {
-			@include flexbox(column, flex-start);
+			@include g.flexbox(column, flex-start);
 			width: 100%;
 		    height: 50vh;
 			margin-top: 1rem;
@@ -122,7 +124,7 @@
                 width: 5px;
 			}
 			& .task {
-				@include flexbox(row, flex-start);
+				@include g.flexbox(row, flex-start);
 				width: 100%;
 				margin-bottom: 0.5rem;
 				border: 1px groove goldenrod;

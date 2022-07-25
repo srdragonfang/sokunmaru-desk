@@ -1,0 +1,46 @@
+@use '../util/' as u;
+
+.posts {
+	display: grid;
+	gap: 4rem;
+	grid-template-columns: auto;
+	grid-template-rows: auto auto;
+	width: min(100%, 1000px);
+	margin: 0 auto;
+	// margin-inline: auto;
+	// background: brown;
+
+	@include u.breakpoint(large) {
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: auto;
+		background: hsl(195, 53%, 79%);
+	}
+	&__main,
+	&__sidebar {
+		padding: 4rem;
+	}
+
+	&__main {
+		background-color: hsl(240, 100%, 58%);
+
+        @include u.breakpoint(medium) {
+            background-color: yellow;
+        }
+
+        @include u.breakpoint(large) {
+            background-color: brown;
+        }
+
+	}
+
+	&__sidebar {
+		background-color: hsl(299, 96%, 44%);
+        // text-align: center;
+        text-align: center;
+        
+        // @include u.breakpoint(large) {
+        //     text-align: left;
+        // }
+	}
+}
+// Mdn@Ayun98989800

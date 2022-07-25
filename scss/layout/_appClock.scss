@@ -1,5 +1,7 @@
+@use '../globals' as g;
+
 .clock {
-	@include flexbox(row, none);
+	@include g.flexbox(row, none);
 	font-size: 7rem;
 	background-color: inherit;
 	width: 280px;
@@ -17,7 +19,7 @@
 .weather {
 	&-info {
 		&-top {
-			@include flexbox(column, center);
+			@include g.flexbox(column, center);
 			min-height: 70px;
 			padding: 0.5rem 1rem;
 		}
@@ -26,10 +28,10 @@
 		}
 
 		&-detail {
-			@include flexbox(column, space-around);
+			@include g.flexbox(column, space-around);
 		}
 		&-status {
-			@include flexbox(row, center);
+			@include g.flexbox(row, center);
 		}
 	}
 	&-search {
@@ -44,7 +46,7 @@
 	}
 }
 .clock-buttons {
-	@include flexbox(column, center);
+	@include g.flexbox(column, center);
 }
 #startPomodoro {
 	background-color: yellow;

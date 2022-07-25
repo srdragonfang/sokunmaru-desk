@@ -1,3 +1,5 @@
+@use '../globals' as g;
+
 .noteApp-container {
     width: 100%;
     display: flex;
@@ -5,7 +7,7 @@
     align-items: center;
 }
 .notes {
-	@include flexbox(column, flex-start);
+	@include g.flexbox(column, flex-start);
     position: absolute;
 	width: max-content;
 	height: max-content;
@@ -48,7 +50,7 @@
 }
 
 .note {
-	@include flexbox(column, none);
+	@include g.flexbox(column, none);
 	background: rgba(245, 200, 86, 0.95);
 	color: #191919bf;
 	font-weight: 500;
@@ -58,7 +60,7 @@
     box-shadow: 2px 2px 4px #191919;
 	height: min-content;
 	&-bar {
-		@include flexbox(row, flex-end);
+		@include g.flexbox(row, flex-end);
 		background: rgba(244, 94, 94, 0.864);
 		padding: 1rem 1rem 1rem 0;
 		width: 100%;

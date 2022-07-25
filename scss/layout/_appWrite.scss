@@ -1,3 +1,5 @@
+@use '../globals' as g;
+
 .postApp-container {
 	width: 100%;
 	height: 100%;
@@ -28,12 +30,12 @@
 	& .create-post {
 		width: 100%;
 		height: 100%;
-		@include flexbox(column, none);
+		@include g.flexbox(column, none);
 		color: #191919bf;
 		font-weight: 500;
 		border-radius: 5px;
 		& .post-bar {
-			@include flexbox(row, flex-end);
+			@include g.flexbox(row, flex-end);
 			background: rgba(244, 94, 94, 0.864);
 			border-radius: 5px 5px 0 0;
 			padding: 1rem;
@@ -100,14 +102,14 @@
 	}
 
 	& .post {
-		@include flexbox(column, none);
+		@include g.flexbox(column, none);
 		background: rgba(245, 200, 86, 0.95);
 		color: #191919bf;
 		border-radius: 5px;
 		width: 100%;
 		&-bar {
 			border-radius: 5px 5px 0 0;
-			@include flexbox(row, flex-end);
+			@include g.flexbox(row, flex-end);
 			background: rgba(244, 94, 94, 0.864);
 			padding: 1rem 1rem 1rem 0;
 			width: 100%;

@@ -1,64 +1,17 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	// user-select: none;
-}
-
-html {
-	font-size: 62.5%;
-	scroll-behavior: auto;
-}
-
-body {
-	font-size: 2rem;
-	font-family: 'Times New Roman', Times, serif;
-	background-image: url('/assets/images/paper_fibers.png');
-}
-body::-webkit-scrollbar {
-	display: none;
-}
+@use '../globals' as g;
 
 .section-wrapper {
 	height: 100vh;
 	// width: 100vw;
 	overflow: hidden;
-	@include flexbox(row, flex-start);
+	@include g.flexbox(row, flex-start);
 	scroll-snap-type: x mandatory;
 	-webkit-overflow-scrolling: touch;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 
-section {
-	scroll-snap-align: start;
-	scroll-snap-stop: always; // mặc định là normal
-	min-width: 100vw !important;
-}
 
-h1 {
-	font-size: 5rem;
-	font-weight: 900;
-	font-family: 'Great Vibes', cursive;
-	letter-spacing: 0.25rem;
-	text-transform: capitalize;
-	line-height: 1.25;
-	text-shadow: 2px 2px 5px #eda73d;
-	color: #c59d5f;
-	margin-bottom: 0.75rem;
-	width: 100%;
-	text-align: center;
-}
-
-// .section {
-// 	min-height: max-content !important;
-// }
-.flex-col {
-	@include flexbox(column, none);
-}
-.flex-row {
-	@include flexbox(row, none);
-}
 
 .btn {
 	outline: none;
@@ -80,7 +33,7 @@ h1 {
 	width: 100vw;
 	height: 100vh;
 	// margin-bottom: 10rem;
-	// @include flexbox(row, center);
+	// @include g.flexbox(row, center);
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
@@ -91,28 +44,28 @@ h1 {
 	height: 100%;
 	padding: 10rem;
 	// background: brown;
-	@include flexbox(row, space-around);
+	@include g.flexbox(row, space-around);
 }
 
 .section-one .main-left {
 	width: 65%;
 	height: 100%;
-	@include flexbox(column, center);
+	@include g.flexbox(column, center);
 }
 .section-one .main-right {
-	@include flexbox(column, center);
+	@include g.flexbox(column, center);
 	width: 35%;
 	height: 100%;
 	z-index: 1001;
 }
 
 .section-two {
-	@include flexbox(row, center);
+	@include g.flexbox(row, center);
 }
 .section-three {
     position: relative;
     overflow: hidden;
-	@include flexbox(column, flex-start);
+	@include g.flexbox(column, flex-start);
     padding: 3rem 1rem 1rem;
     // background: brown;
     // background-image: url('/assets/images/bg-5.JPG');
@@ -121,7 +74,7 @@ h1 {
     background-size: cover;
 }
 .section-four {
-	@include flexbox(column, flex-start);
+	@include g.flexbox(column, flex-start);
 }
 .section-two,
 .section-three,
@@ -130,7 +83,7 @@ h1 {
 	height: 100%;
 }
 .section-three .main-left {
-	@include flexbox(row, flex-start);
+	@include g.flexbox(row, flex-start);
 	width: 80%;
 	height: 100%;
 	border: 2px groove goldenrod;

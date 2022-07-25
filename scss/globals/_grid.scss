@@ -1,0 +1,24 @@
+@use 'variables' as v;
+
+.grid {
+    display: grid;
+    gap: v.$grid-gap;
+    grid-template-columns: auto;    
+    grid-template-rows: auto auto;    
+
+	// &__2columns {
+	// 	// grid-template-columns: 70% 30%;
+        
+	// 	// @media (min-width: 978px) {
+	// 	// 	grid-template-columns: auto;
+	// 	// }
+	// }
+
+	&__3columns {
+		grid-template-columns: auto auto auto;
+
+		@media (min-width: 978px) {
+			grid-template-columns: auto;
+		}
+	}
+}

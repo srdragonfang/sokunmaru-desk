@@ -1,0 +1,37 @@
+@use '../util' as u;
+// ANCHOR reset CSS
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    // font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: u.$font;
+    // font-family: 'Times New Roman', Times, serif;
+    // font-size: 1.6rem;
+    font-size: 2rem;
+    // background-color: var(--background-color);
+    // color: var(--text-color);
+    background-image: url('/assets/images/paper_fibers.png');
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+section {
+	scroll-snap-align: start;
+	scroll-snap-stop: always; // mặc định là normal
+	min-width: 100vw !important;
+}

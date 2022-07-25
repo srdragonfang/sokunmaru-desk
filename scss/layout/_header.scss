@@ -1,3 +1,5 @@
+@use '../globals' as g;
+
 header {
     background: brown;
     // position:fixed;
@@ -14,7 +16,7 @@ header {
 
 }
 .menu-container{
-    @include flexbox(row, flex-start);
+    @include g.flexbox(row, flex-start);
     gap: 1rem;
     box-shadow: 2px 2px 4px #191919;
     width: max-content;
@@ -22,7 +24,7 @@ header {
     background: #191919;
 }
 .menu-item {
-    @include flexbox(row, flex-start);
+    @include g.flexbox(row, flex-start);
     gap: 1rem;
     color: #fff;
     text-decoration: unset;
