@@ -129,6 +129,27 @@ const app = {
 			path: './assets/audio/10.mp3',
 			imgUrl: './assets/audio/10.jpg',
 		},
+				{
+			title: 'BlueBird',
+			artist: 'IkimonoGakari',
+			path: './assets/audio/11.mp3',
+			imgUrl: './assets/audio/11.jpg',
+		},
+
+		{
+			title: 'Closer',
+			artist: 'Inoue Joe',
+			path: './assets/audio/12.mp3',
+			imgUrl: './assets/audio/12.jpg',
+		},
+
+		{
+			title: 'I Can Hear',
+			artist: 'DISH',
+			path: './assets/audio/13.mp3',
+			imgUrl: './assets/audio/13.jpg',
+		},
+
 	],
 	setConfig: function (key, value) {
 		this.config[key] = value;

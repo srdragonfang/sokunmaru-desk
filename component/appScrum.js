@@ -24,7 +24,6 @@ const taskInput = getElement('#task-input');
 const taskSubmit = getElement('#task-submit');
 
 // TODO edit - declare variable (editElement, editFlag)
-
 // TODO eventlistener - task submit
 taskSubmit.addEventListener('click', () => {
 	if (taskInput.value === '') {
