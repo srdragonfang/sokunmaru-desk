@@ -53,7 +53,7 @@
 	@include g.flexbox(column, center);
 }
 .section-one .main-right {
-	@include g.flexbox(column, space-between);
+	@include g.flexbox(column, flex-end);
 	width: 35%;
 	height: 100%;
     position: relative;
