@@ -67,7 +67,7 @@ function postCreateNew() {
 //   ANCHOR *** create new post
 function createNewPostNew() {
 	let postTitleValue = postTitleInput.value;
-	let postTextValue = editor.codemirror.getValue();;
+	let postTextValue = editor.codemirror.getValue();
 	let postID = generateIDNew();
 	postRenderNew(postTitleValue, postTextValue, postID);
 	addToLocalStorageNew(postID, postTitleValue, postTextValue);

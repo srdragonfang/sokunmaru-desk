@@ -16,8 +16,8 @@
 	}
 	& .todoApp {
         @include g.flexbox(column, none);
-		background: rgba(244, 94, 94, 0.864);
-		color: #191919;
+        background: #191919f8;
+		color: #f9f9f9;
 		font-weight: 500;
 		margin-top: 3rem;
 		border-radius: 5px;
@@ -32,7 +32,7 @@
                 width: 400px;
                 // width: 100%;
 				height: 300px;
-                padding: 0 1rem;;
+                padding: 0 1rem;
 				overflow-y: scroll;
 
                 @include g.flexbox(column, none);
@@ -50,12 +50,11 @@
     width: 100%;
     @include g.flexbox(row, space-between);
 	text-align: left;
-	background: rgba(245, 200, 86, 0.95);
+	background: #060606;
 	cursor: pointer;
-	box-shadow: 2px 2px 1px #f9f9f9;
-
-	padding: 0 1rem;;
-	margin: 0 1rem;;
+	padding: .5rem 1rem;
+	margin: 0 1rem;
+    border-radius: .5rem;
 }
 
 .todo + .todo {
