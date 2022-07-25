@@ -53,10 +53,11 @@
 	@include g.flexbox(column, center);
 }
 .section-one .main-right {
-	@include g.flexbox(column, center);
+	@include g.flexbox(column, space-between);
 	width: 35%;
 	height: 100%;
-	z-index: 1001;
+    position: relative;
+	// z-index: 1001;
 }
 
 .section-two {

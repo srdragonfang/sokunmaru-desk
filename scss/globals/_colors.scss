@@ -1,7 +1,20 @@
 :root {
 	--background-color: #191919;
 	--text-color: #f9f9f9;
-
+    --bg-gradient: linear-gradient(
+		-225deg,
+		#231557 0%,
+		#44107a 29%,
+		#ff1361 67%,
+		#fff800 100%
+	);
+    --text-gradient: linear-gradient(
+		-225deg,
+		#231557 0%,
+		#44107a 29%,
+		#ff1361 67%,
+		rgb(0, 162, 255) 100%
+	);
 	// --sz-tb: 1rem 0;
 	// --sz-lr-: 0 1rem;
 	// --sz-small: 0.5rem 1rem;

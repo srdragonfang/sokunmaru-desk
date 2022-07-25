@@ -13,13 +13,13 @@
 	z-index: 1;
 }
 .player {
-	background-color: lightblue;
+	background-image: var(--bg-gradient);
 	width: 360px !important;
 	height: 500px;
-	box-shadow: 2px 2px 4px #191919;
+	box-shadow: 2px 8px 16px #191919;
 	padding: 3rem 1rem;
 	position: relative;
-	z-index: 2;
+	// z-index: 2;
 
 	&:after {
 		content: '';
@@ -27,10 +27,10 @@
 		top: -20px;
 		right: -20px;
 		z-index: -1;
-		background-color: lightblue;
+		background-image: var(--bg-gradient);
 		width: 360px;
 		height: 500px;
-		box-shadow: 2px 2px 4px #191919;
+		box-shadow: 2px 8px 16px #191919;
 	}
 	&:hover .dashboard {
 		animation: dashboard-hover 1s;
@@ -97,21 +97,12 @@
 		font-size: 3.5rem;
 		opacity: 0.7;
 		line-height: 1.3em;
-		// width: 50px !important;
 		height: 300px;
 		overflow: hidden;
-		// background: brown;
 		writing-mode: vertical-lr;
-		// writing-mode: vertical-rl;
-		// text-orientation:;
+		// text-orientation:upright;
 		text-align: center;
 		white-space: nowrap;
-		// color: #ffffff;
-		// background: #b8b8b8;
-		text-shadow: 4px 3px 16px #7a7a7a;
-        
-        text-transform: uppercase;
-
 	}
 }
 
@@ -134,7 +125,7 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		box-shadow: 2px 2px 4px #191919;
+		box-shadow: 2px 8px 16px #191919;
 
 		&::before {
 			content: '';
@@ -268,13 +259,6 @@
 	font-weight: bold;
 	line-height: 1.3em;
 	white-space: nowrap;
-	color: #444444;
-	// background: #FFFFFF;
-	text-shadow: 1px 0px 1px #cccccc, 0px 1px 1px #eeeeee, 2px 1px 1px #cccccc,
-		1px 2px 1px #eeeeee, 3px 2px 1px #cccccc, 2px 3px 1px #eeeeee,
-		4px 3px 1px #cccccc, 3px 4px 1px #eeeeee, 5px 4px 1px #cccccc,
-		4px 5px 1px #eeeeee, 6px 5px 1px #cccccc, 5px 6px 1px #eeeeee,
-		7px 6px 1px #cccccc;
 }
 
 /* --------------------------------musicPlayer-app > playlist -------------------------------- */
@@ -289,7 +273,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	border: 3px groove goldenrod;
-	box-shadow: 2px 2px 4px #191919;
+	box-shadow: 2px 8px 16px #191919;
 
 	color: goldenrod;
 	font-weight: bold;
@@ -367,10 +351,10 @@
 		transform: translateX(-50px);
 	}
 	50% {
-		transform: translateX(200px);
+		transform: translateX(100px);
 	}
 	100% {
-		transform: translateX(-200px);
+		transform: translateX(-100px);
 	}
 }
 
@@ -382,14 +366,37 @@
 	cursor: pointer;
 	border-bottom: 0.1px solid goldenrod;
 
-	&:hover {
-		background: rgba(159, 0, 0, 0.65);
-	}
-
+	&:hover,
 	&.active {
-		background: rgba(159, 0, 0, 0.73);
+		background-image: var(--bg-gradient);
 	}
 }
 .track.active .track-item {
 	animation: playing 30s infinite;
+}
+
+@keyframes textclip-artist {
+	to {
+		background-position: center 200%;
+	}
+}
+
+.animate-textClip {
+	background-image: var(--text-gradient);
+	text-transform: uppercase;
+	background-size: auto auto;
+	background-clip: border-box;
+	background-size: 200% auto;
+	// color: #fff;
+	background-clip: text;
+	// text-fill-color: transparent;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: textclip 2s linear infinite;
+	display: inline-block;
+}
+@keyframes textclip {
+	to {
+		background-position: 200% center;
+	}
 }

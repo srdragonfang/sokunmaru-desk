@@ -108,7 +108,7 @@ const app = {
 		},
 		{
 			title: 'Waiting For Love',
-			artist: 'Avicii',
+			artist: 'AVICII',
 			path: './assets/audio/6.mp3',
 			imgUrl: './assets/audio/6.jpg',
 		},
@@ -126,7 +126,7 @@ const app = {
 		},
 		{
 			title: 'Counting Stars',
-			artist: 'OneRepublic',
+			artist: 'One Republic',
 			path: './assets/audio/9.mp3',
 			imgUrl: './assets/audio/9.jpg',
 		},

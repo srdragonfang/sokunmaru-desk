@@ -1,4 +1,5 @@
 const dateWeek = document.querySelector("#dd");
+const monday = document.querySelector("#md");
 const hr = document.querySelector("#hr");
 const mn = document.querySelector("#mn");
 const sc = document.querySelector("#sc");
@@ -48,6 +49,7 @@ setInterval(() => {
 
   //   document.getElementById("day").innerHTML = `,`;
 
-  dateWeek.innerHTML = `${days[dd]} | ${da} ${months[mo]}, ${yy}`;
+  monday.innerHTML = `${days[dd]}!`;
+  dateWeek.innerHTML = `${da} ${months[mo]}, ${yy}`;
 });
 
