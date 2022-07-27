@@ -1,68 +1,233 @@
-// elements
-const notesListDOM = document.querySelector(".notes-list");
-const noteTitleDOM = document.querySelector(".note-title");
-const noteTextDOM = document.querySelector(".note-text");
-const noteAlertDOM = document.querySelector(".note-alert");
-// buttons
-const noteAddBtn = document.querySelector(".btn-noteAdd");
-const btnPin = document.querySelector(".btn-pin");
-const btnEdit = document.querySelector(".btn-edit");
-const btnFullScreen = document.querySelector(".btn-fullsrc");
-const btnDel = document.querySelector(".btn-del");
-// get value from
-const noteTitleInput = document.querySelector(".input-title");
-const noteTextInput = document.querySelector(".input-text");
+// TODO get element from DOM
+function getElement(selection) {
+	const element = document.querySelector(selection);
 
+	if (element) {
+		return element;
+	}
+	throw new Error(
+		`Please check ${selection} selector, no such element exists`
+	);
+}
+// elements
+const notesListDOM = getElement(".notes-list");
+const noteTitleDOM = getElement(".note-title");
+const noteTextDOM = getElement(".note-text");
+const noteAlertDOM = getElement(".note-alert");
+// buttons
+const noteAddBtn = getElement(".btn-noteAdd");
+const noteApp = getElement("#noteApp");
+const notePinBtn = getElement("#note-pin");
+// const noteFullScr = getElement("#btn-fullscr");
+// edit options
+let editTitleNote;
+let editTextNote;
+let editFlag = false;
+let editID = "";
+
+// get value from
+const noteTitleInput = getElement(".input-title");
+const noteTextInput = getElement(".input-text");
 noteCreate();
 
-// ANCHOR: note conditional
+// ANCHOR:          note conditional
 function noteCreate() {
   noteAddBtn.addEventListener("click", () => {
-    if (noteTitleInput.value === "" && noteTextInput.value === "") {
-      noteAlertDOM.textContent = "Please fill in the blanks";
-    } else {
-      noteAdd();
-      noteAlertDOM.textContent = "";
+    console.log("edit status conditional", editID != "");
+    console.log("edit status conditional 1", !!editID);
+    console.log("edit status conditional 2 ", editID != "" && !!editFlag);
+    if (!editFlag) {
+      if (noteTitleInput.value === "" || noteTextInput.value === "") {
+        noteAlertDOM.innerHTML = "Please fill in the blanks";
+      } else if (noteTitleInput.value !== "" && noteTextInput.value !== "") {
+        noteRender();
+        setBackToDefault();
+      }
+    } else if (editID != "" && !!editFlag) {
+      console.log("what is", editID, noteTitleInput.value, noteTextInput.value);
+      console.log("what is", editTitleNote.parentElement);
+      editTitleNote.innerHTML = noteTitleInput.value;
+      editTextNote.innerHTML = noteTextInput.value;
+      editFromLocalStorage(editID, noteTitleInput.value, noteTextInput.value);
+      setBackToDefault();
     }
   });
 }
 
 //   ANCHOR *** create new note
-function noteAdd() {
-  const noteTitleValue = noteTitleInput.value;
-  const noteTextValue = noteTextInput.value;
+function noteRender() {
+  let noteTitleValue = noteTitleInput.value;
+  let noteTextValue = noteTextInput.value;
+  let noteID = generateID();
 
   const note = document.createElement("div");
+  note.setAttribute("data-id", noteID);
   note.classList.add("note");
 
   note.innerHTML = `
-    <div class="note">
-        <div class="note-bar">
-            <i class="fa-solid fa-thumbtack btn-pin" onclick="notePin()"></i>
-            <h3 class="note-title">${noteTitleValue}</h3>
-            <i class="fa-solid fa-marker btn-edit" onclick="noteEdit()"></i>
-            <i class="fa-solid fa-expand btn-fullscr" onclick="noteFullscr()"></i>
-            <i class="fa-solid fa-xmark btn-del" onclick="noteDel()"></i>
-        </div>
-            <p class="note-text">${noteTextValue}</p>
-        </div>
-    `;
-  notesListDOM.appendChild(note);
-  // reset input value
+          <div class="note-bar">
+              <h3 class="note-title">${noteTitleValue}</h3>
+              <i class="fa-solid fa-pencil btn-edit"></i>
+              <i class="fa-solid fa-xmark btn-del"></i>
+          </div>
+              <p class="note-text">${noteTextValue}</p>
+      `;
 
+  //   const btnPins = getElementAll(".btn-pin");
+  const btnDel = note.querySelector(".btn-del");
+  // console.log(btnDel);
+  btnDel.addEventListener("click", deleteNote);
+  const btnEdit = note.querySelector(".btn-edit");
+  // console.log(btnEdit);
+
+  btnEdit.addEventListener("click", () => {
+    editNote();
+  });
+  //   const btnFullScreens = getElementAll(".btn-fullsrc");
+
+  //  append child
+  notesListDOM.appendChild(note);
+
+  addToLocalStorage(noteID, noteTitleValue, noteTextValue);
+}
+
+// create random ID
+function generateID() {
+  return Math.floor(Math.random() * 100 + Math.random() * 10);
+  // return Math.floor(Math.random() * notesListDOM.length)
+}
+
+// TODO - delete note
+function deleteNote(e) {
+  const noteEl = e.currentTarget.parentElement.parentElement;
+  // get id to remove note from localStorage
+  const id = noteEl.dataset.id;
+  console.log("id note click delete", id);
+
+  notesListDOM.removeChild(noteEl);
+  removeFromLocalStorage(id);
+}
+
+// TODO - edit note
+function editNote(e) {
+  const noteEl = e.currentTarget.parentElement.parentElement;
+  const id = noteEl.dataset.id;
+
+  noteAddBtn.value = "Save Note";
+  // get element DOM
+  editTitleNote = e.currentTarget.parentElement.children[0];
+  editTextNote = e.currentTarget.parentElement.parentElement.children[1];
+
+  // get input(title, text) value
+  noteTitleInput.value = editTitleNote.innerHTML;
+  noteTextInput.value = editTextNote.innerHTML;
+  editFlag = true;
+  editID = noteEl.dataset.id;
+  // console.log("edit >|")
+  console.log("title value before edit", editTitleNote, editID);
+}
+
+function setBackToDefault() {
   noteTitleInput.value = "";
   noteTextInput.value = "";
+
+  noteAlertDOM.innerHTML = "";
+
+  editFlag = false;
+  editID = "";
+  noteAddBtn.value = "Add Note";
 }
 
-function noteDel() {
-  alert("hey");
+function addToLocalStorage(id, title, text) {
+  const note = { id, title, text };
+  let notes = getLocalStorage();
+  notes.push(note);
+  localStorage.setItem("noteList", JSON.stringify(notes));
 }
-function noteEdit() {
-  alert("hey");
+
+function getLocalStorage() {
+  return localStorage.getItem("noteList")
+    ? JSON.parse(localStorage.getItem("noteList"))
+    : [];
 }
-function noteFullscr() {
-  alert("hey");
+
+function setupItems() {
+  // get notes from local storage
+  let notes = getLocalStorage();
+  console.log(notes);
+  if (notes.length > 0) {
+    notes.forEach((note) => {
+      noteRender2(note.id, note.title, note.text);
+      // console.log(note)
+      // console.log(noteRender2())
+    });
+  }
 }
-function notePin() {
-  alert("hey");
+setupItems();
+function noteRender2(id, title, text) {
+  let noteTitleValue = title;
+  let noteTextValue = text;
+  let noteID = id;
+  const note = document.createElement("div");
+  note.setAttribute("data-id", noteID);
+  note.classList.add("note");
+
+  note.innerHTML = `
+          <div class="note-bar">
+              <h3 class="note-title">${noteTitleValue}</h3>
+              <i class="fa-solid fa-pencil btn-edit"></i>
+              <i class="fa-solid fa-xmark btn-del"></i>
+          </div>
+              <p class="note-text">${noteTextValue}</p>
+      `;
+  //   const btnPins = getElementAll(".btn-pin");
+  const btnDel = note.querySelector(".btn-del");
+  // console.log(btnDel);
+  btnDel.addEventListener("click", deleteNote);
+  const btnEdit = note.querySelector(".btn-edit");
+  // console.log(btnEdit);
+
+  btnEdit.addEventListener("click", editNote);
+  //   const btnFullScreens = getElementAll(".btn-fullsrc");
+
+  //  append child
+  notesListDOM.appendChild(note);
 }
+
+function removeFromLocalStorage(id) {
+  let notes = getLocalStorage();
+  console.log("notes before delete", notes);
+  console.log("removeFromLocalStorage", id);
+
+  notes = notes.filter(function (note) {
+    return note.id != id;
+  });
+
+  console.log("notes after deleted", notes);
+  localStorage.setItem("noteList", JSON.stringify(notes));
+}
+
+function editFromLocalStorage(id, title, text) {
+  let notes = getLocalStorage();
+  console.log("notes before edit", notes);
+  console.log("edit", id);
+
+  notes = notes.filter(function (note) {
+    if (note.id == id) {
+      note.title = noteTitleInput.value;
+      note.text = noteTextInput.value;
+    }
+    return note;
+  });
+
+  console.log("notes after edited", notes);
+  localStorage.setItem("noteList", JSON.stringify(notes));
+}
+
+notePinBtn.addEventListener("click", () => {
+    noteApp.classList.toggle('pinNote') 
+    noteApp.classList.toggle('note-smallSrc')
+})
+// noteFullScr.addEventListener("click", () => {
+//     noteApp.classList.toggle('note-fullscreen')
+// })
