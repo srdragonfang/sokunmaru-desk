@@ -28,40 +28,18 @@ const dashboard = $('.dashboard');
 const btnPlaylist = $('.btn-playlist .fa-sliders');
 const btnPlaylistClose = $('.btn-playlist .fa-xmark');
 
-var trackAPI = '/data/tracks.json';
-
-// async function getSong(trackAPI) {
-//     fetch(trackAPI)
-//     .then(response => {await response.json()})
-//     .then(data => data.tracks)
-// }
-	// function getSong (trackAPI) {
-	// fetch(trackAPI)
-    // .then(response => response.json())
-    // .then(data => data.tracks)
-	// }
-// console.log(getSong(trackAPI));
-
-// console.log(getSong(trackAPI));
 const app = {
-	currentIndex: 0,
+    // reset 
+    currentIndex: 0,
 	isPlaying: false,
 	isRandom: false,
 	isRepeat: false,
-	// isFav: false,
+
+    // get isRandom and isRepeat value from localStorage
 	config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
 
-	// trackAPI: url("/data/tracks.json"),
-
-	// getSong: function async () {
-	//     const res = await fetch(trackAPI)
-	//     const data = await res.json()
-	//     console.log(data)
-	//     return data;
-	// },
-    // tracks: getSong(trackAPI),
-
-	tracks: [
+    // tracks
+    tracks: [
         {
 			title: 'Torches',
 			artist: 'Aimer',
@@ -181,11 +159,14 @@ const app = {
 			imgUrl: './assets/audio/17.jpg',
 		}
 	],
+
+    /* ------------- set isRandom and isRepeat value to localStorage ------------ */
 	setConfig: function (key, value) {
 		this.config[key] = value;
 		localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config));
 	},
 
+    /* ------------------------ render tracks to playlist ----------------------- */
 	render: function () {
 		const htmls = this.tracks.map((track, index) => {
 			return `
@@ -201,6 +182,8 @@ const app = {
 		});
 		playlist.innerHTML = htmls.join('');
 	},
+
+    /* --------------------------- can not understand --------------------------- */
 	defineProperties: function () {
 		Object.defineProperty(this, 'currentTrack', {
 			get: function () {
@@ -208,8 +191,12 @@ const app = {
 			},
 		});
 	},
+
+    /* ------------------------------ handle events ----------------------------- */
 	handleEvents: function () {
 		const _this = this;
+
+        // handleEvent: set track thumb animation
 		const trackThumbAnimate = trackThumb.animate(
 			[{ transform: 'rotate(360deg)' }],
 			{
@@ -218,7 +205,8 @@ const app = {
 			}
 		);
 		trackThumbAnimate.pause();
-		// track play/pause
+
+        // handleEvent: play or pause track with currentTrack = tracks[currentIndex]
 		playBtn.onclick = function () {
 			if (_this.isPlaying) {
 				audio.pause();
@@ -243,7 +231,7 @@ const app = {
 
 			};
 		};
-		// track prev/next audio
+        // handleEvent: next or prev track with currentTrack = tracks[currentIndex++ || currentIndex--]
 		prevBtn.onclick = function () {
 			if (_this.isRandom) {
 				_this.playRandomTrack();
@@ -254,7 +242,7 @@ const app = {
 			audio.play();
             progressBar.classList.add("progressBar")
 			_this.render();
-			_this.scrollToAcitveSong();
+			// _this.scrollToAcitveSong();
 
 		};
 		nextBtn.onclick = function () {
@@ -267,27 +255,31 @@ const app = {
 			audio.play();
             progressBar.classList.add("progressBar")
 			_this.render();
-			_this.scrollToAcitveSong();
+			// _this.scrollToAcitveSong();
 		};
 
-		// track time bars
+        // handleEvent: audio.duration bar
 		audio.ontimeupdate = function () {
 			if (audio.duration) {
+                // set input type='range' value
 				const progressPercent = Math.floor(
 					(audio.currentTime / audio.duration) * 100
 				);
 				progress.value = progressPercent;
-                console.log(audio.duration)
+    
+                // set animation duration for progressBar element
                 progressBar.style.animationDuration = `${audio.duration + 10}s`
 
 			}
 		};
+
+        // handleEvent: change input=range value by mouse 
 		progress.onchange = function (e) {
 			const seekTime = (audio.duration / 100) * e.target.value;
 			audio.currentTime = seekTime;
 		};
 
-		// track end
+		// handleEvent: when track end
 		audio.onended = function () {
 			if (_this.isRepeat) {
 				audio.play();
@@ -295,7 +287,8 @@ const app = {
 				nextBtn.click();
 			}
 		};
-		// track random/repeat
+
+		// 	handleEvent: when toggle track random/repeat value
 		randomBtn.onclick = function (e) {
 			_this.isRandom = !_this.isRandom;
 			_this.setConfig('isRandom', _this.isRandom);
@@ -306,13 +299,9 @@ const app = {
 			_this.setConfig('isRepeat', _this.isRepeat);
 			repeatBtn.classList.toggle('active', this.isRepeat);
 		};
-		// favBtn.onclick = function (e) {
-		// 	_this.isFav = !_this.isFav;
-		// 	_this.setConfig('isFav', _this.isFav);
-		// 	favBtn.classList.toggle('active', this.isFav);
-		// };
 
-		// playlist
+
+	    // 	handleEvent: play track when click on playlist
 		playlist.onclick = function (e) {
 			const trackNode = e.target.closest('.track:not(.active)');
 			if (trackNode) {
@@ -324,12 +313,15 @@ const app = {
 			}
 		};
 
+        // 	handleEvent: show playlist
 		btnPlaylist.onclick = function () {
 			dashboard.classList.remove('hide-playlist');
 			btnPlaylist.style.display = 'none';
 			btnPlaylistClose.style.display = 'flex';
 			dashboard.classList.add('show-playlist');
 		};
+
+        // 	handleEvent: hide playlist
 		btnPlaylistClose.onclick = function () {
 			dashboard.classList.remove('show-playlist');
 			btnPlaylistClose.style.display = 'none';
@@ -337,6 +329,8 @@ const app = {
 			dashboard.classList.add('hide-playlist');
 		};
 	},
+    
+    // handleEvent: prev track with currentTrack = tracks[currentIndex--]
 	prevTrack: function () {
 		this.currentIndex--;
 		if (this.currentIndex < 0) {
@@ -344,6 +338,8 @@ const app = {
 		}
 		this.loadCurrentTrack();
 	},
+
+    // handleEvent: next track with currentTrack = tracks[currentIndex++]
 	nextTrack: function () {
 		this.currentIndex++;
 		if (this.currentIndex > this.tracks.length - 1) {
@@ -351,6 +347,8 @@ const app = {
 		}
 		this.loadCurrentTrack();
 	},
+    
+    // handleEvent: next or prev track with currentTrack = tracks[currentIndex = random value]
 	playRandomTrack: function () {
 		let newIndex;
 		do {
@@ -359,19 +357,22 @@ const app = {
 		this.currentIndex = newIndex;
 		this.loadCurrentTrack();
 	},
-	scrollToAcitveSong: function () {
-		setTimeout(function () {
-			$('.track.active').scrollIntoView({
-				behavior: 'smooth',
-				block: 'nearest',
-			});
-		});
-	},
+
+	// scrollToAcitveSong: function () {
+	// 	setTimeout(function () {
+	// 		$('.track.active').scrollIntoView({
+	// 			behavior: 'smooth',
+	// 			block: 'nearest',
+	// 		});
+	// 	});
+	// },
+
 	loadConfig: function () {
 		this.isRandom = this.config.isRandom;
 		this.isRepeat = this.config.isRepeat;
 		// this.isFav = this.config.isFav;
 	},
+
 	loadCurrentTrack: function () {
 		trackName.textContent = this.currentTrack.title;
 		trackSinger.textContent = this.currentTrack.artist;
@@ -379,6 +380,7 @@ const app = {
 		// sectionOne.style.backgroundImage = `url('${this.currentTrack.imgUrl}')`;
 		trackThumb.style.backgroundImage = `url('${this.currentTrack.imgUrl}')`;
 	},
+
 	start: function () {
 		this.loadConfig();
 		// this.getSong();
@@ -389,7 +391,6 @@ const app = {
 
 		randomBtn.classList.toggle('active', this.isRandom);
 		repeatBtn.classList.toggle('active', this.isRepeat);
-		// favBtn.classList.toggle('active', this.isFav);
 	},
 };
 app.start();
