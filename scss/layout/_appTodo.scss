@@ -21,7 +21,7 @@
 		margin-top: 1rem;
 		border-radius: 5px;
 
-        & .todoApp-container {
+		& .todoApp-container {
 			flex: 1;
 			@include g.flexbox(column, none);
 
@@ -52,10 +52,10 @@
 	border-radius: 0.5rem;
 	cursor: pointer;
 	@include g.flexbox(row, space-between);
-    &:hover {
-        transform: translateX(-5px);
-        transition: all 0.1s linear;
-    }
+	&:hover {
+		transform: translateX(-5px);
+		transition: all 0.1s linear;
+	}
 }
 
 .todo + .todo {
@@ -63,9 +63,15 @@
 }
 
 .todo:not(.completed) {
-	order: 2;
+	order: 1;
 	animation: undone 0.5s;
 }
+.todoDone {
+	order: 2;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+}
+
 .todo.completed {
 	order: 3;
 	animation: done 0.5s;
@@ -80,20 +86,20 @@
 	opacity: 30%;
 }
 .todoApp form {
-    & input {
-        border: none;
-        outline: none;
-        background-color: #8ec5fc;
-        background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
-        box-shadow: 2px 2px 2px #191919;
-        padding: 2rem 2rem;
-        border-radius: 0.5rem;
-        border-top: 0.1px solid rgb(241, 213, 213);
-        font-size: 16px;
-        letter-spacing: 0.075rem;
-        width: calc(100% - 1rem);
-        // margin: 1rem 1rem;
-    }
+	& input {
+		border: none;
+		outline: none;
+		background-color: #8ec5fc;
+		background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+		box-shadow: 2px 2px 2px #191919;
+		padding: 2rem 2rem;
+		border-radius: 0.5rem;
+		border-top: 0.1px solid rgb(241, 213, 213);
+		font-size: 16px;
+		letter-spacing: 0.075rem;
+		width: calc(100% - 1rem);
+		// margin: 1rem 1rem;
+	}
 }
 
 .done {
