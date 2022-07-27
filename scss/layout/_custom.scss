@@ -32,11 +32,6 @@
 .section {
 	width: 100vw;
 	height: 100vh;
-	// margin-bottom: 10rem;
-	// @include g.flexbox(row, center);
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
 }
 // section-one
 .section-one {
@@ -60,9 +55,7 @@
 	// z-index: 1001;
 }
 
-.section-two {
-	@include g.flexbox(row, center);
-}
+
 .section-three {
     position: relative;
     overflow: hidden;
@@ -77,7 +70,7 @@
 .section-four {
 	@include g.flexbox(column, flex-start);
 }
-.section-two,
+
 .section-three,
 .section-four {
 	width: 100%;

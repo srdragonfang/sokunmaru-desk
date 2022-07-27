@@ -21,7 +21,11 @@ html {
 
 body {
     font-size: 2rem;
-    background-image: url('/assets/images/paper_fibers.png');
+    // background-image: url('/assets/images/paper_fibers.png');
+    background-image: url('/assets/images/bg-full.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 

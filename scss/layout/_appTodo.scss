@@ -2,15 +2,20 @@
 @use '../util/' as u;
 
 // start -- [appTodo]
+.section-two {
+
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .app-todo {
 	& p span {
 		font-style: italic;
-		// color: #19191984;
 	}
 	& h1 {
 		text-align: center;
-		// margin-bottom: 1rem;
-		& span {
+
+        & span {
 			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman',
 				serif !important;
 		}
@@ -27,7 +32,6 @@
 
 			& .todoList {
 				width: 400px;
-				// width: 100%;
 				height: 400px;
 				padding: 1rem 0.5rem;
 				overflow-y: scroll;
@@ -35,9 +39,6 @@
 				@include g.flexbox(column, none);
 			}
 
-			// & .todoList::-webkit-scrollbar {
-			// 	display: none;
-			// }
 		}
 	}
 }
@@ -45,8 +46,8 @@
 .todo {
 	width: 100%;
 	text-align: left;
-	background-color: #8ec5fc;
-	background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+	background-color: rgba(142, 197, 252, 0.5);
+	background-image: linear-gradient(62deg, rgba(142, 197, 252, 0.5) 0%, rgba(224, 195, 252, 0.5) 100%);
 	box-shadow: 2px 2px 2px #191919;
 	padding: 0.5rem 1rem;
 	border-radius: 0.5rem;
