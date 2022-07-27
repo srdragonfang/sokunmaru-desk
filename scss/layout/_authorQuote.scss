@@ -1,6 +1,7 @@
 .authorQuote {
 	& p {
-		width: 700px;
+		min-width: 700px;
+        max-width: max-content;
 		font-size: 4rem;
 		font-weight: 900;
 		color: #fff;
@@ -19,12 +20,12 @@
 		&:nth-child(3) {
 			text-align: right;
 		}
-		&:last-child {
-			text-align: right;
-            // background: brown;
-            font-size: 3rem;
-            font-weight: 600;
-		}
+		// &:last-child {
+		// 	text-align: right;
+        //     // background: brown;
+        //     font-size: 3rem;
+        //     font-weight: 600;
+		// }
 		& span {
 			color: yellow;
 		}

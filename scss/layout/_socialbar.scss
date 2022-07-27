@@ -41,6 +41,17 @@
 	}
 	&-top {
 		flex: 1;
+
+        & p {
+            font-size: 3rem;
+            font-weight: 600;
+            text-shadow: 2px 4px 8px #191919;
+        }
+
+        & .email {
+            font-size: 5rem;
+            text-shadow: 2px 4px 8px #191919;
+        }
         @include g.flexbox(column, center);
 	}
 }
