@@ -193,22 +193,22 @@
 		}
 	}
 	& #backlog .task {
-		background: goldenrod;
+		background: rgba(218, 165, 32, 0.75);
 		color: #191919;
 	}
 
 	& #inprogress .task {
-		background: #1b6161;
+		background: rgba(27, 95, 95, 0.75);
 		color: #f9f9f9;
 	}
 
 	& #emergency .task {
-		background: #a22d22;
+		background: rgba(162, 45, 34, 0.75);
 		color: #f9f9f9;
 	}
 
 	& #testing .task {
-		background: #c3cce1;
+		background: rgba(195, 204, 225, 0.75);
 		color: #191919;
 	}
 
