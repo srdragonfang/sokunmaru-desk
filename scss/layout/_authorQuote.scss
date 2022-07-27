@@ -19,6 +19,12 @@
 		&:nth-child(3) {
 			text-align: right;
 		}
+		&:last-child {
+			text-align: right;
+            // background: brown;
+            font-size: 3rem;
+            font-weight: 600;
+		}
 		& span {
 			color: yellow;
 		}
