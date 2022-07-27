@@ -51,17 +51,17 @@
 		writing-mode: vertical-lr;
 		text-orientation: upright;
 		// height: 150px;
-		width: 80px;
+		width: 70px;
 		height: 530px;
-		padding: 3rem auto;
+		// padding: 3rem auto;
 
 		position: absolute;
 		bottom: 20%;
-		right: -110px;
+		right: -100px;
 
-		font-size: 5rem;
+		font-size: 4rem;
 		font-weight: 900;
-		transform: rotate(20deg);
+		transform: rotate(15deg);
 		text-transform: uppercase;
 		text-align: center;
 		box-shadow: 0px 8px 16px #191919;
@@ -98,11 +98,13 @@
 		@include g.themeMode;
 	}
 	& .monday {
+        width: 400px;
+        // height: 120px;
 		position: absolute;
 		bottom: 120px;
 		right: -10px;
 		border-radius: 0 5px 0 0;
-		font-size: 10rem;
+		font-size: 7rem;
 		transform: rotate(-35deg);
 		z-index: -1;
 		padding: 0 1rem;

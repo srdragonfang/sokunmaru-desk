@@ -1,34 +1,4 @@
-$grid-gap: 40px;
-$flexbox-gap: 3rem;
-
-$height-header: 50px;
-
 $clr-dark: #191919;
 $clr-light: #fff;
 $clr-golden: #daa520;
 
-
-$font-size-text: 20px;
-$font-size-h1: 2.5rem;
-$font-size-h2: 2rem;
-$font-size-h3: 1.5rem;
-@media screen and (max-width: 768px) {
-  $font-size-text: 16px;
-  $font-size-h1: 1rem;
-  $font-size-h2: 0.7rem;
-  $font-size-h3: 0.5rem;
-}
-
-$padding-base: 1rem 3rem;
-$margin-base: 1rem 3rem;
-@media screen and (max-width: 768px) {
-  $padding-base: 0.5rem 1rem;
-  $margin-base: 0.5rem 1rem;
-}
-
-
-$sz-tb: 1rem 0;
-$sz-lr-: 0 1rem;
-$sz-small: 0.5rem 1rem;
-$sz-medium: 1rem 2rem;
-$sz-large: 2rem 3rem;

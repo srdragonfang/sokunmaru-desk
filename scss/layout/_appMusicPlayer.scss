@@ -2,11 +2,6 @@
 /* -------------------------------------------------------------------------- */
 /*                               musicPlayerApp                               */
 /* -------------------------------------------------------------------------- */
-.section-one {
-	background-repeat: no-repeat;
-	// background-size:
-	background-position: center center;
-}
 .app-musicPlayer {
 	@include g.flexbox(none, center);
 	position: relative;
@@ -19,7 +14,6 @@
 	box-shadow: 2px 8px 16px #191919;
 	padding: 3rem 1rem;
 	position: relative;
-	// z-index: 2;
 
 	&:after {
 		content: '';
@@ -37,47 +31,58 @@
 		z-index: 1;
 	}
 
+	// set progressBar style
 	&-bar {
 		width: 110px;
 		height: 10px;
 		padding: 0.5rem;
 		border-radius: 15px 0 0 15px;
-		background: #191919;
-		box-shadow: 0px 4px 4px lightblue;
-
+        background: #191919;
+		box-shadow: 0px 2px 8px #fff;
 		position: absolute;
-		right: -5px;
+		right: -15px;
 		top: 50%;
 		transform: translateY(-50%);
 		z-index: 1;
 		@include g.flexbox(none, none);
 
-		&:before {
-			content: '';
-			width: 15px;
-			height: 15px;
-			border-radius: 50%;
-			background: #191919;
-			position: absolute;
-			left: 3px;
-		}
+		// &:before {
+		// 	content: '';
+		// 	width: 9px;
+		// 	height: 9px;
+		// 	border-radius: 50%;
+		// 	position: absolute;
+		// 	left: 0px;
+		// }
 		&:after {
 			content: '';
-			width: 20px;
+			width: 30px;
 			height: 20px;
 			border-radius: 10px 0 0 10px;
+            z-index: 1;
+            
 			position: absolute;
 			right: -10px;
-			background: #191919;
-			// border: 1px solid #191919;
-			box-shadow: 2px 2px 8px #191919;
-			// z-index: -101;
+            background-image: var(--bg-gradient);
+            border: 5px solid #191919;
+            box-shadow: 0px 1px 2px #191919;
+			// box-shadow: 2px 2px 8px #fff;
 		}
 	}
-}
-
-.progressBar {
-	animation: playerBar;
+	// set progressBar animation
+	& .progressBar {
+		animation: playerBar;
+	}
+	@keyframes playerBar {
+		0% {
+			transform: rotate(60deg);
+			transform-origin: right;
+		}
+		100% {
+			transform: rotate(0deg);
+			transform-origin: right;
+		}
+	}
 }
 
 .player__top {
@@ -85,11 +90,10 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	// position: relative;
 	width: 100%;
-	// background: yellow;
 	z-index: 4;
 
+	// track artist
 	& .album__info-artist {
 		margin-right: 2rem;
 		transform: rotate(180deg);
@@ -104,72 +108,75 @@
 		text-align: center;
 		white-space: nowrap;
 	}
-}
 
-.player-cover {
-	width: 300px;
-	height: 300px;
-	border-radius: 50%;
-	margin-left: -70px;
-	flex-shrink: 0;
-	position: relative;
-	z-index: 1;
-
-	&__item {
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-		width: 100%;
-		height: 100%;
+	// track thumb
+	& .player-cover {
+		width: 300px;
+		height: 300px;
 		border-radius: 50%;
-		position: absolute;
-		left: 0;
-		top: 0;
-		box-shadow: 2px 8px 16px #191919;
+		margin-left: -70px;
+		flex-shrink: 0;
+		position: relative;
+		z-index: 1;
 
-		&::before {
-			content: '';
-			height: calc(100% + 40px);
-			width: calc(100% + 40px);
-			position: absolute;
-			top: -20px;
-			left: -20px;
-			transform: scale(0.9);
-			background: inherit;
-			display: block;
-			z-index: 1;
-			opacity: 0.9;
-			filter: blur(10px);
-			border-radius: 50%;
-		}
-		&::after {
-			content: '';
-			background: inherit;
+		&__item {
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
 			width: 100%;
 			height: 100%;
-			box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
-			display: block;
-			z-index: 2;
-			position: relative;
-			top: -27%;
 			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			box-shadow: 2px 8px 16px #191919;
+
+			&::before {
+				content: '';
+				height: calc(100% + 40px);
+				width: calc(100% + 40px);
+				position: absolute;
+				top: -20px;
+				left: -20px;
+				transform: scale(0.9);
+				background: inherit;
+				display: block;
+				z-index: 1;
+				opacity: 0.9;
+				filter: blur(10px);
+				border-radius: 50%;
+			}
+			&::after {
+				content: '';
+				background: inherit;
+				width: 100%;
+				height: 100%;
+				box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
+				display: block;
+				z-index: 2;
+				position: relative;
+				top: -27%;
+				border-radius: 50%;
+			}
+		}
+
+		& .cd-inner {
+			position: relative;
+			top: calc(50% - 40px) !important;
+			left: calc(50% - 40px) !important;
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			outline: none;
+			border: 25px solid #191919;
+			display: flex;
+			background: #ddd4ff;
+			z-index: 101;
 		}
 	}
-
-	& .cd-inner {
-		position: relative;
-		top: calc(50% - 40px) !important;
-		left: calc(50% - 40px) !important;
-		width: 80px;
-		height: 80px;
-		border-radius: 50%;
-		outline: none;
-		border: 25px solid #191919;
-		display: flex;
-		background-color: lightblue;
-		z-index: 101;
-	}
 }
+
+// audio control
 
 #audio {
 	width: 100%;
@@ -181,11 +188,6 @@
 	// background-color: brown;
 
 	& input[type='range'] {
-		// transform: rotate(-90deg);
-		// position: absolute;
-		// right: -140px;
-		// top: calc(50% - 20px);
-
 		background: transparent;
 		height: 38px;
 		width: 100%;
@@ -213,16 +215,7 @@
 		margin-top: -6px;
 	}
 }
-@keyframes playerBar {
-	0% {
-		transform: rotate(60deg);
-		transform-origin: right;
-	}
-	100% {
-		transform: rotate(0deg);
-		transform-origin: right;
-	}
-}
+
 .buttons {
 	@include g.flexbox(row, space-between);
 	// width: 80%;
@@ -254,6 +247,7 @@
 	color: brown;
 }
 
+// track title
 .album__info-name {
 	font-size: 2.5rem;
 	font-weight: bold;
