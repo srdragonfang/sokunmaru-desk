@@ -15,7 +15,7 @@ h1 {
 	letter-spacing: 0.25rem;
 	// text-transform: capitalize;
 	line-height: 1.25;
-	// text-shadow: 2px 2px 5px #eda73d;
+	text-shadow: 2px 2px 8px #191919;
 	// color: #c59d5f;
 	margin-bottom: 0.75rem;
 	width: 100%;
@@ -26,4 +26,5 @@ a,
 a:visited,
 a:active {
     text-decoration: none;
+    color: inherit !important;
 }

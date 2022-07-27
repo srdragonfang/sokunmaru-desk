@@ -2,6 +2,7 @@
 
 // * START >>> [SOCIALBAR]
 .socialBar {
+    // background: #f9f9f9;
     @include g.fullbox;
 	@include g.flexbox(column, none);
 
@@ -9,6 +10,8 @@
         width: 100%;
 		height: 10rem;
 		padding: 0 3rem;
+        background: #191919;
+        color: #f9f9f9;
 		border-top: 1px groove goldenrod;
 		gap: 1rem;
 
