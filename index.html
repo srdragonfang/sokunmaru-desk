@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sokunmaru | Desk</title>
 
-		<link rel="stylesheet" href="dist/style.css" />
+		<link rel="stylesheet" href="src/dist/style.css" />
 		<link rel="shortcut icon" href="#" />
 		<link rel="shortcut icon" href="/favicon.ico" />
 
@@ -22,77 +22,38 @@
 	<body>
 		<!-- ANCHOR *** [HEADER] -->
 		<header>
-			<div class="lyric__container">
-				<div class="lyric__button">
-					<i class="fa-brands fa-d-and-d"></i>
-					<!-- <div class="sing-a">
-                        <p>SOKUNMARU</p>
-                    </div> -->
-				</div>
-				<div class="sing-a-song">
-					<!-- <p>
-						<script type="text/javascript">
-							quotes = new Array();
-							quotes[0] =
-								'Hôm nay bạn ổn chứ? Nếu không, bạn có muốn kể với tôi không?';
-							quotes[1] =
-								'Vận mệnh, vốn là thứ không thể thay đổi…phải không?';
-							quotes[2] =
-								'Cám ơn bạn đã dành thời gian, chúc một ngày tốt lành!';
-							quotes[3] =
-								'Xin chào, tôi là S.R Dragonfang. Hôm nay bạn thế nào?';
-							quotes[4] =
-								'Bạn có biết là bạn có thể bấm vào để trả lời không?';
-							quotes[5] =
-								'Bạn có biết, tại sao bông hồng lại có gai không?';
-							quotes[6] =
-								'Giữa đèn đỏ và đèn xanh...khoảng cách ba giây ngắn ngủi ấy...là ánh đèn vàng nhấp nháy trên đèn giao thông...làm đầu óc ta trở nên rối bời...chẳng biết bản thân đang đi nhanh...hay đi chậm...vì giờ trước mắt ta, chỉ thấy một màu vàng mà thôi!';
-							randomquote = Math.random() * quotes.length;
-							randomquote = Math.floor(randomquote);
-							document.write(quotes[randomquote]);
-						</script>
-					</p> -->
-					<p>Bạn hãy thật nâng niu...những điều gần gũi với bạn nhất...bạn có hiểu rằng càng gần gũi với điều gì bao nhiêu...thì sẽ càng khó để nhận ra chính nó............Vậy hãy giải thích cho mình cảm giác hạnh phúc mà bạn vừa mới biết tới...hoặc chăng bạn đã quá hạnh phúc...tới mức bạn không còn nhớ nữa? Rằng bạn đang sống ở đây. Rằng bạn đang sống đầy sinh lực. Tất cả đều là những phép màu nhỏ bé...chỉ là những phép màu mà thôi.</p>
-				</div>
-			</div>
-			<!-- <div class="btn-menu">
-                    <div class="nav__btn-close" id="nav-btn-close">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                    <div class="nav__btn-open" id="nav-btn-open">
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
-            </div> -->
-			<div class="menu-container">
+			<div class="menu-container" style="display: none">
 				<a href="#musicApp" class="menu-item">
 					<i class="fa-solid fa-music"></i>
-					<!-- <p>Music App</p> -->
-				</a>
-				<a href="#clockApp" class="menu-item">
-					<i class="fa-solid fa-clock"></i>
-					<!-- <p>Clock App</p> -->
 				</a>
 				<a href="#todoApp" class="menu-item">
 					<i class="fa-solid fa-check-double"></i>
-					<!-- <p>Todo App</p> -->
 				</a>
 				<a href="#noteApp" class="menu-item">
 					<i class="fa-solid fa-note-sticky"></i>
-					<!-- <p>Note App</p> -->
 				</a>
 				<a href="#writerApp" class="menu-item">
 					<i class="fa-solid fa-pencil"></i>
-					<!-- <p>Writter App</p> -->
 				</a>
 				<a href="#kanbanApp" class="menu-item">
 					<i class="fa-solid fa-list-check"></i>
-					<!-- <p>Kanban App</p> -->
 				</a>
-				<!-- <i class="fa-solid fa-chevron-down menu-item"></i> -->
+			</div>
+			<div class="menu-item">
+				<i class="fa-solid fa-bars" id="nav-btn-open"></i>
+				<i
+					class="fa-solid fa-xmark"
+					id="nav-btn-close"
+					style="display: none"
+				></i>
 			</div>
 		</header>
+
 		<!-- ANCHOR *** [CENTER] -->
 		<div class="section-wrapper">
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                           musicPlayer x clock                           -->
+            <!-- ----------------------------------------------------------------------- -->
 			<section class="section section-one">
 				<!-- ----------------------------------------------------------------------- -->
 				<!--                             musicPlayer-app                             -->
@@ -200,7 +161,7 @@
 					<!-- * clock -->
 					<div class="random__box">
 						<h1>Sokunmaru</h1>
-						<div class="desk">Desk</div>
+						<div class="desk">DESK</div>
 						<div class="monday" id="md"></div>
 						<div class="date" id="dd"></div>
 					</div>
@@ -214,6 +175,10 @@
 					<p>...hay tiếng gọi của <span>trái tim</span> con?"</p>
 				</div>
 			</section>
+
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                 todoApp                                 -->
+            <!-- ----------------------------------------------------------------------- -->
 			<section class="section section-two">
 				<!-- SECTION - appTodo -->
 				<div class="app-todo" id="todoApp">
@@ -242,6 +207,7 @@
 					</div>
 				</div>
 			</section>
+
 			<section class="section section-two">
 				<div class="authorQuote">
 					<p>“Những <span>ánh mắt</span> chạm vào nhau,</p>
@@ -250,6 +216,10 @@
 					</p>
 				</div>
 			</section>
+
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                 noteApp                                 -->
+            <!-- ----------------------------------------------------------------------- -->
 			<section class="section section-three">
 				<h1>Notes</h1>
 				<div class="noteApp-container">
@@ -299,6 +269,9 @@
 				</div>
 			</section>
 
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                writerApp                                -->
+            <!-- ----------------------------------------------------------------------- -->
 			<section class="section section-three">
 				<h1>Writer</h1>
 				<div class="postApp-container" id="writerApp">
@@ -347,7 +320,9 @@
 				</div>
 			</section>
 
-			<!-- ANCHOR scrum app -->
+            <!-- ----------------------------------------------------------------------- -->
+            <!--                                scrumApp                                 -->
+            <!-- ----------------------------------------------------------------------- -->
 			<section class="section section-four">
 				<div class="scrum-app" id="kanbanApp">
 					<div class="scrum-header">

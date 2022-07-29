@@ -46,7 +46,7 @@
 	}
 	& select {
 		/* Reset Select */
-		border: none;
+		border: 0;
 		outline: none;
 		appearance: none;
 		box-shadow: none;
@@ -80,7 +80,7 @@
 		}
 	}
 	& button {
-		border: none;
+		border: 0;
 		outline: none;
 		width: 100px !important;
 		height: 50px !important;

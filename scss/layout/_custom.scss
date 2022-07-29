@@ -15,7 +15,7 @@
 
 .btn {
 	outline: none;
-	border: none;
+	border: 0;
 }
 
 .btn-cycle {
@@ -94,7 +94,7 @@
 	}
 
 	&-func {
-		border: none;
+		border: 0;
 		outline: none;
 		margin: 0.5rem;
 		padding: 0.5rem;

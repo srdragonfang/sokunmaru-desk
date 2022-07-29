@@ -10,10 +10,18 @@ function getElement(selection) {
 	);
 }
 /* ------------------------------- task group ------------------------------- */
-const lyricBtn = getElement('.lyric__button');
-const lyricDOM = getElement('.sing-a-song');
+const menuOpen = getElement('#nav-btn-open');
+const menuClose = getElement('#nav-btn-close');
+const menuContainer = getElement('.menu-container');
 
-lyricBtn.addEventListener('click', (e) => {
-    e.currentTarget
-    lyricDOM.classList.toggle('show')
+menuOpen.addEventListener('click', () => {
+    menuOpen.style.display = "none";
+    menuContainer.style.display = "flex";
+    menuClose.style.display = "block";
+})
+
+menuClose.addEventListener('click', () => {
+    menuClose.style.display = "none";
+    menuContainer.style.display = "none";
+    menuOpen.style.display = "block";
 })

@@ -1,8 +1,6 @@
 @use '../globals' as g;
 
 header {
-	// background: brown;
-	// position:fixed;
 	position: fixed;
 	top: 1rem;
 	right: 1rem;
@@ -11,44 +9,8 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: max-content;
-    max-width: calc(100vw - 2rem);
+	// width: 100vw;
 	z-index: 1001;
-}
-.lyric__container {
-	// flex: 1;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-    overflow: hidden;
-
-	& .lyric__button {
-        @extend .menu-item;
-	}
-
-	& .sing-a-song {
-        display: none;
-        width: calc(100vw - 2rem - 265px);
-        overflow: hidden;
-		right: 0;
-
-        & p {            
-            position: relative;
-            font-size: 2.5rem;
-            white-space: nowrap;
-            animation: text-moving 23s linear;
-        }
-
-		@keyframes text-moving {
-			from {
-                right: -100%;
-				// width: 0%;
-			}
-			to {
-				right: 160%;
-			}
-		}
-	}
 }
 .menu-container {
 	@include g.flexbox(row, flex-start);
@@ -57,22 +19,28 @@ header {
 	width: max-content;
 	// padding: 1rem 2rem;
 	// background: #191919;
-    color: #f9f9f9;
+	color: #f9f9f9;
 }
 .menu-item {
-    padding: 1.5rem;
-    margin: .5rem;
-    border-radius: 50%;
-    background: #191919;
-    box-shadow: 0px 4px 4px #191919;
-	@include g.flexbox(row, flex-start);
+	width: 50px !important;
+	height: 50px !important;
+	padding: auto;
+	margin: 0.5rem;
+	border-radius: 50%;
+	background: #191919;
+	box-shadow: 0px 4px 4px #191919;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	color: #fff;
 	text-decoration: unset;
 	&:hover {
-        background: var(--bg-gradient);
-        & i {
-            transform: rotate(360deg);
-            transition: all 1s linear;
-        }
+		transform: translateY(-5px);
+		transition: all 0.1s linear;
+		background: var(--bg-gradient);
+		& i {
+			transform: rotate(360deg);
+			transition: all 1s linear;
+		}
 	}
 }

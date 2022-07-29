@@ -22,7 +22,7 @@
 		font-family: transparent;
 		padding: 0.5rem;
 		font-size: 2rem;
-		border: none;
+		border: 0;
 		outline: none;
 	}
 
@@ -60,7 +60,7 @@
             // flex: 1;
 			// height: 600px !important;
 			width: 100%;
-			border: none;
+			border: 0;
 			outline: none;
 			font-family: transparent;
 			background: transparent;
@@ -154,7 +154,7 @@
 
 			&:active,
 			&:focus {
-				border: none;
+				border: 0;
 				outline: none;
 			}
 		}
