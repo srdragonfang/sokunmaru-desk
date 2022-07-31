@@ -12,16 +12,20 @@ function getElement(selection) {
 /* ------------------------------- task group ------------------------------- */
 const menuOpen = getElement('#nav-btn-open');
 const menuClose = getElement('#nav-btn-close');
-const menuContainer = getElement('.menu-container');
+const menuItems = document.querySelectorAll(".menu-item");
 
 menuOpen.addEventListener('click', () => {
     menuOpen.style.display = "none";
-    menuContainer.style.display = "flex";
+		menuItems.forEach((menuItem) => {
+			menuItem.style.display = "flex";
+		})
     menuClose.style.display = "block";
 })
 
 menuClose.addEventListener('click', () => {
     menuClose.style.display = "none";
-    menuContainer.style.display = "none";
+		menuItems.forEach((menuItem) => {
+			menuItem.style.display = "none";
+		})
     menuOpen.style.display = "block";
 })

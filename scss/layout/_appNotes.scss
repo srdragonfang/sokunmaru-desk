@@ -19,7 +19,7 @@
 		background: transparent;
 		font-family: transparent;
 		padding: 0.5rem 1rem;
-		font-size: 2rem;
+		font-size: 1.6rem;
 		border: 0;
 		outline: none;
 	}
@@ -51,9 +51,9 @@
 
 .note {
 	@include g.flexbox(column, none);
-	background: rgba(245, 200, 86, 0.95);
-	color: #191919bf;
-	font-weight: 500;
+    background-image: url('/assets/images/paper_fibers.png');
+    color: #191919bf;
+    border-radius: 5px;	color: #191919bf;
 	border-radius: 5px;
 	max-width: 300px;
 	min-width: 150px;
@@ -61,8 +61,10 @@
 	height: min-content;
 	&-bar {
 		@include g.flexbox(row, flex-end);
-		background: rgba(244, 94, 94, 0.864);
-		padding: 1rem 1rem 1rem 0;
+        background-color: #8ec5fc;
+        background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+        border-radius: 5px 5px 0 0;
+        padding: .5rem 1rem;		padding: 1rem 1rem 1rem 0;
 		width: 100%;
         border-radius: 5px 5px 0 0;
 		& h3 {
@@ -71,7 +73,8 @@
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-			font-size: 1.6rem;
+			font-size: 2rem;
+            // font-weight: 600;
 		}
         & i:first-of-type {
             font-size: 1.6rem;
@@ -92,7 +95,7 @@
 		min-height: max-content !important;
 		resize: none;
 		padding: 1rem;
-		font-size: 2rem;
+		font-size: 1.6rem;
 		border: 0;
 		outline: none;
 		overflow-y: scroll;

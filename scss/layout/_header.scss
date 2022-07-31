@@ -11,12 +11,16 @@ header {
 	align-items: center;
 	// width: 100vw;
 	z-index: 1001;
+    & a i {
+        color: #f9f9f9 !important;
+    }
 }
-.menu-container {
-	@include g.flexbox(row, flex-start);
+.menus {
+	@include g.flexbox(row, center);
 	width: max-content;
-	color: #f9f9f9;
 }
+
+.menu-btns,
 .menu-item {
 	width: 50px !important;
 	height: 50px !important;
@@ -28,11 +32,11 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: #fff;
+    color: #f9f9f9 !important;
 	text-decoration: unset;
     cursor: pointer;
 	&:hover {
-		transform: translateY(-5px);
+		// transform: translateY(-1px);
 		transition: all 0.1s linear;
 		background: var(--bg-gradient);
 		& i {
@@ -40,4 +44,8 @@ header {
 			transition: all 1s linear;
 		}
 	}
+}
+
+.menu-item {
+    display: none;
 }

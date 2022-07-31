@@ -20,30 +20,39 @@
 
 	<body>
 		<header>
-			<div class="menu-container" style="display: none">
-				<a href="#musicApp" class="menu-item">
-					<i class="fa-solid fa-music"></i>
-				</a>
-				<a href="#todoApp" class="menu-item">
-					<i class="fa-solid fa-check-double"></i>
-				</a>
-				<a href="#noteApp" class="menu-item">
-					<i class="fa-solid fa-note-sticky"></i>
-				</a>
-				<a href="#writerApp" class="menu-item">
-					<i class="fa-solid fa-pencil"></i>
-				</a>
-				<a href="#kanbanApp" class="menu-item">
-					<i class="fa-solid fa-list-check"></i>
-				</a>
-			</div>
-			<div class="menu-item">
-				<i class="fa-solid fa-bars" id="nav-btn-open"></i>
-				<i
-					class="fa-solid fa-xmark"
-					id="nav-btn-close"
-					style="display: none"
-				></i>
+			<div class="menus">
+				<div class="menu-row">
+					<a href="#musicApp" class="menu-item">
+						<i class="fa-solid fa-music"></i>
+					</a>
+					<a href="#todoApp" class="menu-item">
+						<i class="fa-solid fa-check-double"></i>
+					</a>
+				</div>
+				<div class="menus-row">
+					<a href="#kanbanApp" class="menu-item">
+						<i class="fa-solid fa-list-check"></i>
+					</a>
+					<div class="menu-btns">
+						<i class="fa-solid fa-bars" id="nav-btn-open"></i>
+						<i
+							class="fa-solid fa-xmark"
+							id="nav-btn-close"
+							style="display: none"
+						></i>
+					</div>
+					<a href="#contact-id" class="menu-item">
+						<i class="fa-solid fa-book-skull"></i>
+					</a>
+				</div>
+				<div class="menus-row">
+					<a href="#noteApp" class="menu-item">
+						<i class="fa-solid fa-note-sticky"></i>
+					</a>
+					<a href="#writerApp" class="menu-item">
+						<i class="fa-solid fa-pencil"></i>
+					</a>
+				</div>
 			</div>
 		</header>
 
@@ -72,7 +81,7 @@
 									<div class="player-bar"></div>
 								</div>
 								<div
-                                    id="js-album-infoArtist"
+									id="js-album-infoArtist"
 									class="album__info-artist animate-textClip"
 								></div>
 							</div>
@@ -128,7 +137,7 @@
 									max="100"
 								/>
 								<div
-                                    id="js-album-infoName"
+									id="js-album-infoName"
 									class="album__info-name animate-textClip"
 								></div>
 								<div class="album-info"></div>
@@ -213,13 +222,13 @@
 			<!-- ----------------------------------------------------------------------- -->
 			<!--                                 noteApp                                 -->
 			<!-- ----------------------------------------------------------------------- -->
-			<section class="section section-col">
+			<section class="section section-col" id="noteApp">
 				<h1>Notes</h1>
 				<div class="noteApp-container">
 					<div class="notes-list">
 						<!-- * input note -->
 					</div>
-					<div class="notes" id="noteApp">
+					<div class="notes" id="js-noteApp">
 						<div class="note create-note">
 							<div class="note-bar flex-row">
 								<input

@@ -16,7 +16,7 @@ const noteTextDOM = getElement(".note-text");
 const noteAlertDOM = getElement(".note-alert");
 // buttons
 const noteAddBtn = getElement(".btn-noteAdd");
-const noteApp = getElement("#noteApp");
+const noteApp = getElement("#js-noteApp");
 const notePinBtn = getElement("#note-pin");
 // edit options
 let editTitleNote;
