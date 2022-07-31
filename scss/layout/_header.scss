@@ -36,7 +36,7 @@ header {
 	text-decoration: unset;
     cursor: pointer;
 	&:hover {
-		// transform: translateY(-1px);
+		transform: translateY(-3px);
 		transition: all 0.1s linear;
 		background: var(--bg-gradient);
 		& i {
