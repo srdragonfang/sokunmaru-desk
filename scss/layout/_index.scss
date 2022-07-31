@@ -1,11 +1,10 @@
 @forward 'header';
-@forward 'socialbar';
-@forward 'authorQuote';
-
+@forward 'custom';
 @forward "appMusicPlayer";
 @forward "appClock";
 @forward "appTodo";
 @forward "appNotes";
 @forward "appWrite";
 @forward "appScrum";
-@forward 'custom';
+@forward 'authorQuote';
+@forward 'socialbar';

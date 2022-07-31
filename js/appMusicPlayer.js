@@ -2,13 +2,12 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const PLAYER_STORAGE_KEY = 'MUSIC_PLAYER_2';
-const sectionOne = $('.section-one');
+const sectionOne = $('.section-row');
 const playStatus = $('.player');
 const playlist = $('.playlist');
-const trackName = $('.album__info-name');
-const trackSinger = $('.album__info-artist');
+const trackName = $('#js-album-infoName');
+const trackSinger = $('#js-album-infoArtist');
 const trackThumb = $('.player-cover__item');
-const trackURL = $('#audio');
 const progressBar = $('.player-bar');
 
 const playBtn = $('#play');
@@ -20,7 +19,8 @@ const randomBtn = $('#randomTrack');
 const repeatBtn = $('#repeatTrack');
 const favBtn = $('#favTrack');
 
-const progress = $('#audioRange');
+const trackURL = $('#audio');
+const progress = $('#js-audioRange');
 const progressTime = $('.progress__time');
 const progressDuration = $('.progress__duration');
 
@@ -29,7 +29,7 @@ const btnPlaylist = $('.btn-playlist .fa-sliders');
 const btnPlaylistClose = $('.btn-playlist .fa-xmark');
 
 const app = {
-    // reset 
+    // reset
     currentIndex: 0,
 	isPlaying: false,
 	isRandom: false,
@@ -266,14 +266,14 @@ const app = {
 					(audio.currentTime / audio.duration) * 100
 				);
 				progress.value = progressPercent;
-    
+
                 // set animation duration for progressBar element
                 progressBar.style.animationDuration = `${audio.duration + 10}s`
 
 			}
 		};
 
-        // handleEvent: change input=range value by mouse 
+        // handleEvent: change input=range value by mouse
 		progress.onchange = function (e) {
 			const seekTime = (audio.duration / 100) * e.target.value;
 			audio.currentTime = seekTime;
@@ -329,7 +329,7 @@ const app = {
 			dashboard.classList.add('hide-playlist');
 		};
 	},
-    
+
     // handleEvent: prev track with currentTrack = tracks[currentIndex--]
 	prevTrack: function () {
 		this.currentIndex--;
@@ -347,7 +347,7 @@ const app = {
 		}
 		this.loadCurrentTrack();
 	},
-    
+
     // handleEvent: next or prev track with currentTrack = tracks[currentIndex = random value]
 	playRandomTrack: function () {
 		let newIndex;

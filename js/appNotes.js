@@ -18,7 +18,6 @@ const noteAlertDOM = getElement(".note-alert");
 const noteAddBtn = getElement(".btn-noteAdd");
 const noteApp = getElement("#noteApp");
 const notePinBtn = getElement("#note-pin");
-// const noteFullScr = getElement("#btn-fullscr");
 // edit options
 let editTitleNote;
 let editTextNote;
@@ -83,7 +82,6 @@ function noteRender() {
   btnEdit.addEventListener("click", () => {
     editNote();
   });
-  //   const btnFullScreens = getElementAll(".btn-fullsrc");
 
   //  append child
   notesListDOM.appendChild(note);
@@ -226,8 +224,4 @@ function editFromLocalStorage(id, title, text) {
 
 notePinBtn.addEventListener("click", () => {
     noteApp.classList.toggle('pinNote') 
-    noteApp.classList.toggle('note-smallSrc')
 })
-// noteFullScr.addEventListener("click", () => {
-//     noteApp.classList.toggle('note-fullscreen')
-// })

@@ -19,7 +19,7 @@
 	</head>
 
 	<body>
-				<header>
+		<header>
 			<div class="menu-container" style="display: none">
 				<a href="#musicApp" class="menu-item">
 					<i class="fa-solid fa-music"></i>
@@ -52,7 +52,7 @@
 			<!-- ----------------------------------------------------------------------- -->
 			<!--                           musicPlayer x clock                           -->
 			<!-- ----------------------------------------------------------------------- -->
-			<section class="section section-one">
+			<section class="section section-row">
 				<!-- ----------------------------------------------------------------------- -->
 				<!--                             musicPlayer-app                             -->
 				<!-- ----------------------------------------------------------------------- -->
@@ -72,6 +72,7 @@
 									<div class="player-bar"></div>
 								</div>
 								<div
+                                    id="js-album-infoArtist"
 									class="album__info-artist animate-textClip"
 								></div>
 							</div>
@@ -119,7 +120,7 @@
 									</button>
 								</div>
 								<input
-									id="audioRange"
+									id="js-audioRange"
 									type="range"
 									value="0"
 									step="1"
@@ -127,6 +128,7 @@
 									max="100"
 								/>
 								<div
+                                    id="js-album-infoName"
 									class="album__info-name animate-textClip"
 								></div>
 								<div class="album-info"></div>
@@ -211,7 +213,7 @@
 			<!-- ----------------------------------------------------------------------- -->
 			<!--                                 noteApp                                 -->
 			<!-- ----------------------------------------------------------------------- -->
-			<section class="section section-three">
+			<section class="section section-col">
 				<h1>Notes</h1>
 				<div class="noteApp-container">
 					<div class="notes-list">
@@ -253,7 +255,7 @@
 			<!-- ----------------------------------------------------------------------- -->
 			<!--                                writerApp                                -->
 			<!-- ----------------------------------------------------------------------- -->
-			<section class="section section-three">
+			<section class="section section-col">
 				<h1>Writer</h1>
 				<div class="postApp-container" id="writerApp">
 					<div class="posts-list-scroll">
@@ -293,7 +295,7 @@
 			<!-- ----------------------------------------------------------------------- -->
 			<!--                                scrumApp                                 -->
 			<!-- ----------------------------------------------------------------------- -->
-			<section class="section section-four">
+			<section class="section section-col">
 				<div class="scrum-app" id="kanbanApp">
 					<div class="scrum-header">
 						<h1>Kanban Board</h1>
@@ -446,7 +448,7 @@
 		<!-- ANCHOR *** [SCRIPT] -->
 		<script src="js/script.js"></script>
 		<script src="js/appMusicPlayer.js"></script>
-		<!-- <script src="js/appMusicPlayer.js"></script> -->
+		<!-- <script src="js/appMusic.js"></script> -->
 		<script src="js/appClock.js"></script>
 		<script src="js/appTodo.js"></script>
 		<script src="js/appNotes.js"></script>

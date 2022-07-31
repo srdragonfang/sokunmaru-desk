@@ -9,11 +9,11 @@ function getElement(selection) {
 		`Please check ${selection} selector, no such element exists`
 	);
 }
-const trackName = getElement('.album__info-name');
-const trackSinger = getElement('.album__info-artist');
+const trackName = getElement('#js-album-infoName');
+const trackSinger = getElement('#js-album-infoArtist');
 const trackThumb = getElement('.player-cover__item');
 const trackURL = getElement('#audio');
-const progress = getElement('#audioRange');
+const progress = getElement('#js-audioRange');
 
 const playBtn = getElement('#play');
 const playIcon = getElement('.fa-play');
@@ -123,7 +123,7 @@ function loadCurrentTrack(trackData) {
         // if (currentIndex > tracks.length - 1) {
         // 	currentIndex = 0;
         // }
-        loadCurrentTrack();
+        loadCurrentTrack(currentIndex);
         console.log(currentIndex)
     });
 }
