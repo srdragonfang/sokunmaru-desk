@@ -14,11 +14,7 @@ header {
 }
 .menu-container {
 	@include g.flexbox(row, flex-start);
-	// gap: 1rem;
-	// box-shadow: 2px 2px 4px #191919;
 	width: max-content;
-	// padding: 1rem 2rem;
-	// background: #191919;
 	color: #f9f9f9;
 }
 .menu-item {
@@ -34,6 +30,7 @@ header {
 	align-items: center;
 	color: #fff;
 	text-decoration: unset;
+    cursor: pointer;
 	&:hover {
 		transform: translateY(-5px);
 		transition: all 0.1s linear;

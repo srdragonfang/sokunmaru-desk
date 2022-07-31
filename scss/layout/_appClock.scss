@@ -49,13 +49,10 @@
 	& h1 {
 		writing-mode: vertical-lr;
 		text-orientation: upright;
-		// height: 150px;
 		width: 70px;
-		// height: 530px;
-		// padding: 3rem auto;
-
-		position: relative;
-		bottom: 0;
+		height: 460px;
+		position: absolute;
+		bottom: 31px;
 		right: -100px;
 
 		font-size: 4rem;
@@ -69,7 +66,7 @@
 		@include g.themeMode;
 
 	}
-    
+
 
 	& .desk {
 		position: relative;
