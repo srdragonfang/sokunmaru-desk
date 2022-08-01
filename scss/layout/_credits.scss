@@ -1,4 +1,4 @@
-@use '../globals' as g;
+@use "../globals" as g;
 
 .credits {
   width: 100%;
@@ -7,15 +7,18 @@
   background: $clr-dark;
   color: $clr-light;
   font-size: 16px;
+
   &-author {
     color: goldenrod;
   }
 }
+
 @media screen and (max-width: 768px) {
   .credits {
-    padding: 1rem 1rem;
+    padding: 1rem;
     flex-direction: column;
     font-size: 16px;
+    
     & p {
       font-size: 14px;
     }
